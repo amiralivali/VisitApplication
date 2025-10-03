@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Visit.API/obj
+/Visit.BLL/obj
+/Visit.DAL/obj
+/Visit.Shared/obj
+/Visit.UI/obj
+/Visit.UI/bin/Debug
