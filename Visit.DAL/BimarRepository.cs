@@ -63,7 +63,6 @@ namespace Visit.DAL
                 user.FirstName = info.FirstName;
                 user.LastName = info.LastName;
                 user.MobileNumber = info.MobileNumber;
-                user.Email = info.Email;
                 user.Picture = info.Picture;
                 var bimar = db.Bimars.Where(b => b.BimarID == info.BimarID).Single();
                 bimar.NationalCode = info.NationalCode;
@@ -128,19 +127,6 @@ namespace Visit.DAL
             else
             {
                 duplicate = await db.Users.Where(x => x.MobileNumber == mobile && x.ID != id).AnyAsync();
-            }
-            return duplicate;
-        }
-        public async Task<bool> DuplicateEmailAsync(string email, int id = 0)
-        {
-            bool duplicate = false;
-            if (id == 0)
-            {
-                duplicate = await db.Users.Where(x => x.Email == email).AnyAsync();
-            }
-            else
-            {
-                duplicate = await db.Users.Where(x => x.Email == email && x.ID != id).AnyAsync();
             }
             return duplicate;
         }

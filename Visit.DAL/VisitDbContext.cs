@@ -60,11 +60,6 @@ namespace Visit.DAL
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.Email)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
                 .HasOptional(e => e.Bimar)
                 .WithRequired(e => e.User);
 

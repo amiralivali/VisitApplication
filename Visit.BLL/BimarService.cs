@@ -22,7 +22,6 @@ namespace Visit.BLL
         {
             bool validationNum = valid.ValidationNumber(info.MobileNumber);
             bool validationNC = valid.ValidationNationalCode(info.NationalCode);
-            bool checkEmail = string.IsNullOrEmpty(info.Email);
             if (validationNum == false)
             {
                 return OprationResult.FalseValidation(Messages.Mobile);
@@ -30,14 +29,6 @@ namespace Visit.BLL
             else if (validationNC == false)
             {
                 return OprationResult.FalseValidation(Messages.NationalCode);
-            }
-            else if (checkEmail == false)
-            {
-                bool validationEmail = valid.ValidationEmail(info.Email);
-                if (validationEmail == false)
-                {
-                    return OprationResult.FalseValidation(Messages.Email);
-                }
             }
             if (info.BimarID > 0)//this if is for that I have to check the privious thing or not
             {
@@ -48,10 +39,6 @@ namespace Visit.BLL
                 else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.BimarID))
                 {
                     return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else if (checkEmail == false && await repository.DuplicateEmailAsync(info.Email, info.BimarID))
-                {
-                    return OprationResult.Duplicate(Messages.Email);
                 }
                 else
                 {
@@ -67,10 +54,6 @@ namespace Visit.BLL
                 else if (await repository.DuplicateMobileAsync(info.MobileNumber))
                 {
                     return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else if (checkEmail == false && await repository.DuplicateEmailAsync(info.Email))
-                {
-                    return OprationResult.Duplicate(Messages.Email);
                 }
                 else
                 {

@@ -13,7 +13,6 @@ namespace Visit.Shared
         public string LastName { get; set; }
         public string MobileNumber { get; set; }
         public string NationalCode { get; set; }
-        public string Email { get; set; }
         public byte[] Picture { get; set; }
     }
 }

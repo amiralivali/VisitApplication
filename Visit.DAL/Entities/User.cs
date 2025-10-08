@@ -21,9 +21,6 @@ namespace Visit.DAL
         [Required]
         [StringLength(11)]
         public string MobileNumber { get; set; }
-
-        [StringLength(254)]
-        public string Email { get; set; }
         public byte[] Picture { get; set; }
 
         public virtual Bimar Bimar { get; set; }

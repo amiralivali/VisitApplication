@@ -18,7 +18,6 @@ namespace Visit.Shared
         public const string Delete = "حذف";
         public const string Mobile = "شماره";
         public const string NationalCode = "کد ملی";
-        public const string Email = "ایمیل";
         public const string Nezam = "کد نظام پزشکی";
     }
 }

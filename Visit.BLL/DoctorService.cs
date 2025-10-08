@@ -21,7 +21,6 @@ namespace Visit.BLL
         {
             bool validationNum = valid.ValidationNumber(info.MobileNumber);
             bool validationNezam = valid.ValidationNezam(info.CodeNezamPezeshki);
-            bool checkEmail = string.IsNullOrEmpty(info.Email);
             if (!validationNum)
             {
                 return OprationResult.FalseValidation(Messages.Mobile);
@@ -29,14 +28,6 @@ namespace Visit.BLL
             else if (!validationNezam)
             {
                 return OprationResult.FalseValidation(Messages.Nezam);
-            }
-            else if (!checkEmail)
-            {
-                bool validationEmail = valid.ValidationEmail(info.Email);
-                if (!validationEmail)
-                {
-                    return OprationResult.FalseValidation(Messages.Email);
-                }
             }
             if (info.DoctorID > 0)
             {
@@ -47,10 +38,6 @@ namespace Visit.BLL
                 else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.DoctorID))
                 {
                     return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else if (checkEmail == false && await repository.DuplicateEmailAsync(info.Email, info.DoctorID))
-                {
-                    return OprationResult.Duplicate(Messages.Email);
                 }
                 else
                 {
@@ -66,10 +53,6 @@ namespace Visit.BLL
                 else if (await repository.DuplicateMobileAsync(info.MobileNumber))
                 {
                     return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else if (checkEmail == false && await repository.DuplicateEmailAsync(info.Email))
-                {
-                    return OprationResult.Duplicate(Messages.Email);
                 }
                 else
                 {
