@@ -54,6 +54,7 @@
             this.btnEnter.Size = new System.Drawing.Size(121, 50);
             this.btnEnter.TabIndex = 0;
             this.btnEnter.Text = "ورود";
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // txtNcNezam
             // 

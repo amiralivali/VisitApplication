@@ -13,6 +13,7 @@ namespace Visit.Shared
         public const string Duplicate = "{0} وارد شده قبلا ذخیره شده است";
         public const string FalseValidation = "{0} وارد شده اشتباه است";
         public const string Insert = "ذخیره";
+        public const string Send = "ارسال";
         public const string Update = "ویرایش";
         public const string Delete = "حذف";
         public const string Mobile = "شماره";

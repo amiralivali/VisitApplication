@@ -70,5 +70,10 @@ namespace Visit.UI
             }
             
         }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
