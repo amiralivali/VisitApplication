@@ -36,7 +36,7 @@ namespace Visit.API.Controllers
             var result = await bimarService.SelectAsync(search);
             return result;
         }
-        [HttpGet()]
+        [HttpGet]
         public async Task<bool> ExistBimarAsync(string nc, string mobile)
         {
             var result = await bimarService.ExistAsync(nc, mobile);

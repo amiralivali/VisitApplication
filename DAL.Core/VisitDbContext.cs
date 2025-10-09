@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Visit.DAL
 {
@@ -10,7 +11,11 @@ namespace Visit.DAL
         {
         
         }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("data source =.; initial catalog = Visit24; integrated security = True; encrypt = False; MultipleActiveResultSets = True; App = EntityFramework");
+        }
         public virtual DbSet<Bimar> Bimars { get; set; }
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
@@ -71,6 +76,7 @@ namespace Visit.DAL
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Bimar)
                 .WithOne(b => b.User)
+                .HasForeignKey<Bimar>(u=>u.User)
                 .IsRequired(false);            // HasOptional → IsRequired(false)
 
             // User ↔ Chats (FromID)
