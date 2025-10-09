@@ -66,8 +66,8 @@ namespace Visit.BLL
             if (checkData.IsSuccess)
             {
                 User user = info.MapToUser();
-                Doctor doctor=info.MapToDoctor();
-                bool check = await repository.InsertAsync(user,doctor);
+                Doctor doctor = info.MapToDoctor();
+                bool check = await repository.InsertAsync(user, doctor);
                 if (check)
                 {
                     return checkData;

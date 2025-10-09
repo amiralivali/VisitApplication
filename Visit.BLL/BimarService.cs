@@ -67,8 +67,8 @@ namespace Visit.BLL
             if (checkData.IsSuccess)
             {
                 User user = info.MapToUser();
-                Bimar bimar=info.MapToBimar();
-                bool check = await repository.InsertAsync(user,bimar);
+                Bimar bimar = info.MapToBimar();
+                bool check = await repository.InsertAsync(user, bimar);
                 if (check)
                 {
                     return checkData;
@@ -129,7 +129,7 @@ namespace Visit.BLL
         }
         public async Task<bool> ExistAsync(string Nc, string Mobile)
         {
-            bool exist = await repository.ExistAsync(Nc,Mobile);
+            bool exist = await repository.ExistAsync(Nc, Mobile);
             return exist;
         }
     }

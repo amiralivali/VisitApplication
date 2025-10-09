@@ -17,7 +17,6 @@ namespace Visit.DAL
                 FirstName = info.FirstName,
                 LastName = info.LastName,
                 MobileNumber = info.MobileNumber,
-                Email = info.Email,
                 Picture = info.Picture,
             };
             return user;
@@ -29,12 +28,11 @@ namespace Visit.DAL
                 FirstName = info.FirstName,
                 LastName = info.LastName,
                 MobileNumber = info.MobileNumber,
-                Email = info.Email,
                 Picture = info.Picture,
             };
             return user;
         }
-        public static Bimar MapToBimar(this BimarInfo info) 
+        public static Bimar MapToBimar(this BimarInfo info)
         {
             Bimar bimar = new Bimar()
             {
