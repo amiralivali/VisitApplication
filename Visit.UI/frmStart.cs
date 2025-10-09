@@ -31,15 +31,15 @@ namespace Visit.UI
  
         private void btnBimar_Click(object sender, EventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
             UserRole.CurrentRole = Role.Bimar;
+            frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
         }
 
         private void btnDoctor_Click(object sender, EventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
             UserRole.CurrentRole = Role.Doctor;
+            frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
         }
     }
