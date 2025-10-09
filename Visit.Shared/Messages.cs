@@ -19,5 +19,6 @@ namespace Visit.Shared
         public const string Mobile = "شماره";
         public const string NationalCode = "کد ملی";
         public const string Nezam = "کد نظام پزشکی";
+        public const string SmsText = "کد ورود به سامانه ویزیت24";
     }
 }

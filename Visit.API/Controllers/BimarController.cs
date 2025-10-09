@@ -50,7 +50,7 @@ namespace Visit.API.Controllers
             var message = smsText;
             var api = new KavenegarApi("6A53643770437645526E514F4352377776424B6743354C526C7A6438646F6435534B33366D6E57794847513D");
             var result = api.Send(senderClient, receptor, message);
-            if (result.Status == 200)
+            if (result.Status == 5)
             {
                 return OprationResult.Success(Messages.Send);
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
 using static Visit.Shared.UserRole;
@@ -21,6 +22,8 @@ namespace Visit.UI
                 lblNcNezam.Text = "کد نظام پزشکی";
             }
         }
+
+
         private void frmBimar_Load(object sender, EventArgs e)
         {
 
@@ -28,10 +31,58 @@ namespace Visit.UI
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            frmSign frmSign = new frmSign();
+            frmSign.Show();
         }
 
-        private async void btnSendSms_Click(object sender, EventArgs e)
+        
+
+        private async Task btnEnter_Click(object sender, EventArgs e)
+        {
+            bool check;
+            await Task.Run(async () =>
+            {
+                check = await ExistUser();
+                if (check)
+                {
+                    Random rnd = new Random();
+                    int randomCode = rnd.Next(100000, 999999);
+                    var result = await SmsKavenegar.Send(randomCode);
+                    if (result.IsSuccess)
+                    {
+                        MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmSendSms frmSmsCheck = new frmSendSms()
+                        {
+                            Mobile = txtMobile.Text,
+                            RandomCode = randomCode,
+                        };
+                        frmSmsCheck.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        NotExist();
+                    }));
+                }
+            });
+        }
+
+        
+
+        private void NotExist()
+        {
+            MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            txtMobile.Text = "";
+            txtNcNezam.Text = "";
+        }
+
+        private async Task<bool> ExistUser()
         {
             string route;
             if (UserRole.CurrentRole == Role.Bimar)
@@ -43,26 +94,7 @@ namespace Visit.UI
                 route = string.Format(RouteConstants.ExistDoctor, txtNcNezam.Text, txtMobile.Text);
             }
             bool check = await clientHelper.GetAsync<bool>(route);
-            if (check == false)
-            {
-                Random rnd = new Random();
-                int randomCode = rnd.Next(100000, 999999);
-                string text = "کد ورود به سامانه ویزیت24" + Environment.NewLine + randomCode;
-                route = string.Format(RouteConstants.SendSms, text);
-                var checkSms = await clientHelper.PostAsync<OprationResult, string>(route, text);
-            }
-            else
-            {
-                MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMobile.Text = "";
-                txtNcNezam.Text = "";
-            }
-
-        }
-
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-
+            return check;
         }
     }
 }
