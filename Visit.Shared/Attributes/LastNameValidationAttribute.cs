@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Visit.Shared.Attributes
+{
+    public class LastNameValidationAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            string lastName = value.ToString();
+            if (string.IsNullOrEmpty(lastName))
+            {
+                return new ValidationResult(string.Format(Messages.Required, Messages.LastName));
+            }
+            if (lastName.Length >= 2 && lastName.Length <= 20)
+            {
+                foreach (var letter in lastName)
+                {
+                    if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
+                    {
+                        return new ValidationResult(string.Format(Messages.WrongLanguage, Messages.LastName));
+                    }
+                    else if (!((letter >= 'ا' && letter <= 'ی') || letter == ' '))
+                    {
+                        return new ValidationResult(string.Format(Messages.FalseValidation, Messages.LastName));
+                    }
+                }
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return new ValidationResult(string.Format(Messages.FalseValidation, Messages.LastName));
+            }
+        }
+    }
+}

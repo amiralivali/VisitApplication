@@ -37,7 +37,32 @@ namespace Visit.UI
 
         
 
-        private async Task btnEnter_Click(object sender, EventArgs e)
+
+        
+
+        private void NotExist()
+        {
+            MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            txtMobile.Text = "";
+            txtNcNezam.Text = "";
+        }
+
+        private async Task<bool> ExistUser()
+        {
+            string route;
+            if (UserRole.CurrentRole == Role.Bimar)
+            {
+                route = string.Format(RouteConstants.ExistBimar, txtNcNezam.Text, txtMobile.Text);
+            }
+            else
+            {
+                route = string.Format(RouteConstants.ExistDoctor, txtNcNezam.Text, txtMobile.Text);
+            }
+            bool check = await clientHelper.GetAsync<bool>(route);
+            return check;
+        }
+
+        private async void btnEnter_Click(object sender, EventArgs e)
         {
             bool check;
             await Task.Run(async () =>
@@ -71,30 +96,6 @@ namespace Visit.UI
                     }));
                 }
             });
-        }
-
-        
-
-        private void NotExist()
-        {
-            MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            txtMobile.Text = "";
-            txtNcNezam.Text = "";
-        }
-
-        private async Task<bool> ExistUser()
-        {
-            string route;
-            if (UserRole.CurrentRole == Role.Bimar)
-            {
-                route = string.Format(RouteConstants.ExistBimar, txtNcNezam.Text, txtMobile.Text);
-            }
-            else
-            {
-                route = string.Format(RouteConstants.ExistDoctor, txtNcNezam.Text, txtMobile.Text);
-            }
-            bool check = await clientHelper.GetAsync<bool>(route);
-            return check;
         }
     }
 }

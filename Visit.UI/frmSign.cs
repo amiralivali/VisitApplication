@@ -30,7 +30,7 @@ namespace Visit.UI
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Picture*.Png|*.Jpg|*.Jpeg";
+            ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 guna2CirclePictureBox1.ImageLocation = ofd.FileName;
@@ -44,12 +44,12 @@ namespace Visit.UI
 
         private void btnSendSms_Click(object sender, EventArgs e)
         {
-            ValidationLogic validationLogic = new ValidationLogic();
-            var check = validationLogic.ValidationNumber(txtMobile.Text);
-            if (check)
-            { 
+            //ValidationLogic validationLogic = new ValidationLogic();
+            //var check = validationLogic.ValidationNumber(txtMobile.Text);
+            //if (check)
+            //{ 
             
-            }
+            //}
         }
 
         private void frmSign_Load_1(object sender, EventArgs e)
@@ -61,22 +61,55 @@ namespace Visit.UI
         {
             Task.Run(async () =>
             {
-                Random rnd = new Random();
-                int randomCode = rnd.Next(100000, 999999);
-                var result = await SmsKavenegar.Send(randomCode);
-                if (result.IsSuccess)
+                UserInfo userInfo;
+                if (UserRole.CurrentRole == Role.Bimar)
                 {
-                    MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmSendSms frmSmsCheck = new frmSendSms()
+                    userInfo = new BimarInfo()
                     {
-                        Mobile = txtMobile.Text,
-                        RandomCode = randomCode,
+                        NationalCode = txtNcNezam.Text
                     };
-                    frmSmsCheck.Show();
                 }
                 else
                 {
-                    MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    userInfo = new DoctorInfo()
+                    {
+                        CodeNezamPezeshki = txtNcNezam.Text
+                    };
+                }
+                if (txtMobile.Text.StartsWith("9"))
+                {
+                    userInfo.MobileNumber = 0 + txtMobile.Text;
+                }
+                else
+                {
+                    userInfo.MobileNumber = txtMobile.Text;
+                }
+                userInfo.FirstName = txtFirstName.Text;
+                userInfo.LastName = txtLastName.Text;
+                //userInfo.Picture = guna2CirclePictureBox1.Image;
+                if (userInfo.IsValid)
+                {
+                    Random rnd = new Random();
+                    int randomCode = rnd.Next(100000, 999999);
+                    var result = await SmsKavenegar.Send(randomCode);
+                    if (result.IsSuccess)
+                    {
+                        MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmSendSms frmSmsCheck = new frmSendSms()
+                        {
+                            Mobile = txtMobile.Text,
+                            RandomCode = randomCode,
+                        };
+                        frmSmsCheck.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(userInfo.Message,"خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             });
         }

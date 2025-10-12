@@ -12,6 +12,6 @@ namespace Visit.UI
         public const string InsertBimar = "Bimar/Insert";
         public const string ExistBimar = "Bimar/Exist?nc={0}&mobile={1}";
         public const string ExistDoctor = "Doctor/Exist?nezam={0}&mobile={1}";
-        public const string SendSms = "Base/SendSms?smsText={0}";
+        public const string SendSms = "Base/SendSms";
     }
 }

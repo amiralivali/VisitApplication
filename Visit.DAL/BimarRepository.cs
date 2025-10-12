@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFramework;
 using Visit.Shared;
 
 namespace Visit.DAL

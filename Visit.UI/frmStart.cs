@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Visit.UI
 
         private void frmStart_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void guna2VSeparator1_Click(object sender, EventArgs e)
