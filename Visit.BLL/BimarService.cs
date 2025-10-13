@@ -20,6 +20,7 @@ namespace Visit.BLL
 
         public async Task<OprationResult> CheckDataAsync(BimarInfo info)
         {
+            NationalCodeValidationAttribute.ReferenceEquals(info, valid);
             bool validationNum = valid.ValidationNumber(info.MobileNumber);
             bool validationNC = valid.ValidationNationalCode(info.NationalCode);
             if (validationNum == false)
