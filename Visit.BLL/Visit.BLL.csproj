@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL.Core\Visit.DAL.csproj" />
     <ProjectReference Include="..\Visit.DAL\Visit.DAL.csproj" />
     <ProjectReference Include="..\Visit.Shared\Visit.Shared.csproj" />
   </ItemGroup>
