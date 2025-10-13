@@ -26,7 +26,7 @@ namespace Visit.UI
         public async Task<Tout> PostAsync<Tout, Tin>(string route,Tin data)
         {
             string json = JsonConvert.SerializeObject(data);
-            StringContent stringContent = new StringContent(json, Encoding.UTF8, "Application/json"); 
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json"); 
             var response = await httpClient.PostAsync(route,stringContent);
             string content = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<Tout>(content);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace Visit.Shared
@@ -10,6 +11,13 @@ namespace Visit.Shared
             if (num.Length == 11)
             {
                 if (num.StartsWith("09"))
+                    return true;
+                else
+                    return false;
+            }
+            else if (num.Length == 10)
+            {
+                if (num.StartsWith("9"))
                     return true;
                 else
                     return false;
@@ -59,13 +67,6 @@ namespace Visit.Shared
             {
                 return false;
             }
-        }
-        public bool ValidationEmail(string email)
-        {
-            if (Regex.IsMatch(email, @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"))
-                return true;
-            else
-                return false;
         }
 
         public bool ValidationNezam(string codeNezamPezeshki)

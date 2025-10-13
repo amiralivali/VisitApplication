@@ -7,7 +7,6 @@ namespace Visit.DAL
 
     public partial class Doctor
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DoctorID { get; set; }

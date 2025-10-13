@@ -17,7 +17,7 @@ namespace Visit.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("data source=.;initial catalog=Visit;integrated security=True;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework");
+            optionsBuilder.UseSqlServer("data source=.;initial catalog=Visit24;integrated security=True;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -61,12 +61,6 @@ namespace Visit.DAL
                 .IsUnicode(false)
                 .HasMaxLength(11); // Replace IsFixedLength with HasMaxLength
 
-
-            modelBuilder.Entity<User>()
-                .HasOne(e => e.Bimar)
-                .WithOne(e => e.User)
-                .HasForeignKey<Bimar>(e => e.User.ID); // Explicit FK required
-
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Chats)
                 .WithOne(e => e.User)
@@ -78,11 +72,16 @@ namespace Visit.DAL
                 .WithOne(e => e.User1)
                 .HasForeignKey(e => e.ToID)
                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Bimar>()
+                .HasOne(b => b.User)
+                .WithOne(u => u.Bimar)
+                .HasForeignKey<Bimar>(b => b.BimarID);
 
-            modelBuilder.Entity<User>()
-                .HasOne(e => e.Doctor)
-                .WithOne(e => e.User)
-                .HasForeignKey<Doctor>(e => e.User.ID); // Explicit FK required
+            modelBuilder.Entity<Doctor>()
+                .HasOne(d => d.User)
+                .WithOne(u => u.Doctor)
+                .HasForeignKey<Doctor>(d => d.DoctorID);
+
 
         }
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -36,28 +36,11 @@ namespace Visit.API.Controllers
             var result = await bimarService.SelectAsync(search);
             return result;
         }
-        [HttpGet]
+        [HttpGet()]
         public async Task<bool> ExistBimarAsync(string nc, string mobile)
         {
             var result = await bimarService.ExistAsync(nc, mobile);
             return result;
-        }
-        [HttpPost]
-        public OprationResult SendSms(string smsText)
-        {
-            var senderClient = "2000660110";
-            var receptor = "09361842050";//به دلیل کامل نبودن احراز هویت نمیتوان به شماره های دیگر ارسال شود
-            var message = smsText;
-            var api = new KavenegarApi("6A53643770437645526E514F4352377776424B6743354C526C7A6438646F6435534B33366D6E57794847513D");
-            var result = api.Send(senderClient, receptor, message);
-            if (result.Status == 5)
-            {
-                return OprationResult.Success(Messages.Send);
-            }
-            else
-            {
-                return OprationResult.RunTimeError();
-            }
         }
     }
 }
