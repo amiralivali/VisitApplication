@@ -15,6 +15,7 @@ namespace Visit.UI
     {
         public string Mobile { get; set; }
         public int RandomCode { get; set; }
+        public frmStart frmStart;
         public frmSendSms()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Visit.UI
             }
         }
 
-        private async Task btnRetry_Click(object sender, EventArgs e)
+        private async void btnRetry_Click(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -62,6 +63,13 @@ namespace Visit.UI
             timer1.Enabled = true;
             btnEnter.Enabled = true;
             btnRetry.Visible = false;
+        }
+
+        private void frmSendSms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.frmStart = frmStart;
+            frmStart.Show();
         }
     }
 }

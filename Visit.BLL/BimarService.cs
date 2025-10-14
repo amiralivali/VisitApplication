@@ -10,56 +10,50 @@ namespace Visit.BLL
 {
     public class BimarService
     {
-        ValidationLogic valid;
         BimarRepository repository;
         public BimarService()
         {
-            valid = new ValidationLogic();
             repository = new BimarRepository();
         }
 
         public async Task<OprationResult> CheckDataAsync(BimarInfo info)
         {
-            NationalCodeValidationAttribute.ReferenceEquals(info, valid);
-            bool validationNum = valid.ValidationNumber(info.MobileNumber);
-            bool validationNC = valid.ValidationNationalCode(info.NationalCode);
-            if (validationNum == false)
+            if (info.IsValid)
             {
-                return OprationResult.FalseValidation(Messages.Mobile);
-            }
-            else if (validationNC == false)
-            {
-                return OprationResult.FalseValidation(Messages.NationalCode);
-            }
-            if (info.BimarID > 0)//this if is for that I have to check the privious thing or not
-            {
-                if (await repository.DuplicateNationalCodeAsync(info.NationalCode, info.BimarID))
+                if (info.BimarID > 0)
                 {
-                    return OprationResult.Duplicate(Messages.NationalCode);
-                }
-                else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.BimarID))
-                {
-                    return OprationResult.Duplicate(Messages.Mobile);
+                    if (await repository.DuplicateNationalCodeAsync(info.NationalCode, info.BimarID))
+                    {
+                        return OprationResult.Duplicate(Messages.NationalCode);
+                    }
+                    else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.BimarID))
+                    {
+                        return OprationResult.Duplicate(Messages.Mobile);
+                    }
+                    else
+                    {
+                        return OprationResult.Success(Messages.Update);
+                    }
                 }
                 else
                 {
-                    return OprationResult.Success(Messages.Update);
+                    if (await repository.DuplicateNationalCodeAsync(info.NationalCode))
+                    {
+                        return OprationResult.Duplicate(Messages.NationalCode);
+                    }
+                    else if (await repository.DuplicateMobileAsync(info.MobileNumber))
+                    {
+                        return OprationResult.Duplicate(Messages.Mobile);
+                    }
+                    else
+                    {
+                        return OprationResult.Success(Messages.Insert);
+                    }
                 }
             }
             else
             {
-                if (await repository.DuplicateNationalCodeAsync(info.NationalCode))
-                {
-                    return OprationResult.Duplicate(Messages.NationalCode);
-                }
-                else if (await repository.DuplicateMobileAsync(info.MobileNumber))
-                {
-                    return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else
-                {
-                    return OprationResult.Success(Messages.Insert);
-                }
+                return OprationResult.FalseValidation(info.Message);
             }
         }
         public async Task<OprationResult> InsertAsync(BimarInfo info)

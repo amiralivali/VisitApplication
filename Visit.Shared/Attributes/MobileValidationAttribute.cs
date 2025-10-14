@@ -16,15 +16,19 @@ namespace Visit.Shared
             {
                 return new ValidationResult(string.Format(Messages.Required, Messages.Mobile));
             }
-            if (num.Length == 11)
+            bool isDigit = num.IsDigit();
+            if (isDigit)
             {
-                if (num.StartsWith("09"))
-                    return ValidationResult.Success;
-            }
-            else if (num.Length == 10)
-            {
-                if (num.StartsWith("9"))
-                    return ValidationResult.Success;
+                 if (num.Length == 11)
+                 {
+                     if (num.StartsWith("09"))
+                         return ValidationResult.Success;
+                 }
+                 else if (num.Length == 10)
+                 {
+                     if (num.StartsWith("9"))
+                         return ValidationResult.Success;
+                 }
             }
             return new ValidationResult(string.Format(Messages.FalseValidation, Messages.Mobile));
         }

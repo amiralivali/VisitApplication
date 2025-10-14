@@ -163,7 +163,7 @@
             this.guna2CirclePictureBox1.Image = global::Visit.UI.Properties.Resources.No_foto_n;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(270, 20);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(180, 180);
@@ -183,7 +183,7 @@
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
             this.btnEnter.Location = new System.Drawing.Point(173, 202);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(129, 40);
             this.btnEnter.TabIndex = 24;
@@ -205,10 +205,11 @@
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNcNezam);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSign";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "ویزیت24";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSign_FormClosed);
             this.Load += new System.EventHandler(this.frmSign_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);

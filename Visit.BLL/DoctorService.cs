@@ -10,54 +10,49 @@ namespace Visit.BLL
 {
     public class DoctorService
     {
-        ValidationLogic valid;
         DoctorRepository repository;
         public DoctorService()
         {
-            valid = new ValidationLogic();
             repository = new DoctorRepository();
         }
         public async Task<OprationResult> CheckDataAsync(DoctorInfo info)
         {
-            bool validationNum = valid.ValidationNumber(info.MobileNumber);
-            bool validationNezam = valid.ValidationNezam(info.CodeNezamPezeshki);
-            if (!validationNum)
+            if (info.IsValid)
             {
-                return OprationResult.FalseValidation(Messages.Mobile);
-            }
-            else if (!validationNezam)
-            {
-                return OprationResult.FalseValidation(Messages.Nezam);
-            }
-            if (info.DoctorID > 0)
-            {
-                if (await repository.DuplicateNezamAsync(info.CodeNezamPezeshki, info.DoctorID))
+                if (info.DoctorID > 0)
                 {
-                    return OprationResult.Duplicate(Messages.Nezam);
-                }
-                else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.DoctorID))
-                {
-                    return OprationResult.Duplicate(Messages.Mobile);
+                    if (await repository.DuplicateNezamAsync(info.CodeNezamPezeshki, info.DoctorID))
+                    {
+                        return OprationResult.Duplicate(Messages.NationalCode);
+                    }
+                    else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.DoctorID))
+                    {
+                        return OprationResult.Duplicate(Messages.Mobile);
+                    }
+                    else
+                    {
+                        return OprationResult.Success(Messages.Update);
+                    }
                 }
                 else
                 {
-                    return OprationResult.Success(Messages.Update);
+                    if (await repository.DuplicateNezamAsync(info.CodeNezamPezeshki))
+                    {
+                        return OprationResult.Duplicate(Messages.NationalCode);
+                    }
+                    else if (await repository.DuplicateMobileAsync(info.MobileNumber))
+                    {
+                        return OprationResult.Duplicate(Messages.Mobile);
+                    }
+                    else
+                    {
+                        return OprationResult.Success(Messages.Insert);
+                    }
                 }
             }
             else
             {
-                if (await repository.DuplicateNezamAsync(info.CodeNezamPezeshki))
-                {
-                    return OprationResult.Duplicate(Messages.Nezam);
-                }
-                else if (await repository.DuplicateMobileAsync(info.MobileNumber))
-                {
-                    return OprationResult.Duplicate(Messages.Mobile);
-                }
-                else
-                {
-                    return OprationResult.Success(Messages.Insert);
-                }
+                return OprationResult.FalseValidation(info.Message);
             }
         }
         public async Task<OprationResult> InsertAsync(DoctorInfo info)

@@ -34,6 +34,8 @@ namespace Visit.UI
         {
             UserRole.CurrentRole = Role.Bimar;
             frmLogin frmLogin = new frmLogin();
+            frmLogin.frmStart = this;
+            this.Hide();
             frmLogin.Show();
         }
 
@@ -42,6 +44,7 @@ namespace Visit.UI
             UserRole.CurrentRole = Role.Doctor;
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
+            this.Hide();
         }
     }
 }

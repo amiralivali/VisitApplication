@@ -33,7 +33,6 @@ namespace Visit.Shared
         public static OprationResult FalseValidation(string message)
         {
             string text = Messages.FalseValidation;
-            text = string.Format(text, message);
             return new OprationResult()
             {
                 IsSuccess = false,

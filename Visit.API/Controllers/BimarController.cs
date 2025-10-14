@@ -12,31 +12,31 @@ namespace Visit.API.Controllers
         {
             bimarService = new BimarService();
         }
-        [HttpPost()]
-        public async Task<OprationResult> InsertAsync(BimarInfo info)
+        [HttpPost]
+        public async Task<OprationResult> InsertAsync([FromBody] BimarInfo info)
         { 
             var result = await bimarService.InsertAsync(info);
             return result;
         }
-        [HttpGet()]
+        [HttpGet]
         public async Task<OprationResult> DeleteAsync(int id)
         {
             var result = await bimarService.DeleteAsync(id);
             return result;
         }
-        [HttpPost()]
-        public async Task<OprationResult> UpdateAsync(BimarInfo info)
+        [HttpPost]
+        public async Task<OprationResult> UpdateAsync([FromBody] BimarInfo info)
         {
             var result = await bimarService.UpdateAsync(info);
             return result;
         }
-        [HttpGet()]
+        [HttpGet]
         public async Task<OprationResult<List<BimarDto>>> SelectAsync(string search)
         {
             var result = await bimarService.SelectAsync(search);
             return result;
         }
-        [HttpGet()]
+        [HttpGet]
         public async Task<bool> ExistBimarAsync(string nc, string mobile)
         {
             var result = await bimarService.ExistAsync(nc, mobile);

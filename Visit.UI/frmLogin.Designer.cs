@@ -46,10 +46,9 @@
             this.btnEnter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.Location = new System.Drawing.Point(159, 208);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEnter.Location = new System.Drawing.Point(119, 169);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(161, 62);
+            this.btnEnter.Size = new System.Drawing.Size(121, 50);
             this.btnEnter.TabIndex = 3;
             this.btnEnter.Text = "ورود";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
@@ -66,12 +65,12 @@
             this.txtNcNezam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNcNezam.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNcNezam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNcNezam.Location = new System.Drawing.Point(159, 90);
-            this.txtNcNezam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNcNezam.Location = new System.Drawing.Point(119, 73);
+            this.txtNcNezam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNcNezam.Name = "txtNcNezam";
             this.txtNcNezam.PlaceholderText = "";
             this.txtNcNezam.SelectedText = "";
-            this.txtNcNezam.Size = new System.Drawing.Size(169, 33);
+            this.txtNcNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNcNezam.TabIndex = 0;
             // 
             // txtMobile
@@ -86,31 +85,29 @@
             this.txtMobile.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMobile.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMobile.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMobile.Location = new System.Drawing.Point(159, 139);
-            this.txtMobile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMobile.Location = new System.Drawing.Point(119, 113);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PlaceholderText = "";
             this.txtMobile.SelectedText = "";
-            this.txtMobile.Size = new System.Drawing.Size(169, 33);
+            this.txtMobile.Size = new System.Drawing.Size(127, 27);
             this.txtMobile.TabIndex = 1;
             // 
             // lblNcNezam
             // 
             this.lblNcNezam.AutoSize = true;
-            this.lblNcNezam.Location = new System.Drawing.Point(365, 97);
-            this.lblNcNezam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNcNezam.Location = new System.Drawing.Point(274, 79);
             this.lblNcNezam.Name = "lblNcNezam";
-            this.lblNcNezam.Size = new System.Drawing.Size(10, 16);
+            this.lblNcNezam.Size = new System.Drawing.Size(10, 13);
             this.lblNcNezam.TabIndex = 5;
             this.lblNcNezam.Text = ".";
             // 
             // lblMobile
             // 
             this.lblMobile.AutoSize = true;
-            this.lblMobile.Location = new System.Drawing.Point(352, 146);
-            this.lblMobile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMobile.Location = new System.Drawing.Point(264, 119);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(71, 16);
+            this.lblMobile.Size = new System.Drawing.Size(65, 13);
             this.lblMobile.TabIndex = 6;
             this.lblMobile.Text = "شماره همراه";
             // 
@@ -123,29 +120,28 @@
             this.btnSignUp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSignUp.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnSignUp.ForeColor = System.Drawing.Color.White;
-            this.btnSignUp.Location = new System.Drawing.Point(372, 319);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSignUp.Location = new System.Drawing.Point(279, 259);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(119, 38);
+            this.btnSignUp.Size = new System.Drawing.Size(89, 31);
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "ثبت نام";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 372);
+            this.ClientSize = new System.Drawing.Size(380, 302);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.lblNcNezam);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNcNezam);
             this.Controls.Add(this.btnEnter);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "ویزیت 24";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.Load += new System.EventHandler(this.frmBimar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,7 +7,7 @@ namespace Visit.API.Controllers
     public class SmsController : BaseController
     {
         [HttpPost()]
-        public OprationResult Send(string smsText)
+        public OprationResult Send([FromBody]string smsText)
         {
             var senderClient = "2000660110";
             var receptor = "09361842050";//به دلیل کامل نبودن احراز هویت نمیتوان به شماره های دیگر ارسال شود

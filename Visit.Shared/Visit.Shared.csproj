@@ -50,6 +50,7 @@
     <Compile Include="BaseValidation.cs" />
     <Compile Include="BimarDto.cs" />
     <Compile Include="BimarInfo.cs" />
+    <Compile Include="CheckValues.cs" />
     <Compile Include="DoctorDto.cs" />
     <Compile Include="DoctorInfo.cs" />
     <Compile Include="ErrorException.cs" />
@@ -58,7 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRole.cs" />
-    <Compile Include="ValidationLogic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

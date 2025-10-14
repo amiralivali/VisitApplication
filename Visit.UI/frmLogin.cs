@@ -9,6 +9,8 @@ namespace Visit.UI
     public partial class frmLogin : Form
     {
         HttpClientHelper clientHelper;
+        public frmStart frmStart;
+        public bool isClose = true;
         public frmLogin()
         {
             InitializeComponent();
@@ -32,14 +34,11 @@ namespace Visit.UI
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             frmSign frmSign = new frmSign();
+            frmSign.frmStart = frmStart;
             frmSign.Show();
+            isClose = false;
+            this.Close();
         }
-
-        
-
-
-        
-
         private void NotExist()
         {
             MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,6 +79,7 @@ namespace Visit.UI
                         {
                             Mobile = txtMobile.Text,
                             RandomCode = randomCode,
+                            frmStart = frmStart,
                         };
                         frmSmsCheck.Show();
                     }
@@ -96,6 +96,12 @@ namespace Visit.UI
                     }));
                 }
             });
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(isClose) 
+            frmStart.Show();
         }
     }
 }

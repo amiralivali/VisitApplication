@@ -14,6 +14,7 @@ namespace Visit.UI
 {
     public partial class frmSign : Form
     {
+        public frmStart frmStart;
         public frmSign()
         {
             InitializeComponent();
@@ -57,9 +58,9 @@ namespace Visit.UI
 
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private async void btnEnter_Click(object sender, EventArgs e)
         {
-            Task.Run(async () =>
+            await Task.Run(async () =>
             {
                 UserInfo userInfo;
                 if (UserRole.CurrentRole == Role.Bimar)
@@ -99,6 +100,7 @@ namespace Visit.UI
                         {
                             Mobile = txtMobile.Text,
                             RandomCode = randomCode,
+                            frmStart=frmStart
                         };
                         frmSmsCheck.Show();
                     }
@@ -112,6 +114,13 @@ namespace Visit.UI
                     MessageBox.Show(userInfo.Message,"خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             });
+        }
+
+        private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.frmStart = frmStart;
+            frmLogin.Show();
         }
     }
 }

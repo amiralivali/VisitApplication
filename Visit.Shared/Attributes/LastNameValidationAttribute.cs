@@ -18,23 +18,18 @@ namespace Visit.Shared.Attributes
             }
             if (lastName.Length >= 2 && lastName.Length <= 20)
             {
-                foreach (var letter in lastName)
+                bool isParsian = lastName.IsPersian();
+                bool isEnglish = lastName.IsEnglish();
+                if (isParsian)
                 {
-                    if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
-                    {
-                        return new ValidationResult(string.Format(Messages.WrongLanguage, Messages.LastName));
-                    }
-                    else if (!((letter >= 'ا' && letter <= 'ی') || letter == ' '))
-                    {
-                        return new ValidationResult(string.Format(Messages.FalseValidation, Messages.LastName));
-                    }
+                    return ValidationResult.Success;
                 }
-                return ValidationResult.Success;
+                else if (isEnglish)
+                {
+                    return new ValidationResult(string.Format(Messages.WrongLanguage, Messages.LastName));
+                }
             }
-            else
-            {
-                return new ValidationResult(string.Format(Messages.FalseValidation, Messages.LastName));
-            }
+            return new ValidationResult(string.Format(Messages.FalseValidation, Messages.LastName));
         }
     }
 }

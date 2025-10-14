@@ -16,14 +16,15 @@ namespace Visit.Shared.Attributes
             {
                 return new ValidationResult(string.Format(Messages.Required, Messages.Nezam));
             }
-            if (codeNezamPezeshki.Length == 5)
+            bool isDigit = codeNezamPezeshki.IsDigit();
+            if (isDigit)
             {
-                return ValidationResult.Success;
+                if (codeNezamPezeshki.Length == 5)
+                {
+                    return ValidationResult.Success;
+                }
             }
-            else
-            {
-                return new ValidationResult(string.Format(Messages.FalseValidation, Messages.Nezam));
-            }
+            return new ValidationResult(string.Format(Messages.FalseValidation, Messages.Nezam));
         }
     }
 }
