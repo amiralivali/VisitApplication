@@ -58,62 +58,59 @@ namespace Visit.UI
 
         }
 
-        private async void btnEnter_Click(object sender, EventArgs e)
+        private async Task SendSms()
         {
-            await Task.Run(async () =>
+            UserInfo userInfo;
+            if (UserRole.CurrentRole == Role.Bimar)
             {
-                UserInfo userInfo;
-                if (UserRole.CurrentRole == Role.Bimar)
+                userInfo = new BimarInfo()
                 {
-                    userInfo = new BimarInfo()
+                    NationalCode = txtNcNezam.Text
+                };
+            }
+            else
+            {
+                userInfo = new DoctorInfo()
+                {
+                    CodeNezamPezeshki = txtNcNezam.Text
+                };
+            }
+            if (txtMobile.Text.StartsWith("9"))
+            {
+                userInfo.MobileNumber = 0 + txtMobile.Text;
+            }
+            else
+            {
+                userInfo.MobileNumber = txtMobile.Text;
+            }
+            userInfo.FirstName = txtFirstName.Text;
+            userInfo.LastName = txtLastName.Text;
+            //userInfo.Picture = guna2CirclePictureBox1.Image;
+            if (userInfo.IsValid)
+            {
+                Random rnd = new Random();
+                int randomCode = rnd.Next(100000, 999999);
+                var result = await SmsKavenegar.Send(randomCode);
+                if (result.IsSuccess)
+                {
+                    MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmSendSms frmSmsCheck = new frmSendSms()
                     {
-                        NationalCode = txtNcNezam.Text
+                        Mobile = txtMobile.Text,
+                        RandomCode = randomCode,
+                        frmStart = frmStart
                     };
+                    frmSmsCheck.Show();
                 }
                 else
                 {
-                    userInfo = new DoctorInfo()
-                    {
-                        CodeNezamPezeshki = txtNcNezam.Text
-                    };
+                    MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (txtMobile.Text.StartsWith("9"))
-                {
-                    userInfo.MobileNumber = 0 + txtMobile.Text;
-                }
-                else
-                {
-                    userInfo.MobileNumber = txtMobile.Text;
-                }
-                userInfo.FirstName = txtFirstName.Text;
-                userInfo.LastName = txtLastName.Text;
-                //userInfo.Picture = guna2CirclePictureBox1.Image;
-                if (userInfo.IsValid)
-                {
-                    Random rnd = new Random();
-                    int randomCode = rnd.Next(100000, 999999);
-                    var result = await SmsKavenegar.Send(randomCode);
-                    if (result.IsSuccess)
-                    {
-                        MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        frmSendSms frmSmsCheck = new frmSendSms()
-                        {
-                            Mobile = txtMobile.Text,
-                            RandomCode = randomCode,
-                            frmStart=frmStart
-                        };
-                        frmSmsCheck.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(userInfo.Message,"خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-            });
+            }
+            else
+            {
+                MessageBox.Show(userInfo.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
         }
 
         private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
@@ -121,6 +118,11 @@ namespace Visit.UI
             frmLogin frmLogin = new frmLogin();
             frmLogin.frmStart = frmStart;
             frmLogin.Show();
+        }
+
+        private async void btnEnter_Click(object sender, EventArgs e)
+        {
+            await Task.Run(SendSms);
         }
     }
 }

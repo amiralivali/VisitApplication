@@ -71,7 +71,7 @@
             this.btnRetry.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRetry.ForeColor = System.Drawing.Color.White;
             this.btnRetry.Location = new System.Drawing.Point(50, 94);
-            this.btnRetry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRetry.Margin = new System.Windows.Forms.Padding(2);
             this.btnRetry.Name = "btnRetry";
             this.btnRetry.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnRetry.Size = new System.Drawing.Size(64, 65);
@@ -88,7 +88,6 @@
             this.btnEnter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEnter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEnter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEnter.Enabled = false;
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
             this.btnEnter.Location = new System.Drawing.Point(138, 168);
@@ -140,6 +139,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
