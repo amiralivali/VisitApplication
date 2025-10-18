@@ -9,7 +9,7 @@ namespace Visit.API.Controllers
         [HttpPost]
         public OprationResult Send([FromBody]string smsText)
         {
-            var senderClient = Constance.senderClient;
+            var senderClient = Constance.SenderClient;
             var receptor = "09361842050";//به دلیل کامل نبودن احراز هویت نمیتوان به شماره های دیگر ارسال شود
             var message = smsText;
             var api = new KavenegarApi(Constance.API);

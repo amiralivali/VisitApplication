@@ -114,7 +114,7 @@ namespace Visit.BLL
             var doctors = await repository.SelectAsync(search);
             if (doctors != null)
             {
-                return OprationResult<List<DoctorDto>>.Succes(doctors);
+                return OprationResult<List<DoctorDto>>.Success(doctors);
             }
             else
             {
@@ -123,8 +123,21 @@ namespace Visit.BLL
         }
         public async Task<bool> ExistAsync(string Nezam, string Mobile)
         {
-            bool exist = await repository.ExistAsync(Nezam, Mobile);
+            var exist = await repository.ExistAsync(Nezam, Mobile);
             return exist;
+        }
+
+        public async Task<OprationResult<DoctorInfo>> GetDoctorAsync(string nezam, string mobile)
+        {
+            var doctor=await repository.GetDoctorAsync(nezam, mobile);
+            if (doctor != null)
+            {
+                return OprationResult<DoctorInfo>.Success(doctor);
+            }
+            else
+            {
+                return OprationResult<DoctorInfo>.RunTimeError();
+            }
         }
     }
 }

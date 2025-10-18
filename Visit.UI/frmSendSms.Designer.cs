@@ -43,10 +43,9 @@
             // 
             this.lblMobile.AutoSize = true;
             this.lblMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMobile.Location = new System.Drawing.Point(183, 77);
-            this.lblMobile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMobile.Location = new System.Drawing.Point(244, 95);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(73, 13);
+            this.lblMobile.Size = new System.Drawing.Size(96, 17);
             this.lblMobile.TabIndex = 36;
             this.lblMobile.Text = "00000000000";
             // 
@@ -54,10 +53,9 @@
             // 
             this.lblText.AutoSize = true;
             this.lblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(266, 77);
-            this.lblText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblText.Location = new System.Drawing.Point(355, 95);
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(79, 13);
+            this.lblText.Size = new System.Drawing.Size(80, 17);
             this.lblText.TabIndex = 35;
             this.lblText.Text = "کد ارسال شد به";
             // 
@@ -70,11 +68,11 @@
             this.btnRetry.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRetry.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRetry.ForeColor = System.Drawing.Color.White;
-            this.btnRetry.Location = new System.Drawing.Point(50, 94);
-            this.btnRetry.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRetry.Location = new System.Drawing.Point(71, 116);
+            this.btnRetry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRetry.Name = "btnRetry";
             this.btnRetry.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnRetry.Size = new System.Drawing.Size(64, 65);
+            this.btnRetry.Size = new System.Drawing.Size(85, 80);
             this.btnRetry.TabIndex = 34;
             this.btnRetry.Text = "ارسال مجدد";
             this.btnRetry.Visible = false;
@@ -90,9 +88,10 @@
             this.btnEnter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.Location = new System.Drawing.Point(138, 168);
+            this.btnEnter.Location = new System.Drawing.Point(184, 207);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(109, 43);
+            this.btnEnter.Size = new System.Drawing.Size(145, 53);
             this.btnEnter.TabIndex = 33;
             this.btnEnter.Text = "ورود";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
@@ -101,19 +100,19 @@
             // 
             this.lbltime.AutoSize = true;
             this.lbltime.ForeColor = System.Drawing.Color.Red;
-            this.lbltime.Location = new System.Drawing.Point(126, 68);
-            this.lbltime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltime.Location = new System.Drawing.Point(168, 84);
             this.lbltime.Name = "lbltime";
-            this.lbltime.Size = new System.Drawing.Size(25, 13);
+            this.lbltime.Size = new System.Drawing.Size(28, 16);
             this.lbltime.TabIndex = 32;
             this.lbltime.Text = "120";
             // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(276, 113);
+            this.lblCode.Location = new System.Drawing.Point(368, 139);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(44, 13);
+            this.lblCode.Size = new System.Drawing.Size(46, 16);
             this.lblCode.TabIndex = 31;
             this.lblCode.Text = "کد ورود";
             // 
@@ -129,12 +128,12 @@
             this.txtEnterCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEnterCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEnterCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnterCode.Location = new System.Drawing.Point(129, 108);
-            this.txtEnterCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEnterCode.Location = new System.Drawing.Point(172, 133);
+            this.txtEnterCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEnterCode.Name = "txtEnterCode";
             this.txtEnterCode.PlaceholderText = "";
             this.txtEnterCode.SelectedText = "";
-            this.txtEnterCode.Size = new System.Drawing.Size(127, 27);
+            this.txtEnterCode.Size = new System.Drawing.Size(169, 33);
             this.txtEnterCode.TabIndex = 30;
             // 
             // timer1
@@ -145,9 +144,9 @@
             // 
             // frmSendSms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 285);
+            this.ClientSize = new System.Drawing.Size(488, 351);
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.btnRetry);
@@ -155,6 +154,7 @@
             this.Controls.Add(this.lbltime);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtEnterCode);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmSendSms";
             this.Text = "frmSendSms";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSendSms_FormClosed);

@@ -36,6 +36,12 @@ namespace Visit.API.Controllers
             return result;
         }
         [HttpGet]
+        public async Task<OprationResult<DoctorInfo>> GetDoctorAsync(string nezam, string mobile)
+        {
+            var result = await doctorService.GetDoctorAsync(nezam, mobile);
+            return result;
+        }
+        [HttpGet]
         public async Task<bool> ExistDoctorAsync(string nezam,string mobile)
         {
             var result = await doctorService.ExistAsync(nezam,mobile);

@@ -16,6 +16,7 @@ namespace Visit.UI
         public string Mobile { get; set; }
         public int RandomCode { get; set; }
         public frmStart frmStart;
+        HttpClientHelper httpClient;
         public frmSendSms()
         {
             InitializeComponent();
@@ -39,14 +40,14 @@ namespace Visit.UI
         }
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if (lblCode.Text == RandomCode.ToString())
-            {
-                //
-            }
-            else
-            {
-                MessageBox.Show("!کد وارد شده نادرست است","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            //if (lblCode.Text == RandomCode.ToString())
+            //{
+            //    httpClient.PostAsync()
+            //}
+            //else
+            //{
+            //    MessageBox.Show("!کد وارد شده نادرست است","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //}
         }
 
         private async void btnRetry_Click(object sender, EventArgs e)

@@ -93,10 +93,31 @@ namespace Visit.DAL
                 return null;
             }
         }
-        public async Task<bool> ExistAsync(string Nc,string Mobile)
+        public async Task<BimarInfo> GetBimarAsync(string nc, string Mobile)
         {
-            bool exist = await db.Bimars.Where(b => b.NationalCode == Nc && b.User.MobileNumber == Mobile).AnyAsync();
-            return exist;
+            try
+            {
+                var bimar = await db.Bimars.Where(b => b.NationalCode == nc && b.User.MobileNumber == Mobile).SingleAsync();
+                return new BimarInfo()
+                {
+                    BimarID = bimar.BimarID,
+                    FirstName = bimar.User.FirstName,
+                    LastName = bimar.User.LastName,
+                    NationalCode = bimar.NationalCode,
+                    MobileNumber = bimar.User.MobileNumber,
+                    Picture = bimar.User.Picture,
+                };
+            }
+            catch (Exception ex)
+            {
+                ex.AddLog();
+                return null;
+            }
+        }
+        public async Task<bool> ExistAsync(string nc,string Mobile)
+        {
+            var check = await db.Bimars.Where(b => b.NationalCode == nc && b.User.MobileNumber == Mobile).AnyAsync();
+            return check;
         }
         public async Task<bool> DuplicateNationalCodeAsync(string nc, int bimarID = 0)
         {

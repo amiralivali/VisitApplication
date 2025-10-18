@@ -10,6 +10,7 @@ namespace Visit.UI
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
+        public string RandomCode { get; set; }
         public bool isClose = true;
         public frmLogin()
         {
@@ -61,7 +62,37 @@ namespace Visit.UI
             return check;
         }
 
-        private async void btnEnter_Click(object sender, EventArgs e)
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            //if (txtEnterCode.Text == RandomCode)
+            //{
+            //    if (UserRole.CurrentRole == Role.Bimar)
+            //    {
+            //        frmBimars frmBimars = new frmBimars()
+            //        { 
+            //        Info=
+            //        }
+            //        frmBimars.Show();
+            //    }
+            //    else
+            //    {
+            //        frmDoctors frmDoctors = new frmDoctors();
+            //        frmDoctors.Show();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("!کد ورود نادرست است","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //}
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(isClose) 
+            frmStart.Show();
+        }
+
+        private async void btnSend_Click(object sender, EventArgs e)
         {
             bool check;
             await Task.Run(async () =>
@@ -75,13 +106,11 @@ namespace Visit.UI
                     if (result.IsSuccess)
                     {
                         MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        frmSendSms frmSmsCheck = new frmSendSms()
-                        {
-                            Mobile = txtMobile.Text,
-                            RandomCode = randomCode,
-                            frmStart = frmStart,
-                        };
-                        frmSmsCheck.Show();
+                        timer1.Enabled = true;
+                        btnSend.Enabled = false;
+                        btnEnter.Enabled = true;
+                        txtNcNezam.Enabled = false;
+                        txtMobile.Enabled=false;
                     }
                     else
                     {
@@ -98,10 +127,18 @@ namespace Visit.UI
             });
         }
 
-        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            if(isClose) 
-            frmStart.Show();
+            int time = int.Parse(lbltime.Text) - 1;
+            lbltime.Text = time.ToString();
+            if (time == 0)
+            {
+                btnSend.Enabled = true;
+                btnEnter.Enabled = false;
+                txtNcNezam.Enabled = true;
+                txtMobile.Enabled=true;
+                timer1.Enabled = false;
+            }
         }
     }
 }

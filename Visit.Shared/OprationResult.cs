@@ -51,7 +51,7 @@ namespace Visit.Shared
     public class OprationResult<T> : OprationResult
     {
         public T Data { get; set; }
-        public static OprationResult<T> Succes(T data)
+        public static OprationResult<T> Success(T data)
         {
             return new OprationResult<T>()
             {

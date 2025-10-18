@@ -99,9 +99,30 @@ namespace Visit.DAL
             }
         }
         public async Task<bool> ExistAsync(string Nezam, string Mobile)
-        {
-            bool exist = await db.Doctors.Where(b => b.CodeNezamPezeshki == Nezam && b.User.MobileNumber == Mobile).AnyAsync();
+        {  
+            var exist = await db.Doctors.Where(b => b.CodeNezamPezeshki == Nezam && b.User.MobileNumber == Mobile).AnyAsync();
             return exist;
+        }
+        public async Task<DoctorInfo> GetDoctorAsync(string Nezam, string Mobile)
+        {
+            try
+            {
+                var doctor = await db.Doctors.Where(d => d.CodeNezamPezeshki == Nezam && d.User.MobileNumber == Mobile).SingleAsync();
+                return new DoctorInfo()
+                {
+                    DoctorID = doctor.DoctorID,
+                    FirstName = doctor.User.FirstName,
+                    LastName = doctor.User.LastName,
+                    CodeNezamPezeshki = doctor.CodeNezamPezeshki,
+                    MobileNumber = doctor.User.MobileNumber,
+                    Picture = doctor.User.Picture,
+                };
+            }
+            catch (Exception ex)
+            {
+                ex.AddLog();
+                return null;
+            }
         }
         public async Task<bool> DuplicateMobileAsync(string mobile, int id = 0)
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Visit.DAL;
@@ -115,17 +116,29 @@ namespace Visit.BLL
             var Bimars = await repository.SelectAsync(search);
             if (Bimars != null)
             {
-                return OprationResult<List<BimarDto>>.Succes(Bimars);
+                return OprationResult<List<BimarDto>>.Success(Bimars);
             }
             else
             {
                 return OprationResult<List<BimarDto>>.RunTimeError();
             }
         }
-        public async Task<bool> ExistAsync(string Nc, string Mobile)
+        public async Task<bool> ExistAsync(string nc, string Mobile)
         {
-            bool exist = await repository.ExistAsync(Nc, Mobile);
-            return exist;
+            var check = await repository.ExistAsync(nc, Mobile);
+            return check;
+        }
+        public async Task<OprationResult<BimarInfo>>GetBimarAsync(string nc, string mobile)
+        {
+            var bimar = await repository.GetBimarAsync(nc, mobile);
+            if (bimar != null)
+            {
+                return OprationResult<BimarInfo>.Success(bimar);
+            }
+            else
+            {
+                return OprationResult<BimarInfo>.RunTimeError();
+            }
         }
     }
 }
