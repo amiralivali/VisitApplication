@@ -52,7 +52,7 @@ namespace Visit.BLL
             }
             else
             {
-                return OprationResult.FalseValidation(info.Message);
+                return OprationResult.UnSuccess(info.Message);
             }
         }
         public async Task<OprationResult> InsertAsync(DoctorInfo info)

@@ -14,6 +14,7 @@ namespace Visit.Shared
         public const string Duplicate = "{0} وارد شده قبلا ذخیره شده است";
         public const string FalseValidation = "{0} وارد شده اشتباه است";
         public const string Required = "وارد کردن {0} ضروری است";
+        public const string NotExist = "این اطلاعات در سیستم ثبت نشده است";
         public const string WrongLanguage = "لطفا {0} را فارسی وارد کنید";
         public const string Insert = "ذخیره";
         public const string Send = "ارسال";

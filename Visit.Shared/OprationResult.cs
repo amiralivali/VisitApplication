@@ -10,7 +10,7 @@ namespace Visit.Shared
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
-        public static OprationResult Success(string message)
+        public static OprationResult Success(string message="")
         {
             string text = Messages.Success;
             text = string.Format(text, message);
@@ -30,13 +30,12 @@ namespace Visit.Shared
                 Message = text
             };
         }
-        public static OprationResult FalseValidation(string message)
+        public static OprationResult UnSuccess(string message)
         {
-            string text = Messages.FalseValidation;
             return new OprationResult()
             {
                 IsSuccess = false,
-                Message = text
+                Message = message
             };
         }
         public static OprationResult RunTimeError()

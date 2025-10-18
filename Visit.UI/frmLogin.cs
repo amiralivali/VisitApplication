@@ -11,7 +11,7 @@ namespace Visit.UI
         HttpClientHelper clientHelper;
         public frmStart frmStart;
         public string RandomCode { get; set; }
-        public bool isClose = true;
+        private bool isClose { get; set; }
         public frmLogin()
         {
             InitializeComponent();
@@ -37,94 +37,93 @@ namespace Visit.UI
             frmSign frmSign = new frmSign();
             frmSign.frmStart = frmStart;
             frmSign.Show();
-            isClose = false;
+            isClose = true;
             this.Close();
         }
-        private void NotExist()
-        {
-            MessageBox.Show("!اطلاعات شما در سیستم زخیره نشده است", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            txtMobile.Text = "";
-            txtNcNezam.Text = "";
-        }
 
-        private async Task<bool> ExistUser()
+        private async void btnEnter_Click(object sender, EventArgs e)
         {
-            string route;
-            if (UserRole.CurrentRole == Role.Bimar)
-            {
-                route = string.Format(RouteConstants.ExistBimar, txtNcNezam.Text, txtMobile.Text);
-            }
-            else
-            {
-                route = string.Format(RouteConstants.ExistDoctor, txtNcNezam.Text, txtMobile.Text);
-            }
-            bool check = await clientHelper.GetAsync<bool>(route);
-            return check;
-        }
-
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-            //if (txtEnterCode.Text == RandomCode)
-            //{
-            //    if (UserRole.CurrentRole == Role.Bimar)
-            //    {
-            //        frmBimars frmBimars = new frmBimars()
-            //        { 
-            //        Info=
-            //        }
-            //        frmBimars.Show();
-            //    }
-            //    else
-            //    {
-            //        frmDoctors frmDoctors = new frmDoctors();
-            //        frmDoctors.Show();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("!کد ورود نادرست است","خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            //}
-        }
-
-        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if(isClose) 
-            frmStart.Show();
-        }
-
-        private async void btnSend_Click(object sender, EventArgs e)
-        {
-            bool check;
             await Task.Run(async () =>
             {
-                check = await ExistUser();
-                if (check)
+                if (txtEnterCode.Text == RandomCode)
                 {
-                    Random rnd = new Random();
-                    int randomCode = rnd.Next(100000, 999999);
-                    var result = await SmsKavenegar.Send(randomCode);
-                    if (result.IsSuccess)
+                    if (UserRole.CurrentRole == Role.Bimar)
                     {
-                        MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        timer1.Enabled = true;
-                        btnSend.Enabled = false;
-                        btnEnter.Enabled = true;
-                        txtNcNezam.Enabled = false;
-                        txtMobile.Enabled=false;
+                        string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
+                        var bimar = await clientHelper.GetAsync<BimarInfo>(route);
+                        frmBimars frmBimars = new frmBimars()
+                        {
+                            Info = bimar
+                        };
+                        frmBimars.Show();
                     }
                     else
                     {
-                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        string route = string.Format(RouteConstants.GetDoctor, txtNcNezam.Text, txtMobile.Text);
+                        var doctor = await clientHelper.GetAsync<DoctorInfo>(route);
+                        frmDoctors frmDoctors = new frmDoctors()
+                        {
+                            Info = doctor
+                        };
+                        frmDoctors.Show();
                     }
                 }
                 else
                 {
-                    this.Invoke(new Action(() =>
-                    {
-                        NotExist();
-                    }));
+                    MessageBox.Show("!کد ورود نادرست است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                isClose = true;
+                this.Close();
+            });
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(!isClose) 
+               frmStart.Show();
+        }
+
+        private async void btnSend_Click(object sender, EventArgs e)
+        {
+            await Task.Run(async () =>
+            {
+                Random rnd = new Random();
+                int randomCode = rnd.Next(100000, 999999);
+                RandomCode = randomCode.ToString();
+                var smsHandler = new UserCheckSmsHandler();
+                var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
+                if (result.IsSuccess)
+                {
+                    MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FixEnableControls(isTimer: false);
+                    timer1.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             });
+        }
+
+        private void FixEnableControls(bool isTimer)
+        {
+            if (isTimer)
+            {
+                txtMobile.Enabled = true;
+                txtNcNezam.Enabled = true;
+                btnSend.Enabled = true;
+                btnEnter.Enabled = false;
+                lbltime.Visible = false;
+            }
+            else
+            {
+                txtMobile.Enabled = false;
+                txtNcNezam.Enabled = false;
+                btnSend.Enabled = false;
+                btnEnter.Enabled = true;
+                lbltime.Visible = true;
+                lbltime.Text = "120";
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -133,10 +132,7 @@ namespace Visit.UI
             lbltime.Text = time.ToString();
             if (time == 0)
             {
-                btnSend.Enabled = true;
-                btnEnter.Enabled = false;
-                txtNcNezam.Enabled = true;
-                txtMobile.Enabled=true;
+                FixEnableControls(isTimer: true);
                 timer1.Enabled = false;
             }
         }
