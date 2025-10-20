@@ -37,7 +37,7 @@ namespace Visit.API.Controllers
             return result;
         }
         [HttpGet]
-        public async Task<OprationResult<BimarInfo>> GetBimar(string nc, string mobile)
+        public async Task<OprationResult<BimarInfo>> GetBimarAsync(string nc, string mobile)
         { 
             var result=await bimarService.GetBimarAsync(nc, mobile);
             return result;

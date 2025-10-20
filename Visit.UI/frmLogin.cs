@@ -50,30 +50,50 @@ namespace Visit.UI
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
-                        var bimar = await clientHelper.GetAsync<BimarInfo>(route);
-                        frmBimars frmBimars = new frmBimars()
+                        var bimar = await clientHelper.GetAsync<OprationResult<BimarInfo>>(route);
+                        if (bimar.IsSuccess)
                         {
-                            Info = bimar
-                        };
-                        frmBimars.Show();
+                            this.Invoke(new Action(() =>
+                            {
+                                frmBimars frmBimars = new frmBimars()
+                                {
+                                    Info = bimar.Data,
+                                    FrmStart = frmStart,
+                                };
+                                frmBimars.Show();
+                                isClose = true;
+                                this.Close();
+                            }));
+                        }
                     }
                     else
                     {
                         string route = string.Format(RouteConstants.GetDoctor, txtNcNezam.Text, txtMobile.Text);
-                        var doctor = await clientHelper.GetAsync<DoctorInfo>(route);
-                        frmDoctors frmDoctors = new frmDoctors()
+                        var doctor = await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route);
+                        if (doctor.IsSuccess)
                         {
-                            Info = doctor
-                        };
-                        frmDoctors.Show();
-                    }
+                            this.Invoke(new Action(() =>
+                            {
+                                frmDoctors frmDoctors = new frmDoctors()
+                                {
+                                    Info = doctor.Data,
+                                    FrmStart = frmStart,
+                                };
+                                frmDoctors.Show();
+                                isClose = true;
+                                this.Close();
+                            }));
+                        }
+                        else
+                        {
+                            MessageBox.Show(doctor.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+        }
                 }
                 else
                 {
                     MessageBox.Show("!کد ورود نادرست است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                isClose = true;
-                this.Close();
             });
         }
 
@@ -107,23 +127,26 @@ namespace Visit.UI
 
         private void FixEnableControls(bool isTimer)
         {
-            if (isTimer)
+            this.Invoke(new Action(() =>
             {
-                txtMobile.Enabled = true;
-                txtNcNezam.Enabled = true;
-                btnSend.Enabled = true;
-                btnEnter.Enabled = false;
-                lbltime.Visible = false;
-            }
-            else
-            {
-                txtMobile.Enabled = false;
-                txtNcNezam.Enabled = false;
-                btnSend.Enabled = false;
-                btnEnter.Enabled = true;
-                lbltime.Visible = true;
-                lbltime.Text = "120";
-            }
+                if (isTimer)
+                {
+                    txtMobile.Enabled = true;
+                    txtNcNezam.Enabled = true;
+                    btnSend.Enabled = true;
+                    btnEnter.Enabled = false;
+                    lbltime.Visible = false;
+                }
+                else
+                {
+                    txtMobile.Enabled = false;
+                    txtNcNezam.Enabled = false;
+                    btnSend.Enabled = false;
+                    btnEnter.Enabled = true;
+                    lbltime.Visible = true;
+                    lbltime.Text = "120";
+                }
+            }));
         }
 
         private void timer1_Tick(object sender, EventArgs e)

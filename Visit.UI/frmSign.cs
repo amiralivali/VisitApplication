@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using Visit.Shared;
 using static Visit.Shared.UserRole;
 
@@ -32,7 +33,7 @@ namespace Visit.UI
             ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                guna2CirclePictureBox1.ImageLocation = ofd.FileName;
+                PictureBoxProfile.ImageLocation = ofd.FileName;
             }
         }
         private void frmSign_Load_1(object sender, EventArgs e)
@@ -63,20 +64,30 @@ namespace Visit.UI
                             LastName = txtLastName.Text,
                             NationalCode = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
-                            //Picture
                         };
+                        if (PictureBoxProfile.Image !=Properties.Resources.Profile)
+                        {
+                            bimarInfo.Picture=PictureBoxProfile.Image;
+                        }
                         var result = await clientHelper.PostAsync<OprationResult,BimarInfo>(RouteConstants.InsertBimar,bimarInfo);
                         if (result.IsSuccess)
                         {
-                            frmBimars frmBimars = new frmBimars()
+                            this.Invoke(new Action(() =>
                             {
-                                Info = bimarInfo
-                            };
-                            frmBimars.Show();
+                                MessageBox.Show(result.Message,"پیغام",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                frmBimars frmBimars = new frmBimars()
+                                {
+                                    Info = bimarInfo,
+                                    FrmStart = frmStart,
+                                };
+                                frmBimars.Show();
+                                Isclose = true;
+                                this.Close();
+                            }));
                         }
-                        else 
+                        else
                         {
-                            MessageBox.Show(result.Message,"خطا",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -92,11 +103,17 @@ namespace Visit.UI
                         var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                         if (result.IsSuccess)
                         {
-                            frmDoctors frmDoctors = new frmDoctors()
+                            this.Invoke(new Action(() =>
                             {
-                                Info = doctorInfo
-                            };
-                            frmDoctors.Show();
+                                frmDoctors frmDoctors = new frmDoctors()
+                                {
+                                    Info = doctorInfo,
+                                    FrmStart = frmStart,
+                                };
+                                frmDoctors.Show();
+                                Isclose = true;
+                                this.Close();
+                            }));
                         }
                         else
                         {
@@ -108,30 +125,33 @@ namespace Visit.UI
                 {
                     MessageBox.Show("!کد ورود نادرست است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Isclose = true;
-                this.Close();
             });
         }
         private void FixEnableControls(bool isTimer)
         {
-            foreach (object item in this.Controls)
+            this.Invoke(new Action(() =>
             {
-                TextBox p = item as TextBox;
-                p.Enabled = isTimer;
-            }
-            if (isTimer)
-            {
-                btnSend.Enabled = true;
-                btnEnter.Enabled = false;
-                lbltime.Visible = false;
-            }
-            else
-            {
-                btnSend.Enabled = false;
-                btnEnter.Enabled = true;
-                lbltime.Visible = true;
-                lbltime.Text = "120";
-            }
+                foreach (object item in panelTexBoxes.Controls)
+                {
+                    Guna2TextBox p = item as Guna2TextBox;
+                    p.Enabled = isTimer;
+                }
+                if (isTimer)
+                {
+                    btnSend.Enabled = true;
+                    btnEnter.Enabled = false;
+                    lbltime.Visible = false;
+                    timer1.Enabled = false;
+                }
+                else
+                {
+                    btnSend.Enabled = false;
+                    btnEnter.Enabled = true;
+                    lbltime.Visible = true;
+                    lbltime.Text = "120";
+                    timer1.Enabled = true;
+                }
+            }));
         }
         private OprationResult CheckValidationUser()
         {
@@ -182,12 +202,11 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     RandomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
-                    var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
+                    var result = await smsHandler.SendSmsAsync(randomCode.ToString());
                     if (result.IsSuccess)
                     {
                         MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FixEnableControls(isTimer: false);
-                        timer1.Enabled = true;
                     }
                     else
                     {
@@ -208,7 +227,6 @@ namespace Visit.UI
             if (time == 0)
             {
                 FixEnableControls(isTimer: true);
-                timer1.Enabled = false;
             }
         }
     }

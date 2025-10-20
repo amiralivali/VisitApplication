@@ -161,7 +161,7 @@
             // 
             // guna2CirclePictureBox1
             // 
-            this.guna2CirclePictureBox1.Image = global::Visit.UI.Properties.Resources.No_foto_n;
+            this.guna2CirclePictureBox1.Image = global::Visit.UI.Properties.Resources.Profile;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(364, 11);
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

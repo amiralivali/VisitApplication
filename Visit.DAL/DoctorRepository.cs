@@ -107,15 +107,15 @@ namespace Visit.DAL
         {
             try
             {
-                var doctor = await db.Doctors.Where(d => d.CodeNezamPezeshki == Nezam && d.User.MobileNumber == Mobile).SingleAsync();
+                var user = await db.Users.Where(d => d.Doctor.CodeNezamPezeshki == Nezam && d.MobileNumber == Mobile).SingleAsync();
                 return new DoctorInfo()
                 {
-                    DoctorID = doctor.DoctorID,
-                    FirstName = doctor.User.FirstName,
-                    LastName = doctor.User.LastName,
-                    CodeNezamPezeshki = doctor.CodeNezamPezeshki,
-                    MobileNumber = doctor.User.MobileNumber,
-                    Picture = doctor.User.Picture,
+                    DoctorID = user.ID,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    CodeNezamPezeshki = Nezam,
+                    MobileNumber = user.MobileNumber,
+                    Picture = user.Picture,
                 };
             }
             catch (Exception ex)

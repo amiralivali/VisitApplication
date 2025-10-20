@@ -43,8 +43,9 @@ namespace Visit.UI
         {
             UserRole.CurrentRole = Role.Doctor;
             frmLogin frmLogin = new frmLogin();
-            frmLogin.Show();
+            frmLogin.frmStart = this;
             this.Hide();
+            frmLogin.Show();
         }
     }
 }

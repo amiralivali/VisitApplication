@@ -37,7 +37,7 @@
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNcNezam = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNcNezam = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.PictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnEnter = new Guna.UI2.WinForms.Guna2Button();
             this.lblCode = new System.Windows.Forms.Label();
             this.txtEnterCode = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,7 +45,7 @@
             this.lbltime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTexBoxes = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
             this.panelTexBoxes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,19 +166,19 @@
             this.lblNcNezam.TabIndex = 22;
             this.lblNcNezam.Text = ".";
             // 
-            // guna2CirclePictureBox1
+            // PictureBoxProfile
             // 
-            this.guna2CirclePictureBox1.Image = global::Visit.UI.Properties.Resources.No_foto_n;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(24, 11);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(180, 180);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 23;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
+            this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.PictureBoxProfile.ImageRotate = 0F;
+            this.PictureBoxProfile.Location = new System.Drawing.Point(24, 11);
+            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.PictureBoxProfile.Name = "PictureBoxProfile";
+            this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.PictureBoxProfile.Size = new System.Drawing.Size(180, 180);
+            this.PictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxProfile.TabIndex = 23;
+            this.PictureBoxProfile.TabStop = false;
+            this.PictureBoxProfile.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
             // btnEnter
             // 
@@ -220,7 +220,7 @@
             this.txtEnterCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEnterCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEnterCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnterCode.Location = new System.Drawing.Point(2, 146);
+            this.txtEnterCode.Location = new System.Drawing.Point(248, 154);
             this.txtEnterCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnterCode.Name = "txtEnterCode";
             this.txtEnterCode.PlaceholderText = "";
@@ -256,9 +256,11 @@
             this.lbltime.Size = new System.Drawing.Size(25, 13);
             this.lbltime.TabIndex = 37;
             this.lbltime.Text = "120";
+            this.lbltime.Visible = false;
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panelTexBoxes
@@ -266,11 +268,10 @@
             this.panelTexBoxes.Controls.Add(this.txtFirstName);
             this.panelTexBoxes.Controls.Add(this.txtLastName);
             this.panelTexBoxes.Controls.Add(this.txtNcNezam);
-            this.panelTexBoxes.Controls.Add(this.txtEnterCode);
             this.panelTexBoxes.Controls.Add(this.txtMobile);
             this.panelTexBoxes.Location = new System.Drawing.Point(243, 7);
             this.panelTexBoxes.Name = "panelTexBoxes";
-            this.panelTexBoxes.Size = new System.Drawing.Size(132, 184);
+            this.panelTexBoxes.Size = new System.Drawing.Size(132, 140);
             this.panelTexBoxes.TabIndex = 38;
             // 
             // frmSign
@@ -281,8 +282,9 @@
             this.Controls.Add(this.lbltime);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.lblCode);
+            this.Controls.Add(this.txtEnterCode);
             this.Controls.Add(this.btnEnter);
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.PictureBoxProfile);
             this.Controls.Add(this.lblNcNezam);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
@@ -294,7 +296,7 @@
             this.Text = "ویزیت24";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSign_FormClosed);
             this.Load += new System.EventHandler(this.frmSign_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
             this.panelTexBoxes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,7 +313,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMobile;
         private Guna.UI2.WinForms.Guna2TextBox txtNcNezam;
         private System.Windows.Forms.Label lblNcNezam;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox PictureBoxProfile;
         private Guna.UI2.WinForms.Guna2Button btnEnter;
         private System.Windows.Forms.Label lblCode;
         private Guna.UI2.WinForms.Guna2TextBox txtEnterCode;

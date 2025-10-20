@@ -97,16 +97,23 @@ namespace Visit.DAL
         {
             try
             {
-                var bimar = await db.Bimars.Where(b => b.NationalCode == nc && b.User.MobileNumber == Mobile).SingleAsync();
-                return new BimarInfo()
+                var user = await db.Users.Where(b => b.Bimar.NationalCode == nc && b.MobileNumber == Mobile).SingleOrDefaultAsync();
+                if (user != null)
                 {
-                    BimarID = bimar.BimarID,
-                    FirstName = bimar.User.FirstName,
-                    LastName = bimar.User.LastName,
-                    NationalCode = bimar.NationalCode,
-                    MobileNumber = bimar.User.MobileNumber,
-                    Picture = bimar.User.Picture,
-                };
+                    return new BimarInfo()
+                    {
+                        BimarID = user.ID,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        NationalCode = nc,
+                        MobileNumber = user.MobileNumber,
+                        Picture = user.Picture,
+                    };
+                }
+                else
+                { 
+                    return null;
+                }
             }
             catch (Exception ex)
             {

@@ -14,6 +14,7 @@ namespace Visit.UI
     public partial class frmDoctors : Form
     {
         public DoctorInfo Info { get; set; }
+        public frmStart FrmStart { get; set; }
         public frmDoctors()
         {
             InitializeComponent();
@@ -22,6 +23,13 @@ namespace Visit.UI
         private void frmDoctors_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.frmStart = FrmStart;
+            frmLogin.Show();
         }
     }
 }

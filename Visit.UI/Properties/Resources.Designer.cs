@@ -63,9 +63,9 @@ namespace Visit.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap No_foto_n {
+        internal static System.Drawing.Bitmap Profile {
             get {
-                object obj = ResourceManager.GetObject("No_foto_n", resourceCulture);
+                object obj = ResourceManager.GetObject("Profile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

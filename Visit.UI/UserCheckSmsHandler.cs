@@ -46,7 +46,7 @@ namespace Visit.UI
             return check;
         }
 
-        private async Task<OprationResult> SendSmsAsync(string randomCode)
+        public async Task<OprationResult> SendSmsAsync(string randomCode)
         {
             string text = Messages.SmsText + Environment.NewLine + randomCode;
             var checkSms = await httpClientHelper.PostAsync<OprationResult, string>(RouteConstants.SendSms, text);

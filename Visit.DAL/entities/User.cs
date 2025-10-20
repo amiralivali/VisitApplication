@@ -21,7 +21,6 @@ namespace Visit.DAL
         [StringLength(11)]
         public string MobileNumber { get; set; }
         public byte[] Picture { get; set; }
-
         public virtual Bimar Bimar { get; set; }
 
         public virtual ICollection<Chat> Chats { get; set; }
