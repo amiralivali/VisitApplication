@@ -67,7 +67,7 @@ namespace Visit.UI
                         };
                         if (PictureBoxProfile.Image !=Properties.Resources.Profile)
                         {
-                            bimarInfo.Picture=PictureBoxProfile.Image;
+                            //bimarInfo.Picture=PictureBoxProfile.Image;
                         }
                         var result = await clientHelper.PostAsync<OprationResult,BimarInfo>(RouteConstants.InsertBimar,bimarInfo);
                         if (result.IsSuccess)
@@ -100,6 +100,10 @@ namespace Visit.UI
                             MobileNumber = txtMobile.Text,
                             //Picture
                         };
+                        if (PictureBoxProfile.Image != Properties.Resources.Profile)
+                        {
+                            //doctorInfo.Picture=PictureBoxProfile.Image;
+                        }
                         var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                         if (result.IsSuccess)
                         {
