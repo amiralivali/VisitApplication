@@ -11,7 +11,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmDoctors : Form
+    public partial class frmDoctors : frmStyle
     {
         public DoctorInfo Info { get; set; }
         public frmStart FrmStart { get; set; }
@@ -30,6 +30,15 @@ namespace Visit.UI
             frmLogin frmLogin = new frmLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
+        }
+
+        private void btnCheckProfile_Click(object sender, EventArgs e)
+        {
+            frmCheckProfile frmCheckProfile = new frmCheckProfile(Info.CodeNezamPezeshki)
+            {
+                Info = Info,
+            };
+            frmCheckProfile.Show();
         }
     }
 }

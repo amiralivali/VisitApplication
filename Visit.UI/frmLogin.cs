@@ -6,7 +6,7 @@ using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : frmStyle
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
@@ -86,13 +86,13 @@ namespace Visit.UI
                         }
                         else
                         {
-                            MessageBox.Show(doctor.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ShowError(doctor.Message); 
                         }
-        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("!کد ورود نادرست است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   ShowError(Messages.WrongCode);
                 }
             });
         }
@@ -114,13 +114,13 @@ namespace Visit.UI
                 var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
                 if (result.IsSuccess)
                 {
-                    MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowSuccess(result.Message);
                     FixEnableControls(isTimer: false);
                     timer1.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError(result.Message);
                 }
             });
         }

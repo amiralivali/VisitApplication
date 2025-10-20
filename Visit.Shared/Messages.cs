@@ -16,6 +16,7 @@ namespace Visit.Shared
         public const string Required = "وارد کردن {0} ضروری است";
         public const string NotExist = "این اطلاعات در سیستم ثبت نشده است";
         public const string WrongLanguage = "لطفا {0} را فارسی وارد کنید";
+        public const string WrongCode = "!کد ورود نادرست است";
         public const string Insert = "ذخیره";
         public const string Send = "ارسال";
         public const string Update = "ویرایش";

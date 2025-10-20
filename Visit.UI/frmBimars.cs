@@ -11,7 +11,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimars : Form
+    public partial class frmBimars : frmStyle
     {
         public BimarInfo Info { get; set; }
         public frmStart FrmStart { get; set; }
@@ -22,9 +22,11 @@ namespace Visit.UI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //frmCheckProfile frmCheckProfile = new frmCheckProfile();
-            //frmCheckProfile.Show();
-            MessageBox.Show(Info.FirstName,Info.NationalCode);
+            frmCheckProfile frmCheckProfile = new frmCheckProfile(Info.NationalCode)
+            {
+                Info = Info,
+            };
+            frmCheckProfile.Show();
         }
 
         private void frmBimars_Load(object sender, EventArgs e)
@@ -37,6 +39,11 @@ namespace Visit.UI
             frmLogin frmLogin = new frmLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
+        }
+
+        private void btnHistoryes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,7 @@ using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {
-    public partial class frmSign : Form
+    public partial class frmSign : frmStyle
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
@@ -74,7 +74,7 @@ namespace Visit.UI
                         {
                             this.Invoke(new Action(() =>
                             {
-                                MessageBox.Show(result.Message,"پیغام",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                ShowSuccess(result.Message);
                                 frmBimars frmBimars = new frmBimars()
                                 {
                                     Info = bimarInfo,
@@ -87,7 +87,7 @@ namespace Visit.UI
                         }
                         else
                         {
-                            MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ShowError(result.Message);
                         }
                     }
                     else
@@ -121,13 +121,13 @@ namespace Visit.UI
                         }
                         else
                         {
-                            MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ShowError(result.Message);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("!کد ورود نادرست است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError(Messages.WrongCode);
                 }
             });
         }
@@ -199,8 +199,8 @@ namespace Visit.UI
         {
             await Task.Run(async () =>
             {
-                var res = CheckValidationUser();
-                if (res.IsSuccess)
+                var valid = CheckValidationUser();
+                if (valid.IsSuccess)
                 {
                     Random rnd = new Random();
                     int randomCode = rnd.Next(100000, 999999);
@@ -209,17 +209,17 @@ namespace Visit.UI
                     var result = await smsHandler.SendSmsAsync(randomCode.ToString());
                     if (result.IsSuccess)
                     {
-                        MessageBox.Show(result.Message, "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShowSuccess(result.Message);
                         FixEnableControls(isTimer: false);
                     }
                     else
                     {
-                        MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ShowError(result.Message);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(res.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError(valid.Message);
                 }
             });
         }
