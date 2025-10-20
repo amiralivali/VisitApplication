@@ -44,6 +44,7 @@ namespace Visit.UI
 
         private async void guna2Button1_Click(object sender, EventArgs e)
         {
+            // شرط برای این است که در صورتی که تغییر اعمال شد به دیتابیس درخواست بدم
             if (txtFirstName.Text != Info.FirstName || txtLastName.Text != Info.LastName || txtMobile.Text != Info.MobileNumber || txtNcNezam.Text != NcNezam)
             {
                 if (UserRole.CurrentRole == Role.Bimar)
