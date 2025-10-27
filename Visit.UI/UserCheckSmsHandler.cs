@@ -15,7 +15,7 @@ namespace Visit.UI
         HttpClientHelper httpClientHelper;
         public UserCheckSmsHandler()
         {
-            httpClientHelper = new HttpClientHelper();
+            httpClientHelper=HttpClientHelper.GetInstance();
         }
         public async Task<OprationResult> SendSmsIfUserExistsAsync(string randomCode,string ncNezam, string mobile)
         {

@@ -48,7 +48,7 @@
             this.btnCheckProfile.Name = "btnCheckProfile";
             this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
             this.btnCheckProfile.TabIndex = 3;
-            this.btnCheckProfile.Text = "بروزرسانی پروفایل";
+            this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.btnCheckProfile_Click);
             // 
             // btnHistoryes
@@ -76,7 +76,7 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDoctors";
             this.Text = "frmDoctors";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDoctors_FormClosed);

@@ -53,9 +53,6 @@
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="Kavenegar, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kavenegar.1.2.5\lib\net35\Kavenegar.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -82,11 +79,17 @@
     <Compile Include="frmBimars.Designer.cs">
       <DependentUpon>frmBimars.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCheckProfile.cs">
+    <Compile Include="frmCheckProfileDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCheckProfile.Designer.cs">
-      <DependentUpon>frmCheckProfile.cs</DependentUpon>
+    <Compile Include="frmCheckProfileDoctor.Designer.cs">
+      <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckProfileBimar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckProfileBimar.Designer.cs">
+      <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDoctors.cs">
       <SubType>Form</SubType>
@@ -123,8 +126,11 @@
     <EmbeddedResource Include="frmBimars.resx">
       <DependentUpon>frmBimars.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCheckProfile.resx">
-      <DependentUpon>frmCheckProfile.cs</DependentUpon>
+    <EmbeddedResource Include="frmCheckProfileBimar.resx">
+      <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckProfileDoctor.resx">
+      <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoctors.resx">
       <DependentUpon>frmDoctors.cs</DependentUpon>

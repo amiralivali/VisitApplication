@@ -30,7 +30,7 @@ namespace Visit.Shared
                 Message = text
             };
         }
-        public static OprationResult UnSuccess(string message)
+        public static OprationResult UnSuccess(string message="")
         {
             return new OprationResult()
             {

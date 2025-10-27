@@ -15,7 +15,7 @@ namespace Visit.UI
         public frmLogin()
         {
             InitializeComponent();
-            clientHelper = new HttpClientHelper();
+            clientHelper = HttpClientHelper.GetInstance();
             if (UserRole.CurrentRole == Role.Bimar)
             {
                 lblNcNezam.Text = "کدملی";

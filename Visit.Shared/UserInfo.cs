@@ -15,6 +15,6 @@ namespace Visit.Shared
         public string LastName { get; set; }
         [MobileValidation]
         public string MobileNumber { get; set; }
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
     }
 }

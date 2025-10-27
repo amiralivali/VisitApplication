@@ -22,9 +22,9 @@ namespace Visit.UI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            frmCheckProfile frmCheckProfile = new frmCheckProfile(Info.NationalCode)
+            frmCheckProfileBimar frmCheckProfile = new frmCheckProfileBimar()
             {
-                Info = Info,
+                BimarInfo = Info,
             };
             frmCheckProfile.Show();
         }

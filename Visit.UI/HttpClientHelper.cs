@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,20 @@ namespace Visit.UI
     internal class HttpClientHelper
     {
         HttpClient httpClient;
-        public HttpClientHelper()
+        private readonly HttpClientHandler httpHandler;
+        private static HttpClientHelper instance;
+        private HttpClientHelper()
         {
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(RouteConstants.BaseUrl);
+        }
+        public static HttpClientHelper GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new HttpClientHelper();
+            }
+            return instance;
         }
         public async Task<T> GetAsync<T>(string route)
         {

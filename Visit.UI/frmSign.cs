@@ -16,7 +16,7 @@ namespace Visit.UI
         public frmSign()
         {
             InitializeComponent();
-            clientHelper = new HttpClientHelper();
+            clientHelper = HttpClientHelper.GetInstance();
             if (UserRole.CurrentRole == Role.Bimar)
             {
                 lblNcNezam.Text = "کدملی";
@@ -65,7 +65,7 @@ namespace Visit.UI
                             NationalCode = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
                         };
-                        if (PictureBoxProfile.Image !=Properties.Resources.Profile)
+                        if (PictureBoxProfile.Image != Properties.Resources.Profile)
                         {
                             //bimarInfo.Picture=PictureBoxProfile.Image;
                         }

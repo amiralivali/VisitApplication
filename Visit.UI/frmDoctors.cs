@@ -34,9 +34,9 @@ namespace Visit.UI
 
         private void btnCheckProfile_Click(object sender, EventArgs e)
         {
-            frmCheckProfile frmCheckProfile = new frmCheckProfile(Info.CodeNezamPezeshki)
+            frmCheckProfileDoctor frmCheckProfile = new frmCheckProfileDoctor()
             {
-                Info = Info,
+                DoctorInfo = Info,
             };
             frmCheckProfile.Show();
         }

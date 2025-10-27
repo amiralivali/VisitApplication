@@ -44,7 +44,7 @@
             this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnHistoryes.ForeColor = System.Drawing.Color.White;
             this.btnHistoryes.Location = new System.Drawing.Point(441, 72);
-            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
             this.btnHistoryes.Name = "btnHistoryes";
             this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
             this.btnHistoryes.TabIndex = 0;
@@ -63,11 +63,11 @@
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
             this.btnCheckProfile.Location = new System.Drawing.Point(441, 11);
-            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckProfile.Name = "btnCheckProfile";
             this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
             this.btnCheckProfile.TabIndex = 1;
-            this.btnCheckProfile.Text = "بروزرسانی پروفایل";
+            this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // frmBimars
@@ -77,7 +77,7 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBimars";
             this.Text = "frmBimars";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBimars_FormClosing);
