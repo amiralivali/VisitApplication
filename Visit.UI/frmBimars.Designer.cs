@@ -78,8 +78,9 @@
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmBimars";
-            this.Text = "frmBimars";
+            this.Text = "ویزیت 24";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBimars_FormClosing);
             this.Load += new System.EventHandler(this.frmBimars_Load);
             this.ResumeLayout(false);

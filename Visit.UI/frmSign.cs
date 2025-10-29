@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
@@ -58,6 +59,11 @@ namespace Visit.UI
             {
                 if (txtEnterCode.Text == RandomCode)
                 {
+                    this.Invoke(new Action(() =>
+                    {
+                        ProgressBar.Visible = true;
+                        ProgressBar.Start();
+                    }));
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         BimarInfo bimarInfo = new BimarInfo()
@@ -67,9 +73,18 @@ namespace Visit.UI
                             NationalCode = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
                         };
-                        if (PictureBoxProfile.Image != Properties.Resources.Profile)
+                        if (PictureBoxProfile.ImageLocation != null)
                         {
-                            bimarInfo.Picture = await SavePicture.Save(PictureBoxProfile.ImageLocation);
+                            var check = await SavePicture.Save(PictureBoxProfile.ImageLocation);
+                            if (check.IsSuccess)
+                            {
+                                bimarInfo.Picture = check.Data;
+                            }
+                            else
+                            {
+                                ShowError(check.Message);
+                                return;
+                            }
                         }
                         var result = await clientHelper.PostAsync<OprationResult,BimarInfo>(RouteConstants.InsertBimar,bimarInfo);
                         if (result.IsSuccess)
@@ -101,9 +116,18 @@ namespace Visit.UI
                             CodeNezamPezeshki = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
                         };
-                        if (PictureBoxProfile.Image != Properties.Resources.Profile)
+                        if (PictureBoxProfile.ImageLocation != null)
                         {
-                            doctorInfo.Picture= await SavePicture.Save(PictureBoxProfile.ImageLocation);
+                            var check = await SavePicture.Save(PictureBoxProfile.ImageLocation);
+                            if (check.IsSuccess)
+                            {
+                                doctorInfo.Picture = check.Data;
+                            }
+                            else
+                            {
+                                ShowError(check.Message);
+                                return;
+                            }
                         }
                         var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                         if (result.IsSuccess)
@@ -131,6 +155,8 @@ namespace Visit.UI
                     ShowError(Messages.WrongCode);
                 }
             });
+            ProgressBar.Stop();
+            ProgressBar.Visible = false;
         }
         private void FixEnableControls(bool isTimer)
         {

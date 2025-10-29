@@ -47,6 +47,11 @@ namespace Visit.UI
             {
                 if (txtEnterCode.Text == RandomCode)
                 {
+                    this.Invoke(new Action(() =>
+                    {
+                        ProgressBar.Visible = true;
+                        ProgressBar.Start();
+                    }));
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
@@ -95,6 +100,8 @@ namespace Visit.UI
                    ShowError(Messages.WrongCode);
                 }
             });
+            ProgressBar.Stop();
+            ProgressBar.Visible = false;
         }
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)

@@ -25,13 +25,21 @@ namespace Visit.UI
             frmCheckProfileBimar frmCheckProfile = new frmCheckProfileBimar()
             {
                 BimarInfo = Info,
+                FrmBimars=this
             };
             frmCheckProfile.Show();
         }
 
         private void frmBimars_Load(object sender, EventArgs e)
         {
-
+            Info = new BimarInfo()
+            {
+                BimarID = 1,
+                FirstName = "امیرعلی",
+                LastName = "والی",
+                NationalCode = "1251039502",
+                MobileNumber = "09361842050",
+            };
         }
 
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)

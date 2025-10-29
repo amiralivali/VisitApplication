@@ -75,6 +75,7 @@
             this.Controls.Add(this.btnDoctor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "frmStart";
             this.Text = "ویزیت 24";
             this.Load += new System.EventHandler(this.frmStart_Load);

@@ -1,5 +1,6 @@
 ﻿using Kavenegar;
 using Microsoft.AspNetCore.Mvc;
+using Visit.BLL;
 using Visit.Shared;
 
 namespace Visit.API.Controllers
@@ -9,8 +10,8 @@ namespace Visit.API.Controllers
         [HttpPost]
         public OprationResult Send([FromBody]string smsText)
         {
-            SmsController smsController = new SmsController();
-            var result = smsController.Send(smsText);
+            SmsService smsService = new SmsService();
+            var result = smsService.Send(smsText);
             return result;
         }
     }

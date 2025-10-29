@@ -37,22 +37,35 @@ namespace Visit.UI
 
         private async void btnRecordinformation_Click(object sender, EventArgs e)
         {
-            if (txtFirstName.Text != BimarInfo.FirstName || txtLastName.Text != BimarInfo.LastName || txtMobile.Text != BimarInfo.MobileNumber || txtNc.Text != BimarInfo.NationalCode)
+            if (txtFirstName.Text != BimarInfo.FirstName || txtLastName.Text != BimarInfo.LastName ||
+                txtMobile.Text != BimarInfo.MobileNumber || txtNc.Text != BimarInfo.NationalCode||
+                pbProfile.ImageLocation != null || pbProfile.ImageLocation != BimarInfo.Picture)
             {
-                BimarInfo = new BimarInfo()
+                ProgressBar.Visible = true;
+                ProgressBar.Start();
+                if (pbProfile.ImageLocation != null && pbProfile.ImageLocation != BimarInfo.Picture)
                 {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    MobileNumber = txtMobile.Text,
-                    NationalCode = txtNc.Text,
-                };
-                if (pbProfile.Image != Properties.Resources.Profile && pbProfile.ImageLocation != BimarInfo.Picture)
-                {
-                    BimarInfo.Picture = await SavePicture.Save(pbProfile.ImageLocation);
+                    var result = await SavePicture.Save(pbProfile.ImageLocation);
+                    if (result.IsSuccess)
+                    {
+                        BimarInfo.Picture = result.Data;
+                    }
+                    else
+                    {
+                        ProgressBar.Stop();
+                        ProgressBar.Visible = false;
+                        ShowError(result.Message);
+                        return;
+                    }
                 }
+                BimarInfo.FirstName = txtFirstName.Text;
+                BimarInfo.LastName = txtLastName.Text;
+                BimarInfo.MobileNumber = txtMobile.Text;
+                BimarInfo.NationalCode = txtNc.Text;
                 if (BimarInfo.IsValid)
                 {
                     var result = await httpClient.PostAsync<OprationResult, BimarInfo>(RouteConstants.UpdateBimar, BimarInfo);
+                    ProgressBar.Stop();
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
@@ -62,11 +75,14 @@ namespace Visit.UI
                     else
                     {
                         ShowError(result.Message);
+                        ProgressBar.Visible = false;
                     }
                 }
                 else
                 {
                     ShowError(BimarInfo.Message);
+                    ProgressBar.Stop();
+                    ProgressBar.Visible=false;
                 }
             }
             else

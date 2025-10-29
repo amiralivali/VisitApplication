@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBimarHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBimarHistory.Designer.cs">
+      <DependentUpon>frmBimarHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBimars.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,12 @@
     </Compile>
     <Compile Include="frmCheckProfileBimar.Designer.cs">
       <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoctorHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctorHistory.Designer.cs">
+      <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDoctors.cs">
       <SubType>Form</SubType>

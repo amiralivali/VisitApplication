@@ -23,7 +23,7 @@ namespace Visit.BLL
                 {
                     if (await repository.DuplicateNezamAsync(info.CodeNezamPezeshki, info.DoctorID))
                     {
-                        return OprationResult.Duplicate(Messages.NationalCode);
+                        return OprationResult.Duplicate(Messages.Nezam);
                     }
                     else if (await repository.DuplicateMobileAsync(info.MobileNumber, info.DoctorID))
                     {

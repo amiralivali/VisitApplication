@@ -45,6 +45,7 @@
             this.lbltime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTexBoxes = new System.Windows.Forms.Panel();
+            this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
             this.panelTexBoxes.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,7 @@
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PlaceholderText = "";
+            this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(127, 27);
             this.txtLastName.TabIndex = 1;
@@ -103,6 +105,7 @@
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(127, 27);
             this.txtFirstName.TabIndex = 0;
@@ -132,6 +135,7 @@
             this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PlaceholderText = "";
+            this.txtMobile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMobile.SelectedText = "";
             this.txtMobile.Size = new System.Drawing.Size(127, 27);
             this.txtMobile.TabIndex = 3;
@@ -152,6 +156,7 @@
             this.txtNcNezam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNcNezam.Name = "txtNcNezam";
             this.txtNcNezam.PlaceholderText = "";
+            this.txtNcNezam.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNcNezam.SelectedText = "";
             this.txtNcNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNcNezam.TabIndex = 2;
@@ -224,6 +229,7 @@
             this.txtEnterCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnterCode.Name = "txtEnterCode";
             this.txtEnterCode.PlaceholderText = "";
+            this.txtEnterCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtEnterCode.SelectedText = "";
             this.txtEnterCode.Size = new System.Drawing.Size(127, 27);
             this.txtEnterCode.TabIndex = 32;
@@ -274,11 +280,20 @@
             this.panelTexBoxes.Size = new System.Drawing.Size(132, 140);
             this.panelTexBoxes.TabIndex = 38;
             // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(24, 188);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(62, 54);
+            this.ProgressBar.TabIndex = 39;
+            this.ProgressBar.Visible = false;
+            // 
             // frmSign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 246);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.lbltime);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.lblCode);
@@ -291,9 +306,9 @@
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.panelTexBoxes);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmSign";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "ویزیت24";
+            this.Text = "ویزیت 24";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSign_FormClosed);
             this.Load += new System.EventHandler(this.frmSign_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
@@ -321,5 +336,6 @@
         private System.Windows.Forms.Label lbltime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelTexBoxes;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
     }
 }

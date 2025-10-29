@@ -37,6 +37,7 @@ namespace Visit.UI
             frmCheckProfileDoctor frmCheckProfile = new frmCheckProfileDoctor()
             {
                 DoctorInfo = Info,
+                FrmDoctors = this
             };
             frmCheckProfile.Show();
         }

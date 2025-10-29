@@ -38,6 +38,7 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNc = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.btnRecordinformation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRecordinformation.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRecordinformation.ForeColor = System.Drawing.Color.White;
-            this.btnRecordinformation.Location = new System.Drawing.Point(136, 207);
+            this.btnRecordinformation.Location = new System.Drawing.Point(158, 207);
             this.btnRecordinformation.Name = "btnRecordinformation";
             this.btnRecordinformation.Size = new System.Drawing.Size(157, 42);
             this.btnRecordinformation.TabIndex = 43;
@@ -62,7 +63,7 @@
             // 
             this.pbProfile.Image = global::Visit.UI.Properties.Resources.Profile;
             this.pbProfile.ImageRotate = 0F;
-            this.pbProfile.Location = new System.Drawing.Point(246, 11);
+            this.pbProfile.Location = new System.Drawing.Point(259, 11);
             this.pbProfile.Margin = new System.Windows.Forms.Padding(2);
             this.pbProfile.Name = "pbProfile";
             this.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -107,9 +108,10 @@
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PlaceholderText = "";
+            this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(127, 27);
-            this.txtLastName.TabIndex = 35;
+            this.txtLastName.TabIndex = 1;
             // 
             // lblFirstName
             // 
@@ -136,9 +138,10 @@
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(127, 27);
-            this.txtFirstName.TabIndex = 34;
+            this.txtFirstName.TabIndex = 0;
             // 
             // lblMobile
             // 
@@ -165,9 +168,10 @@
             this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PlaceholderText = "";
+            this.txtMobile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMobile.SelectedText = "";
             this.txtMobile.Size = new System.Drawing.Size(127, 27);
-            this.txtMobile.TabIndex = 37;
+            this.txtMobile.TabIndex = 3;
             // 
             // txtNc
             // 
@@ -185,15 +189,25 @@
             this.txtNc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNc.Name = "txtNc";
             this.txtNc.PlaceholderText = "";
+            this.txtNc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNc.SelectedText = "";
             this.txtNc.Size = new System.Drawing.Size(127, 27);
-            this.txtNc.TabIndex = 36;
+            this.txtNc.TabIndex = 2;
+            // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(45, 190);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(61, 59);
+            this.ProgressBar.TabIndex = 44;
+            this.ProgressBar.Visible = false;
             // 
             // frmCheckProfileBimar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 261);
+            this.ClientSize = new System.Drawing.Size(456, 262);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.btnRecordinformation);
             this.Controls.Add(this.pbProfile);
             this.Controls.Add(this.lblNcNezam);
@@ -204,8 +218,9 @@
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNc);
+            this.MaximizeBox = false;
             this.Name = "frmCheckProfileBimar";
-            this.Text = "frmCheckProfileBimar";
+            this.Text = "ویزیت 24";
             this.Load += new System.EventHandler(this.frmCheckProfileBimar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
@@ -225,5 +240,6 @@
         private System.Windows.Forms.Label lblMobile;
         private Guna.UI2.WinForms.Guna2TextBox txtMobile;
         private Guna.UI2.WinForms.Guna2TextBox txtNc;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
     }
 }

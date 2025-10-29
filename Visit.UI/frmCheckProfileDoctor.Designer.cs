@@ -38,6 +38,7 @@
             this.txtNezam = new Guna.UI2.WinForms.Guna2TextBox();
             this.pbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnRecordinformation = new Guna.UI2.WinForms.Guna2Button();
+            this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,9 +77,10 @@
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PlaceholderText = "";
+            this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(127, 27);
-            this.txtLastName.TabIndex = 25;
+            this.txtLastName.TabIndex = 1;
             // 
             // lblFirstName
             // 
@@ -105,9 +107,10 @@
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(127, 27);
-            this.txtFirstName.TabIndex = 24;
+            this.txtFirstName.TabIndex = 0;
             // 
             // lblMobile
             // 
@@ -134,9 +137,10 @@
             this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PlaceholderText = "";
+            this.txtMobile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMobile.SelectedText = "";
             this.txtMobile.Size = new System.Drawing.Size(127, 27);
-            this.txtMobile.TabIndex = 27;
+            this.txtMobile.TabIndex = 3;
             // 
             // txtNezam
             // 
@@ -154,9 +158,10 @@
             this.txtNezam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNezam.Name = "txtNezam";
             this.txtNezam.PlaceholderText = "";
+            this.txtNezam.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNezam.SelectedText = "";
             this.txtNezam.Size = new System.Drawing.Size(127, 27);
-            this.txtNezam.TabIndex = 26;
+            this.txtNezam.TabIndex = 2;
             // 
             // pbProfile
             // 
@@ -189,11 +194,20 @@
             this.btnRecordinformation.Text = "ثبت اطلاعات";
             this.btnRecordinformation.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(36, 197);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(72, 52);
+            this.ProgressBar.TabIndex = 34;
+            this.ProgressBar.Visible = false;
+            // 
             // frmCheckProfileDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 261);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.btnRecordinformation);
             this.Controls.Add(this.pbProfile);
             this.Controls.Add(this.lblNcNezam);
@@ -205,8 +219,9 @@
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNezam);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmCheckProfileDoctor";
-            this.Text = "frmCheckProfile";
+            this.Text = "ویزیت 24";
             this.Load += new System.EventHandler(this.frmCheckProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
@@ -226,5 +241,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMobile;
         private Guna.UI2.WinForms.Guna2TextBox txtNezam;
         private Guna.UI2.WinForms.Guna2Button btnRecordinformation;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
     }
 }

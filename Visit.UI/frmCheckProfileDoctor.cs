@@ -32,22 +32,35 @@ namespace Visit.UI
         private async void guna2Button1_Click(object sender, EventArgs e)
         {
             // شرط برای این است که در صورتی که تغییر اعمال شد به دیتابیس درخواست بدم
-            if (txtFirstName.Text != DoctorInfo.FirstName || txtLastName.Text != DoctorInfo.LastName || txtMobile.Text != DoctorInfo.MobileNumber || txtNezam.Text != DoctorInfo.CodeNezamPezeshki)
+            if (txtFirstName.Text != DoctorInfo.FirstName || txtLastName.Text != DoctorInfo.LastName ||
+                txtMobile.Text != DoctorInfo.MobileNumber || txtNezam.Text != DoctorInfo.CodeNezamPezeshki ||
+                pbProfile.ImageLocation != null || pbProfile.ImageLocation != DoctorInfo.Picture)
             {
-                DoctorInfo = new DoctorInfo()
+                ProgressBar.Visible = false;
+                ProgressBar.Start();
+                if (pbProfile.ImageLocation != null && pbProfile.ImageLocation != DoctorInfo.Picture)
                 {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    MobileNumber = txtMobile.Text,
-                    CodeNezamPezeshki = txtNezam.Text,
-                };
-                if (pbProfile.Image != Properties.Resources.Profile && pbProfile.ImageLocation!=DoctorInfo.Picture)
-                {
-                    DoctorInfo.Picture = await SavePicture.Save(pbProfile.ImageLocation);
+                    var result = await SavePicture.Save(pbProfile.ImageLocation);
+                    if (result.IsSuccess)
+                    {
+                        DoctorInfo.Picture = result.Data;
+                    }
+                    else
+                    {
+                        ShowError(result.Message);
+                        ProgressBar.Stop();
+                        ProgressBar.Visible = false;
+                        return;
+                    }
                 }
+                DoctorInfo.FirstName = txtFirstName.Text;
+                DoctorInfo.LastName = txtLastName.Text;
+                DoctorInfo.MobileNumber = txtMobile.Text;
+                DoctorInfo.CodeNezamPezeshki = txtNezam.Text;
                 if (DoctorInfo.IsValid)
                 {
                     var result = await HttpClient.PostAsync<OprationResult, DoctorInfo>(RouteConstants.UpdateDoctor, DoctorInfo);
+                    ProgressBar.Stop();
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
@@ -56,11 +69,14 @@ namespace Visit.UI
                     }
                     else
                     {
+                        ProgressBar.Visible = false;
                         ShowError(result.Message);
                     }
                 }
                 else
                 {
+                    ProgressBar.Stop();
+                    ProgressBar.Visible = false;
                     ShowError(DoctorInfo.Message);
                 }
 
