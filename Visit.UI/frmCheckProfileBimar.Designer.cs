@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRecordinformation = new Guna.UI2.WinForms.Guna2Button();
-            this.PictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblNcNezam = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -38,7 +38,7 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNc = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRecordinformation
@@ -58,24 +58,24 @@
             this.btnRecordinformation.Text = "ثبت اطلاعات";
             this.btnRecordinformation.Click += new System.EventHandler(this.btnRecordinformation_Click);
             // 
-            // PictureBoxProfile
+            // pbProfile
             // 
-            this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
-            this.PictureBoxProfile.ImageRotate = 0F;
-            this.PictureBoxProfile.Location = new System.Drawing.Point(246, 11);
-            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.PictureBoxProfile.Name = "PictureBoxProfile";
-            this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.PictureBoxProfile.Size = new System.Drawing.Size(181, 180);
-            this.PictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxProfile.TabIndex = 42;
-            this.PictureBoxProfile.TabStop = false;
-            this.PictureBoxProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
+            this.pbProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.pbProfile.ImageRotate = 0F;
+            this.pbProfile.Location = new System.Drawing.Point(246, 11);
+            this.pbProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.pbProfile.Name = "pbProfile";
+            this.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbProfile.Size = new System.Drawing.Size(181, 180);
+            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfile.TabIndex = 42;
+            this.pbProfile.TabStop = false;
+            this.pbProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
             // 
             // lblNcNezam
             // 
             this.lblNcNezam.AutoSize = true;
-            this.lblNcNezam.Location = new System.Drawing.Point(176, 109);
+            this.lblNcNezam.Location = new System.Drawing.Point(169, 113);
             this.lblNcNezam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNcNezam.Name = "lblNcNezam";
             this.lblNcNezam.Size = new System.Drawing.Size(40, 13);
@@ -85,7 +85,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(169, 74);
+            this.lblLastName.Location = new System.Drawing.Point(165, 74);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(69, 13);
             this.lblLastName.TabIndex = 40;
@@ -195,7 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 261);
             this.Controls.Add(this.btnRecordinformation);
-            this.Controls.Add(this.PictureBoxProfile);
+            this.Controls.Add(this.pbProfile);
             this.Controls.Add(this.lblNcNezam);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtLastName);
@@ -207,7 +207,7 @@
             this.Name = "frmCheckProfileBimar";
             this.Text = "frmCheckProfileBimar";
             this.Load += new System.EventHandler(this.frmCheckProfileBimar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +216,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnRecordinformation;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox PictureBoxProfile;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pbProfile;
         private System.Windows.Forms.Label lblNcNezam;
         private System.Windows.Forms.Label lblLastName;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;

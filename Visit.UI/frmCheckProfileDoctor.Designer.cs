@@ -36,9 +36,9 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNezam = new Guna.UI2.WinForms.Guna2TextBox();
-            this.PictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnRecordinformation = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNcNezam
@@ -158,19 +158,19 @@
             this.txtNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNezam.TabIndex = 26;
             // 
-            // PictureBoxProfile
+            // pbProfile
             // 
-            this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
-            this.PictureBoxProfile.ImageRotate = 0F;
-            this.PictureBoxProfile.Location = new System.Drawing.Point(259, 11);
-            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.PictureBoxProfile.Name = "PictureBoxProfile";
-            this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.PictureBoxProfile.Size = new System.Drawing.Size(181, 180);
-            this.PictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxProfile.TabIndex = 32;
-            this.PictureBoxProfile.TabStop = false;
-            this.PictureBoxProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
+            this.pbProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.pbProfile.ImageRotate = 0F;
+            this.pbProfile.Location = new System.Drawing.Point(259, 11);
+            this.pbProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.pbProfile.Name = "pbProfile";
+            this.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbProfile.Size = new System.Drawing.Size(181, 180);
+            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfile.TabIndex = 32;
+            this.pbProfile.TabStop = false;
+            this.pbProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
             // 
             // btnRecordinformation
             // 
@@ -195,7 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 261);
             this.Controls.Add(this.btnRecordinformation);
-            this.Controls.Add(this.PictureBoxProfile);
+            this.Controls.Add(this.pbProfile);
             this.Controls.Add(this.lblNcNezam);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtLastName);
@@ -208,7 +208,7 @@
             this.Name = "frmCheckProfileDoctor";
             this.Text = "frmCheckProfile";
             this.Load += new System.EventHandler(this.frmCheckProfile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +216,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2CirclePictureBox PictureBoxProfile;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pbProfile;
         private System.Windows.Forms.Label lblNcNezam;
         private System.Windows.Forms.Label lblLastName;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;

@@ -29,11 +29,13 @@ namespace Visit.UI
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                PictureBoxProfile.ImageLocation = ofd.FileName;
+                ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBoxProfile.ImageLocation = ofd.FileName;
+                }
             }
         }
         private void frmSign_Load_1(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace Visit.UI
                         };
                         if (PictureBoxProfile.Image != Properties.Resources.Profile)
                         {
-                            //bimarInfo.Picture=PictureBoxProfile.Image;
+                            bimarInfo.Picture = await SavePicture.Save(PictureBoxProfile.ImageLocation);
                         }
                         var result = await clientHelper.PostAsync<OprationResult,BimarInfo>(RouteConstants.InsertBimar,bimarInfo);
                         if (result.IsSuccess)
@@ -98,11 +100,10 @@ namespace Visit.UI
                             LastName = txtLastName.Text,
                             CodeNezamPezeshki = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
-                            //Picture
                         };
                         if (PictureBoxProfile.Image != Properties.Resources.Profile)
                         {
-                            //doctorInfo.Picture=PictureBoxProfile.Image;
+                            doctorInfo.Picture= await SavePicture.Save(PictureBoxProfile.ImageLocation);
                         }
                         var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                         if (result.IsSuccess)

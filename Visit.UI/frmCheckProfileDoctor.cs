@@ -25,7 +25,7 @@ namespace Visit.UI
             txtNezam.Text = DoctorInfo.CodeNezamPezeshki;
             if (DoctorInfo.Picture != null)
             {
-               // PictureBoxProfile.Image = Info.Picture;
+               pbProfile.LoadAsync(DoctorInfo.Picture);
             }
         }
 
@@ -41,9 +41,9 @@ namespace Visit.UI
                     MobileNumber = txtMobile.Text,
                     CodeNezamPezeshki = txtNezam.Text,
                 };
-                if (PictureBoxProfile.Image != Properties.Resources.Profile)
+                if (pbProfile.Image != Properties.Resources.Profile && pbProfile.ImageLocation!=DoctorInfo.Picture)
                 {
-                    //bimarInfo.Picture=PictureBoxProfile.Image;
+                    DoctorInfo.Picture = await SavePicture.Save(pbProfile.ImageLocation);
                 }
                 if (DoctorInfo.IsValid)
                 {
@@ -78,7 +78,7 @@ namespace Visit.UI
                 ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    PictureBoxProfile.ImageLocation = ofd.FileName;
+                    pbProfile.ImageLocation = ofd.FileName;
                 }
             }
         }

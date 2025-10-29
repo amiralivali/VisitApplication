@@ -31,7 +31,7 @@ namespace Visit.UI
             txtNc.Text = BimarInfo.NationalCode;
             if (BimarInfo.Picture != null)
             {
-                // PictureBoxProfile.Image = Info.Picture;
+                pbProfile.LoadAsync(BimarInfo.Picture);
             }
         }
 
@@ -46,9 +46,9 @@ namespace Visit.UI
                     MobileNumber = txtMobile.Text,
                     NationalCode = txtNc.Text,
                 };
-                if (PictureBoxProfile.Image != Properties.Resources.Profile)
+                if (pbProfile.Image != Properties.Resources.Profile && pbProfile.ImageLocation != BimarInfo.Picture)
                 {
-                    //bimarInfo.Picture=PictureBoxProfile.Image;
+                    BimarInfo.Picture = await SavePicture.Save(pbProfile.ImageLocation);
                 }
                 if (BimarInfo.IsValid)
                 {
@@ -82,7 +82,7 @@ namespace Visit.UI
                 ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    PictureBoxProfile.ImageLocation = ofd.FileName;
+                    pbProfile.ImageLocation = ofd.FileName;
                 }
             }
         }
