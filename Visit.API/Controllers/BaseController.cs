@@ -1,7 +1,4 @@
-﻿using System.Xml;
-using Kavenegar;
-using Microsoft.AspNetCore.Mvc;
-using Visit.Shared;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Visit.API.Controllers
 {

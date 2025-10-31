@@ -10,8 +10,8 @@ namespace Visit.UI
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
-        public string RandomCode { get; set; }
-        private bool isClose { get; set; }
+        private string randomCode;
+        private bool isClose;
         public frmLogin()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace Visit.UI
         {
             await Task.Run(async () =>
             {
-                if (txtEnterCode.Text == RandomCode)
+                if (txtEnterCode.Text == randomCode)
                 {
                     this.Invoke(new Action(() =>
                     {
@@ -116,7 +116,7 @@ namespace Visit.UI
             {
                 Random rnd = new Random();
                 int randomCode = rnd.Next(100000, 999999);
-                RandomCode = randomCode.ToString();
+                this.randomCode = randomCode.ToString();
                 var smsHandler = new UserCheckSmsHandler();
                 var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
                 if (result.IsSuccess)

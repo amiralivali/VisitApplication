@@ -136,6 +136,9 @@
     <Compile Include="RouteConstants.cs" />
     <Compile Include="SavePicture.cs" />
     <Compile Include="UserCheckSmsHandler.cs" />
+    <EmbeddedResource Include="frmBimarHistory.resx">
+      <DependentUpon>frmBimarHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBimars.resx">
       <DependentUpon>frmBimars.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCheckProfileDoctor.resx">
       <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctorHistory.resx">
+      <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoctors.resx">
       <DependentUpon>frmDoctors.cs</DependentUpon>

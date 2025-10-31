@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
 using static Visit.Shared.UserRole;
@@ -19,17 +11,6 @@ namespace Visit.UI
         {
             InitializeComponent();
         }
-
-        private void frmStart_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2VSeparator1_Click(object sender, EventArgs e)
-        {
-
-        }
- 
         private void btnBimar_Click(object sender, EventArgs e)
         {
             UserRole.CurrentRole = Role.Bimar;
@@ -46,6 +27,11 @@ namespace Visit.UI
             frmLogin.frmStart = this;
             this.Hide();
             frmLogin.Show();
+        }
+
+        private void frmStart_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Visit.UI
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
-        private string RandomCode { get; set; }
-        private bool Isclose { get; set; }
+        string randomCode;
+        private bool isClose;
         public frmSign()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace Visit.UI
         }
         private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!Isclose)
+            if (!isClose)
             {
                 frmLogin frmLogin = new frmLogin();
                 frmLogin.frmStart = frmStart;
@@ -57,7 +57,7 @@ namespace Visit.UI
         {
             await Task.Run(async () =>
             {
-                if (txtEnterCode.Text == RandomCode)
+                if (txtEnterCode.Text == randomCode)
                 {
                     this.Invoke(new Action(() =>
                     {
@@ -98,7 +98,7 @@ namespace Visit.UI
                                     FrmStart = frmStart,
                                 };
                                 frmBimars.Show();
-                                Isclose = true;
+                                isClose = true;
                                 this.Close();
                             }));
                         }
@@ -140,7 +140,7 @@ namespace Visit.UI
                                     FrmStart = frmStart,
                                 };
                                 frmDoctors.Show();
-                                Isclose = true;
+                                isClose = true;
                                 this.Close();
                             }));
                         }
@@ -231,7 +231,7 @@ namespace Visit.UI
                 {
                     Random rnd = new Random();
                     int randomCode = rnd.Next(100000, 999999);
-                    RandomCode = randomCode.ToString();
+                    this.randomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
                     var result = await smsHandler.SendSmsAsync(randomCode.ToString());
                     if (result.IsSuccess)

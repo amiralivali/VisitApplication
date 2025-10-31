@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Amazon.Runtime;
-using Amazon.S3.Model;
+﻿using Amazon.Runtime;
 using Amazon.S3;
+using Amazon.S3.Model;
 using Visit.Shared;
 
 namespace Visit.BLL

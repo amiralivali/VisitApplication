@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
-using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {

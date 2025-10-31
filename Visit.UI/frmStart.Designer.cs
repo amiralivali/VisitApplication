@@ -78,7 +78,7 @@
             this.MaximizeBox = false;
             this.Name = "frmStart";
             this.Text = "ویزیت 24";
-            this.Load += new System.EventHandler(this.frmStart_Load);
+            this.Load += new System.EventHandler(this.frmStart_Load_1);
             this.ResumeLayout(false);
 
         }
