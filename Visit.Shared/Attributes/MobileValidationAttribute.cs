@@ -2,7 +2,7 @@
 
 namespace Visit.Shared
 {
-    internal class MobileValidationAttribute : ValidationAttribute
+    public class MobileValidationAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

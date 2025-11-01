@@ -54,12 +54,16 @@
     <Compile Include="Constance.cs" />
     <Compile Include="DoctorDto.cs" />
     <Compile Include="DoctorInfo.cs" />
+    <Compile Include="Doctor_TakhasosInfo.cs" />
     <Compile Include="ErrorException.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="OprationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TakhasosInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRole.cs" />
+    <Compile Include="VisitDto.cs" />
+    <Compile Include="VisitInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

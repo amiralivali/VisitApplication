@@ -13,5 +13,9 @@
         public const string SavePhoto = "Photo/Save";
         public const string GetBimar = "Bimar/GetBimar?nc={0}&mobile={1}";
         public const string GetDoctor = "Doctor/GetDoctor?nezam={0}&mobile={1}";
+        public const string SelectVisit = "Visit/Select?ID={0}&Search={1}";
+        public const string InsertVisit = "Visit/Insert";
+        public const string SelectTakhasos = "Takhasos/Select";
+        public const string InsertTakhasos = "Takhasos/Insert";
     }
 }

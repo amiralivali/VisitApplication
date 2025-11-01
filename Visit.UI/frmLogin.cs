@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing.Design;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
+using Visit.Shared.Attributes;
 using static Visit.Shared.UserRole;
 
 namespace Visit.UI
@@ -114,20 +117,42 @@ namespace Visit.UI
         {
             await Task.Run(async () =>
             {
-                Random rnd = new Random();
-                int randomCode = rnd.Next(100000, 999999);
-                this.randomCode = randomCode.ToString();
-                var smsHandler = new UserCheckSmsHandler();
-                var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
-                if (result.IsSuccess)
+                var validator = new MobileValidationAttribute();
+                var mobileValid = validator.GetValidationResult(txtMobile.Text, new ValidationContext(new object()));
+                ValidationResult ncNezamValid;
+                if (UserRole.CurrentRole == Role.Bimar)
                 {
-                    ShowSuccess(result.Message);
-                    FixEnableControls(isTimer: false);
-                    timer1.Enabled = true;
+                    var valid = new NationalCodeValidationAttribute();
+                    ncNezamValid = valid.GetValidationResult(txtNcNezam.Text, new ValidationContext(new object()));
                 }
                 else
                 {
-                    ShowError(result.Message);
+                    var valid = new NezamValidationAttribute();
+                    ncNezamValid = valid.GetValidationResult(txtNcNezam.Text, new ValidationContext(new object()));
+                }
+                if (mobileValid == ValidationResult.Success && ncNezamValid == ValidationResult.Success)
+                {
+                    Random rnd = new Random();
+                    int randomCode = rnd.Next(100000, 999999);
+                    this.randomCode = randomCode.ToString();
+                    var smsHandler = new UserCheckSmsHandler();
+                    var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
+                    if (result.IsSuccess)
+                    {
+                        ShowSuccess(result.Message);
+                        FixEnableControls(isTimer: false);
+                        timer1.Enabled = true;
+                    }
+                    else
+                    {
+                        ShowError(result.Message);
+                    }
+                }
+                else
+                {
+                    string message = ncNezamValid!= null ? ncNezamValid.ErrorMessage+Environment.NewLine : "";
+                    message += mobileValid != null ? mobileValid.ErrorMessage : "";
+                    ShowError(message);
                 }
             });
         }

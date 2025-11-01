@@ -44,7 +44,11 @@ namespace Visit.UI
 
         private void btnHistoryes_Click(object sender, EventArgs e)
         {
-
+            frmBimarHistory frmHistory = new frmBimarHistory()
+            {
+                ID = Info.BimarID,
+            };
+            frmHistory.Show();
         }
     }
 }

@@ -15,10 +15,10 @@ namespace Visit.DAL
             var tran = db.Database.BeginTransaction();
             try
             {
-                db.Users.Add(user);
+                await db.Users.AddAsync(user);
                 await db.SaveChangesAsync();
                 bimar.BimarID = user.ID;
-                db.Bimars.Add(bimar);
+                await db.Bimars.AddAsync(bimar);
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;

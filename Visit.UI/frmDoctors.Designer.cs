@@ -43,10 +43,10 @@
             this.btnCheckProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
-            this.btnCheckProfile.Location = new System.Drawing.Point(434, 11);
-            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCheckProfile.Location = new System.Drawing.Point(579, 14);
+            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckProfile.Name = "btnCheckProfile";
-            this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
+            this.btnCheckProfile.Size = new System.Drawing.Size(207, 70);
             this.btnCheckProfile.TabIndex = 3;
             this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.btnCheckProfile_Click);
@@ -62,21 +62,22 @@
             this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnHistoryes.ForeColor = System.Drawing.Color.White;
-            this.btnHistoryes.Location = new System.Drawing.Point(434, 72);
-            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistoryes.Location = new System.Drawing.Point(579, 89);
+            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHistoryes.Name = "btnHistoryes";
-            this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
+            this.btnHistoryes.Size = new System.Drawing.Size(207, 70);
             this.btnHistoryes.TabIndex = 2;
             this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
+            this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
             // 
             // frmDoctors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "frmDoctors";
             this.Text = "ویزیت 24";

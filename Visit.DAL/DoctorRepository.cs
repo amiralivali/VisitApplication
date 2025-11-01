@@ -15,10 +15,10 @@ namespace Visit.DAL
             var tran = db.Database.BeginTransaction();
             try
             {
-                db.Users.Add(user);
+                await db.Users.AddAsync(user);
                 await db.SaveChangesAsync();
                 doctor.DoctorID = user.ID;
-                db.Doctors.Add(doctor);
+                await db.Doctors.AddAsync(doctor);
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;

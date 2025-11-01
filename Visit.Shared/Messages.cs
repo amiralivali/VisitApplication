@@ -11,6 +11,8 @@
         public const string WrongLanguage = "لطفا {0} را فارسی وارد کنید";
         public const string WrongCode = "!کد ورود نادرست است";
         public const string Insert = "ذخیره";
+        public const string Takhasos = "تخصص";
+        public const string Visit = "نوبت ویزیت";
         public const string Send = "ارسال";
         public const string Update = "ویرایش";
         public const string Delete = "حذف";

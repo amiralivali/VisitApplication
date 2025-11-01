@@ -43,5 +43,25 @@ namespace Visit.DAL
             };
             return doctor;
         }
+        public static Visit MapToVisit(this VisitInfo info)
+        {
+            Visit visit = new Visit()
+            {
+                BimarID = info.BimarID,
+                DoctorID = info.DoctorID,
+                Date = info.Date,
+                Time = info.Time,
+            };
+            return visit;
+        }
+        public static Doctor_Takhasos MapToDoctorTakhasos(this Doctor_TakhasosInfo takhasos)
+        {
+            Doctor_Takhasos doctor_Takhasos = new Doctor_Takhasos()
+            {
+                DoctorID = takhasos.DoctorID,
+                TakhasosID = takhasos.TakhasosID,
+            };
+            return doctor_Takhasos;
+        }
     }
 }

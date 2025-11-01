@@ -34,5 +34,14 @@ namespace Visit.UI
             };
             frmCheckProfile.Show();
         }
+
+        private void btnHistoryes_Click(object sender, EventArgs e)
+        {
+            frmDoctorHistory frmDoctorHistory = new frmDoctorHistory()
+            {
+                ID = Info.DoctorID,
+            };
+            frmDoctorHistory.Show();
+        }
     }
 }

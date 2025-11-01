@@ -130,6 +130,12 @@
     <Compile Include="frmStyle.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTakhasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTakhasos.Designer.cs">
+      <DependentUpon>frmTakhasos.cs</DependentUpon>
+    </Compile>
     <Compile Include="HttpClientHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStyle.resx">
       <DependentUpon>frmStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTakhasos.resx">
+      <DependentUpon>frmTakhasos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
