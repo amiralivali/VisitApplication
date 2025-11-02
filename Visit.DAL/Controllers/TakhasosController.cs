@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Visit.BLL;
-using Visit.Shared;
 
 namespace Visit.API.Controllers
 {

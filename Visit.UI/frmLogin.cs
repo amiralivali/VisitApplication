@@ -136,10 +136,12 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
+                    ProgressBar.Start();
                     var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
+                        ProgressBar.Stop();
                         FixEnableControls(isTimer: false);
                         timer1.Enabled = true;
                     }

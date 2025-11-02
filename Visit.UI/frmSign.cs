@@ -134,6 +134,8 @@ namespace Visit.UI
                         {
                             this.Invoke(new Action(() =>
                             {
+                                frmTakhasos frmTakhasos = new frmTakhasos();
+                                frmTakhasos.Show();
                                 frmDoctors frmDoctors = new frmDoctors()
                                 {
                                     Info = doctorInfo,
@@ -233,10 +235,12 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
+                    ProgressBar.Start();
                     var result = await smsHandler.SendSmsAsync(randomCode.ToString());
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
+                        ProgressBar.Stop();
                         FixEnableControls(isTimer: false);
                     }
                     else

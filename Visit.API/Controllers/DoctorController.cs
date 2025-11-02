@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.API.Controllers
 {
-    public class DoctorController : BaseController
+    public class DoctorController : BaseClassController
     {
         DoctorService doctorService;
         public DoctorController()

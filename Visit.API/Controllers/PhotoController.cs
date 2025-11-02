@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.API.Controllers
 {
-    public class PhotoController : BaseController
+    public class PhotoController : BaseClassController
     {
         [HttpPost]
         public async Task<OprationResult<string>> SaveAsync([FromBody]string filePath)

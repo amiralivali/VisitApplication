@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.API.Controllers
 {
-    public class SmsController : BaseController
+    public class SmsController : BaseClassController
     {
         [HttpPost]
         public OprationResult Send([FromBody]string smsText)

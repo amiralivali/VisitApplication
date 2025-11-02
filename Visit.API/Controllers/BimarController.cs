@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.API.Controllers
 {
-    public class BimarController : BaseController
+    public class BimarController : BaseClassController
     {
         BimarService bimarService;
         public BimarController()

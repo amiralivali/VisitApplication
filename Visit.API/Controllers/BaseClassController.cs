@@ -4,7 +4,7 @@ namespace Visit.API.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class BaseController : ControllerBase
+    public class BaseClassController : ControllerBase
     {
     }
 }

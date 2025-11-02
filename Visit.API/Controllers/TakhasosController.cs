@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.API.Controllers
 {
-    public class TakhasosController : BaseController
+    public class TakhasosController : BaseClassController
     {
         TakhasosService takhasosService;
         public TakhasosController()
