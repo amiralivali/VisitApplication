@@ -9,10 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Visit.UI
 {
-    public partial class frmTakhasos : Form
+    public partial class frmTakhasos : frmStyle
     {
         HttpClientHelper HttpClientHelper;
         public frmTakhasos()
@@ -23,8 +24,16 @@ namespace Visit.UI
 
         private async void frmTakhasos_Load(object sender, EventArgs e)
         {
-            var takhasoses = await HttpClientHelper.GetAsync<List<TakhasosInfo>>(RouteConstants.SelectTakhasos);
-            ComboBox.Items.Add(takhasoses);
+            var takhasoses = await HttpClientHelper.GetAsync<OprationResult<List<TakhasosInfo>>>(RouteConstants.SelectTakhasos);
+            if (takhasoses.IsSuccess)
+            {
+                ComboBox.DataSource = takhasoses.Data;
+                ComboBox.DisplayMember = "Titel";
+            }
+            else
+            {
+                ShowError(takhasoses.Message);
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

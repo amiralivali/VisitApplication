@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Visit.DAL
 {
@@ -19,6 +19,26 @@ namespace Visit.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Takhasos>().HasData(
+                new Takhasos { ID = 1, Titel = "چشم" },
+                new Takhasos { ID = 2, Titel = "مغز و اعصاب" },
+                new Takhasos { ID = 3, Titel = "قلب و عروق" },
+                new Takhasos { ID = 4, Titel = "گوش و حلق و بینی" },
+                new Takhasos { ID = 5, Titel = "اعصاب و روان" },
+                new Takhasos { ID = 6, Titel = "روانشناسی" },
+                new Takhasos { ID = 7, Titel = "اطفال" },
+                new Takhasos { ID = 8, Titel = "پوست و مو زیبایی" },
+                new Takhasos { ID = 9, Titel = "گوارش" },
+                new Takhasos { ID = 10, Titel = "ریه" },
+                new Takhasos { ID = 11, Titel = "کلیه" },
+                new Takhasos { ID = 12, Titel = "غدد" },
+                new Takhasos { ID = 13, Titel = "تغذیه" },
+                new Takhasos { ID = 14, Titel = "پزشک عمومی" },
+                new Takhasos { ID = 15, Titel = "مامایی" }
+            );
+
+
             modelBuilder.Entity<Bimar>()
                 .Property(e => e.NationalCode)
                 .IsUnicode(false)
