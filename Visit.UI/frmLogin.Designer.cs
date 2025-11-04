@@ -41,6 +41,10 @@
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNcNezam = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnEnter = new Guna.UI2.WinForms.Guna2Button();
+            this.TimeProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.TimeProgressBar.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -50,22 +54,23 @@
             // 
             // ProgressBar
             // 
-            this.ProgressBar.Location = new System.Drawing.Point(367, 228);
-            this.ProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ProgressBar.Location = new System.Drawing.Point(275, 185);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(83, 66);
+            this.ProgressBar.Size = new System.Drawing.Size(62, 54);
             this.ProgressBar.TabIndex = 40;
             this.ProgressBar.Visible = false;
             // 
             // lbltime
             // 
             this.lbltime.AutoSize = true;
-            this.lbltime.ForeColor = System.Drawing.Color.Red;
-            this.lbltime.Location = new System.Drawing.Point(99, 132);
+            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbltime.Location = new System.Drawing.Point(36, 39);
+            this.lbltime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltime.Name = "lbltime";
-            this.lbltime.Size = new System.Drawing.Size(28, 16);
+            this.lbltime.Size = new System.Drawing.Size(24, 17);
             this.lbltime.TabIndex = 36;
-            this.lbltime.Text = "120";
+            this.lbltime.Text = "60";
             this.lbltime.Visible = false;
             // 
             // btnSend
@@ -77,11 +82,11 @@
             this.btnSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSend.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(63, 154);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSend.Location = new System.Drawing.Point(5, 2);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
             this.btnSend.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnSend.Size = new System.Drawing.Size(92, 88);
+            this.btnSend.Size = new System.Drawing.Size(74, 72);
             this.btnSend.TabIndex = 35;
             this.btnSend.Text = "ارسال پیامک";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -89,10 +94,9 @@
             // lblCode
             // 
             this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(365, 181);
-            this.lblCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCode.Location = new System.Drawing.Point(274, 147);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(46, 16);
+            this.lblCode.Size = new System.Drawing.Size(44, 13);
             this.lblCode.TabIndex = 33;
             this.lblCode.Text = "کد ورود";
             // 
@@ -108,13 +112,13 @@
             this.txtEnterCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEnterCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEnterCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnterCode.Location = new System.Drawing.Point(171, 175);
-            this.txtEnterCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEnterCode.Location = new System.Drawing.Point(128, 142);
+            this.txtEnterCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnterCode.Name = "txtEnterCode";
             this.txtEnterCode.PlaceholderText = "";
             this.txtEnterCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtEnterCode.SelectedText = "";
-            this.txtEnterCode.Size = new System.Drawing.Size(169, 33);
+            this.txtEnterCode.Size = new System.Drawing.Size(127, 27);
             this.txtEnterCode.TabIndex = 32;
             // 
             // btnSignUp
@@ -126,10 +130,9 @@
             this.btnSignUp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSignUp.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnSignUp.ForeColor = System.Drawing.Color.White;
-            this.btnSignUp.Location = new System.Drawing.Point(372, 319);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignUp.Location = new System.Drawing.Point(279, 259);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(119, 38);
+            this.btnSignUp.Size = new System.Drawing.Size(89, 31);
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "ثبت نام";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
@@ -137,20 +140,18 @@
             // lblMobile
             // 
             this.lblMobile.AutoSize = true;
-            this.lblMobile.Location = new System.Drawing.Point(363, 139);
-            this.lblMobile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMobile.Location = new System.Drawing.Point(272, 113);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(71, 16);
+            this.lblMobile.Size = new System.Drawing.Size(65, 13);
             this.lblMobile.TabIndex = 6;
             this.lblMobile.Text = "شماره همراه";
             // 
             // lblNcNezam
             // 
             this.lblNcNezam.AutoSize = true;
-            this.lblNcNezam.Location = new System.Drawing.Point(365, 90);
-            this.lblNcNezam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNcNezam.Location = new System.Drawing.Point(274, 73);
             this.lblNcNezam.Name = "lblNcNezam";
-            this.lblNcNezam.Size = new System.Drawing.Size(10, 16);
+            this.lblNcNezam.Size = new System.Drawing.Size(10, 13);
             this.lblNcNezam.TabIndex = 5;
             this.lblNcNezam.Text = ".";
             // 
@@ -166,13 +167,13 @@
             this.txtMobile.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMobile.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMobile.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMobile.Location = new System.Drawing.Point(171, 132);
-            this.txtMobile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMobile.Location = new System.Drawing.Point(128, 107);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PlaceholderText = "";
             this.txtMobile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMobile.SelectedText = "";
-            this.txtMobile.Size = new System.Drawing.Size(169, 33);
+            this.txtMobile.Size = new System.Drawing.Size(127, 27);
             this.txtMobile.TabIndex = 1;
             // 
             // txtNcNezam
@@ -187,13 +188,13 @@
             this.txtNcNezam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNcNezam.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNcNezam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNcNezam.Location = new System.Drawing.Point(171, 90);
-            this.txtNcNezam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNcNezam.Location = new System.Drawing.Point(128, 73);
+            this.txtNcNezam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNcNezam.Name = "txtNcNezam";
             this.txtNcNezam.PlaceholderText = "";
             this.txtNcNezam.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNcNezam.SelectedText = "";
-            this.txtNcNezam.Size = new System.Drawing.Size(169, 33);
+            this.txtNcNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNcNezam.TabIndex = 0;
             // 
             // btnEnter
@@ -207,22 +208,46 @@
             this.btnEnter.Enabled = false;
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.Location = new System.Drawing.Point(179, 228);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnter.Location = new System.Drawing.Point(134, 185);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(161, 53);
+            this.btnEnter.Size = new System.Drawing.Size(121, 43);
             this.btnEnter.TabIndex = 3;
             this.btnEnter.Text = "ورود";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
+            // TimeProgressBar
+            // 
+            this.TimeProgressBar.Controls.Add(this.lbltime);
+            this.TimeProgressBar.FillColor = System.Drawing.Color.White;
+            this.TimeProgressBar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.TimeProgressBar.ForeColor = System.Drawing.Color.White;
+            this.TimeProgressBar.Location = new System.Drawing.Point(28, 113);
+            this.TimeProgressBar.Minimum = 0;
+            this.TimeProgressBar.Name = "TimeProgressBar";
+            this.TimeProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TimeProgressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TimeProgressBar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.TimeProgressBar.Size = new System.Drawing.Size(94, 94);
+            this.TimeProgressBar.TabIndex = 41;
+            this.TimeProgressBar.Text = "guna2CircleProgressBar1";
+            this.TimeProgressBar.Visible = false;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.btnSend);
+            this.guna2Panel1.Location = new System.Drawing.Point(28, 127);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(97, 80);
+            this.guna2Panel1.TabIndex = 42;
+            // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 372);
+            this.ClientSize = new System.Drawing.Size(380, 302);
+            this.Controls.Add(this.TimeProgressBar);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.ProgressBar);
-            this.Controls.Add(this.lbltime);
-            this.Controls.Add(this.btnSend);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtEnterCode);
             this.Controls.Add(this.btnSignUp);
@@ -231,12 +256,14 @@
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNcNezam);
             this.Controls.Add(this.btnEnter);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.Text = "ویزیت 24";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.Load += new System.EventHandler(this.frmBimar_Load);
+            this.TimeProgressBar.ResumeLayout(false);
+            this.TimeProgressBar.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +283,7 @@
         private System.Windows.Forms.Label lbltime;
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar TimeProgressBar;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

@@ -28,28 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnHistoryes = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOpenChat = new Guna.UI2.WinForms.Guna2Button();
+            this.lblFullName = new System.Windows.Forms.Label();
+            this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnCheckProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHistoryes = new Guna.UI2.WinForms.Guna2Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnHistoryes
+            // btnOpenChat
             // 
-            this.btnHistoryes.Animated = true;
-            this.btnHistoryes.AnimatedGIF = true;
-            this.btnHistoryes.AutoRoundedCorners = true;
-            this.btnHistoryes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistoryes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistoryes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnHistoryes.ForeColor = System.Drawing.Color.White;
-            this.btnHistoryes.Location = new System.Drawing.Point(441, 72);
-            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHistoryes.Name = "btnHistoryes";
-            this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
-            this.btnHistoryes.TabIndex = 0;
-            this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
-            this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
+            this.btnOpenChat.Animated = true;
+            this.btnOpenChat.AnimatedGIF = true;
+            this.btnOpenChat.AutoRoundedCorners = true;
+            this.btnOpenChat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenChat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenChat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpenChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpenChat.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnOpenChat.ForeColor = System.Drawing.Color.White;
+            this.btnOpenChat.Location = new System.Drawing.Point(286, 277);
+            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpenChat.Name = "btnOpenChat";
+            this.btnOpenChat.Size = new System.Drawing.Size(155, 57);
+            this.btnOpenChat.TabIndex = 4;
+            this.btnOpenChat.Text = "مشاهده چت";
+            // 
+            // lblFullName
+            // 
+            this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.lblFullName.Location = new System.Drawing.Point(139, 54);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(177, 33);
+            this.lblFullName.TabIndex = 3;
+            this.lblFullName.Text = ".";
+            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.ImageRotate = 0F;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(322, 12);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxProfile.Size = new System.Drawing.Size(118, 116);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 2;
+            this.pictureBoxProfile.TabStop = false;
             // 
             // btnCheckProfile
             // 
@@ -62,7 +87,7 @@
             this.btnCheckProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
-            this.btnCheckProfile.Location = new System.Drawing.Point(441, 11);
+            this.btnCheckProfile.Location = new System.Drawing.Point(285, 155);
             this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckProfile.Name = "btnCheckProfile";
             this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
@@ -70,11 +95,33 @@
             this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // btnHistoryes
+            // 
+            this.btnHistoryes.Animated = true;
+            this.btnHistoryes.AnimatedGIF = true;
+            this.btnHistoryes.AutoRoundedCorners = true;
+            this.btnHistoryes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistoryes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistoryes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnHistoryes.ForeColor = System.Drawing.Color.White;
+            this.btnHistoryes.Location = new System.Drawing.Point(286, 216);
+            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistoryes.Name = "btnHistoryes";
+            this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
+            this.btnHistoryes.TabIndex = 0;
+            this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
+            this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
+            // 
             // frmBimars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(452, 366);
+            this.Controls.Add(this.btnOpenChat);
+            this.Controls.Add(this.lblFullName);
+            this.Controls.Add(this.pictureBoxProfile);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -83,6 +130,7 @@
             this.Text = "ویزیت 24";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBimars_FormClosing);
             this.Load += new System.EventHandler(this.frmBimars_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,5 +139,8 @@
 
         private Guna.UI2.WinForms.Guna2Button btnHistoryes;
         private Guna.UI2.WinForms.Guna2Button btnCheckProfile;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxProfile;
+        private System.Windows.Forms.Label lblFullName;
+        private Guna.UI2.WinForms.Guna2Button btnOpenChat;
     }
 }

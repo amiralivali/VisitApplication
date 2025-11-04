@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.btnRecordinformation = new Guna.UI2.WinForms.Guna2Button();
+            this.pbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblNcNezam = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -36,11 +40,63 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNezam = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnRecordinformation = new Guna.UI2.WinForms.Guna2Button();
-            this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
+            // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Location = new System.Drawing.Point(375, 185);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(80, 77);
+            this.guna2CircleButton1.TabIndex = 36;
+            this.guna2CircleButton1.Text = "اضافه کردن تخصص";
+            this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
+            // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(36, 197);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(72, 52);
+            this.ProgressBar.TabIndex = 34;
+            this.ProgressBar.Visible = false;
+            // 
+            // btnRecordinformation
+            // 
+            this.btnRecordinformation.Animated = true;
+            this.btnRecordinformation.AutoRoundedCorners = true;
+            this.btnRecordinformation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRecordinformation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRecordinformation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRecordinformation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRecordinformation.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnRecordinformation.ForeColor = System.Drawing.Color.White;
+            this.btnRecordinformation.Location = new System.Drawing.Point(151, 207);
+            this.btnRecordinformation.Name = "btnRecordinformation";
+            this.btnRecordinformation.Size = new System.Drawing.Size(157, 42);
+            this.btnRecordinformation.TabIndex = 33;
+            this.btnRecordinformation.Text = "ثبت اطلاعات";
+            this.btnRecordinformation.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // pbProfile
+            // 
+            this.pbProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.pbProfile.ImageRotate = 0F;
+            this.pbProfile.Location = new System.Drawing.Point(259, 11);
+            this.pbProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.pbProfile.Name = "pbProfile";
+            this.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbProfile.Size = new System.Drawing.Size(181, 180);
+            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfile.TabIndex = 32;
+            this.pbProfile.TabStop = false;
+            this.pbProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
             // 
             // lblNcNezam
             // 
@@ -163,50 +219,12 @@
             this.txtNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNezam.TabIndex = 2;
             // 
-            // pbProfile
-            // 
-            this.pbProfile.Image = global::Visit.UI.Properties.Resources.Profile;
-            this.pbProfile.ImageRotate = 0F;
-            this.pbProfile.Location = new System.Drawing.Point(259, 11);
-            this.pbProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.pbProfile.Name = "pbProfile";
-            this.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbProfile.Size = new System.Drawing.Size(181, 180);
-            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfile.TabIndex = 32;
-            this.pbProfile.TabStop = false;
-            this.pbProfile.Click += new System.EventHandler(this.PictureBoxProfile_Click);
-            // 
-            // btnRecordinformation
-            // 
-            this.btnRecordinformation.Animated = true;
-            this.btnRecordinformation.AutoRoundedCorners = true;
-            this.btnRecordinformation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRecordinformation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRecordinformation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRecordinformation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRecordinformation.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnRecordinformation.ForeColor = System.Drawing.Color.White;
-            this.btnRecordinformation.Location = new System.Drawing.Point(149, 207);
-            this.btnRecordinformation.Name = "btnRecordinformation";
-            this.btnRecordinformation.Size = new System.Drawing.Size(157, 42);
-            this.btnRecordinformation.TabIndex = 33;
-            this.btnRecordinformation.Text = "ثبت اطلاعات";
-            this.btnRecordinformation.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // ProgressBar
-            // 
-            this.ProgressBar.Location = new System.Drawing.Point(36, 197);
-            this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(72, 52);
-            this.ProgressBar.TabIndex = 34;
-            this.ProgressBar.Visible = false;
-            // 
             // frmCheckProfileDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 261);
+            this.ClientSize = new System.Drawing.Size(467, 271);
+            this.Controls.Add(this.guna2CircleButton1);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.btnRecordinformation);
             this.Controls.Add(this.pbProfile);
@@ -242,5 +260,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNezam;
         private Guna.UI2.WinForms.Guna2Button btnRecordinformation;
         private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
     }
 }

@@ -96,5 +96,15 @@ namespace Visit.UI
                 }
             }
         }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            frmTakhasos frmTakhasos = new frmTakhasos()
+            {
+                FrmDoctors = FrmDoctors
+            };
+            frmTakhasos.Show();
+            this.Close();
+        }
     }
 }

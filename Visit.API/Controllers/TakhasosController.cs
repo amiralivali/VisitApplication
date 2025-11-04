@@ -23,5 +23,11 @@ namespace Visit.API.Controllers
             var result = await takhasosService.SelectAsync();
             return result;
         }
+        [HttpGet]
+        public async Task<OprationResult<List<TakhasosInfo>>> GetTakhasosAsync(int id)
+        {
+            var result = await takhasosService.GetTakhasosAsync(id);
+            return result;
+        }
     }
 }

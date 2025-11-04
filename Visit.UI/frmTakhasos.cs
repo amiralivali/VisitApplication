@@ -54,7 +54,13 @@ namespace Visit.UI
                     ID = (byte)ComboBox.SelectedValue,
                     Titel = ComboBox.Text
                 };
-                FrmDoctors.Takhasos=takhasos;
+                FrmDoctors.Takhasos.Add(takhasos);
+                FrmDoctors.FillInformation();
+                Form frm = Application.OpenForms["frmDoctors"];
+                if (frm == null) // یعنی هنوز باز نشده
+                {
+                    FrmDoctors.Show();
+                }
                 FrmDoctors.Show();
                 this.Close();
             }

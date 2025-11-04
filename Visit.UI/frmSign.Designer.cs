@@ -42,12 +42,15 @@
             this.lblCode = new System.Windows.Forms.Label();
             this.txtEnterCode = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSend = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.lbltime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTexBoxes = new System.Windows.Forms.Panel();
             this.ProgressBar = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.TimeProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.lbltime = new System.Windows.Forms.Label();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
             this.panelTexBoxes.SuspendLayout();
+            this.TimeProgressBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLastName
@@ -175,7 +178,7 @@
             // 
             this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
             this.PictureBoxProfile.ImageRotate = 0F;
-            this.PictureBoxProfile.Location = new System.Drawing.Point(24, 11);
+            this.PictureBoxProfile.Location = new System.Drawing.Point(11, 7);
             this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBoxProfile.Name = "PictureBoxProfile";
             this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -252,18 +255,6 @@
             this.btnSend.Text = "ارسال پیامک";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // lbltime
-            // 
-            this.lbltime.AutoSize = true;
-            this.lbltime.ForeColor = System.Drawing.Color.Red;
-            this.lbltime.Location = new System.Drawing.Point(208, 160);
-            this.lbltime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbltime.Name = "lbltime";
-            this.lbltime.Size = new System.Drawing.Size(25, 13);
-            this.lbltime.TabIndex = 37;
-            this.lbltime.Text = "120";
-            this.lbltime.Visible = false;
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -288,13 +279,50 @@
             this.ProgressBar.TabIndex = 39;
             this.ProgressBar.Visible = false;
             // 
+            // TimeProgressBar
+            // 
+            this.TimeProgressBar.Controls.Add(this.lbltime);
+            this.TimeProgressBar.FillColor = System.Drawing.Color.White;
+            this.TimeProgressBar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.TimeProgressBar.ForeColor = System.Drawing.Color.White;
+            this.TimeProgressBar.Location = new System.Drawing.Point(156, 167);
+            this.TimeProgressBar.Minimum = 0;
+            this.TimeProgressBar.Name = "TimeProgressBar";
+            this.TimeProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TimeProgressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TimeProgressBar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.TimeProgressBar.Size = new System.Drawing.Size(94, 94);
+            this.TimeProgressBar.TabIndex = 42;
+            this.TimeProgressBar.Text = "guna2CircleProgressBar1";
+            this.TimeProgressBar.Visible = false;
+            // 
+            // lbltime
+            // 
+            this.lbltime.AutoSize = true;
+            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.lbltime.Location = new System.Drawing.Point(36, 39);
+            this.lbltime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltime.Name = "lbltime";
+            this.lbltime.Size = new System.Drawing.Size(24, 17);
+            this.lbltime.TabIndex = 36;
+            this.lbltime.Text = "60";
+            this.lbltime.Visible = false;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Location = new System.Drawing.Point(156, 177);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(86, 67);
+            this.guna2Panel1.TabIndex = 40;
+            // 
             // frmSign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 246);
+            this.ClientSize = new System.Drawing.Size(474, 263);
+            this.Controls.Add(this.TimeProgressBar);
             this.Controls.Add(this.ProgressBar);
-            this.Controls.Add(this.lbltime);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtEnterCode);
@@ -305,6 +333,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.panelTexBoxes);
+            this.Controls.Add(this.guna2Panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmSign";
@@ -313,6 +342,8 @@
             this.Load += new System.EventHandler(this.frmSign_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
             this.panelTexBoxes.ResumeLayout(false);
+            this.TimeProgressBar.ResumeLayout(false);
+            this.TimeProgressBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,9 +364,11 @@
         private System.Windows.Forms.Label lblCode;
         private Guna.UI2.WinForms.Guna2TextBox txtEnterCode;
         private Guna.UI2.WinForms.Guna2CircleButton btnSend;
-        private System.Windows.Forms.Label lbltime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelTexBoxes;
         private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar TimeProgressBar;
+        private System.Windows.Forms.Label lbltime;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

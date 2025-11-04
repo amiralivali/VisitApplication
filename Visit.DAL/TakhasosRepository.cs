@@ -49,5 +49,24 @@ namespace Visit.DAL
                 return false;
             }
         }
+        public async Task<List<TakhasosInfo>> GetTakhasosAsync(int id)
+        {
+            try
+            {
+                var takhasos = await db.Doctor_Takhasoses.Where(t => t.DoctorID == id)
+                    .Select(t => new TakhasosInfo()
+                    {
+                        ID = t.TakhasosID,
+                        Titel = t.Takhasos.Titel
+                    }).ToListAsync();
+
+                return takhasos;
+            }
+            catch (Exception ex)
+            {
+                ex.AddLog();
+                return null;
+            }
+        }
     }
 }

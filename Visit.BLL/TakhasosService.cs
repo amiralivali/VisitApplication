@@ -35,5 +35,17 @@ namespace Visit.BLL
                 return OprationResult.RunTimeError();
             }
         }
+        public async Task<OprationResult<List<TakhasosInfo>>> GetTakhasosAsync(int id)
+        {
+            var takhasos = await takhasosRepository.GetTakhasosAsync(id);
+            if (takhasos != null)
+            {
+                return OprationResult<List<TakhasosInfo>>.Success(takhasos);
+            }
+            else
+            {
+                return OprationResult<List<TakhasosInfo>>.RunTimeError();
+            }
+        }
     }
 }

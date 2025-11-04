@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Visit.Shared;
@@ -23,7 +24,7 @@ namespace Visit.UI
         private async void FillDGV(string search="")
         {
             string route =string.Format(RouteConstants.SelectVisit,ID,search);
-            var visits = await httpHelper.GetAsync<OprationResult<VisitDto>>(route);
+            var visits = await httpHelper.GetAsync<OprationResult<List<VisitDto>>>(route);
             if (visits.IsSuccess)
             {
                 dgvHistorys.DataSource = visits.Data;

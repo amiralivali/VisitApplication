@@ -14,6 +14,7 @@ namespace Visit.UI
         public frmStart frmStart;
         string randomCode;
         private bool isClose;
+        private int timeLeft = 60;
         public frmSign()
         {
             InitializeComponent();
@@ -39,9 +40,17 @@ namespace Visit.UI
                 }
             }
         }
+        private void StartProgressBar()
+        {
+            this.Invoke(new Action(() =>
+            {
+                ProgressBar.Visible = true;
+                ProgressBar.Start();
+            }));
+        }
         private void frmSign_Load_1(object sender, EventArgs e)
         {
-
+            TimeProgressBar.Maximum = timeLeft;
         }
         private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -59,11 +68,7 @@ namespace Visit.UI
             {
                 if (txtEnterCode.Text == randomCode)
                 {
-                    this.Invoke(new Action(() =>
-                    {
-                        ProgressBar.Visible = true;
-                        ProgressBar.Start();
-                    }));
+                    StartProgressBar();
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         BimarInfo bimarInfo = new BimarInfo()
@@ -177,17 +182,19 @@ namespace Visit.UI
                 }
                 if (isTimer)
                 {
-                    btnSend.Enabled = true;
+                    btnSend.Visible = true;
+                    TimeProgressBar.Visible = false;
                     btnEnter.Enabled = false;
                     lbltime.Visible = false;
                     timer1.Enabled = false;
                 }
                 else
                 {
-                    btnSend.Enabled = false;
+                    btnSend.Visible = false;
                     btnEnter.Enabled = true;
+                    TimeProgressBar.Visible= true;
                     lbltime.Visible = true;
-                    lbltime.Text = "120";
+                    timeLeft = 60;
                     timer1.Enabled = true;
                 }
             }));
@@ -241,12 +248,11 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
-                    ProgressBar.Start();
+                    StartProgressBar();
                     var result = await smsHandler.SendSmsAsync(randomCode.ToString());
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
-                        ProgressBar.Stop();
                         FixEnableControls(isTimer: false);
                     }
                     else
@@ -259,13 +265,16 @@ namespace Visit.UI
                     ShowError(valid.Message);
                 }
             });
+            ProgressBar.Stop();
+            ProgressBar.Visible = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int time = int.Parse(lbltime.Text) - 1;
-            lbltime.Text = time.ToString();
-            if (time == 0)
+            timeLeft--;
+            TimeProgressBar.Value = timeLeft;
+            lbltime.Text = timeLeft.ToString();
+            if (timeLeft == 0)
             {
                 FixEnableControls(isTimer: true);
             }

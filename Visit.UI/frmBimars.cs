@@ -32,7 +32,10 @@ namespace Visit.UI
                 LastName = "والی",
                 NationalCode = "1251039502",
                 MobileNumber = "09361842050",
+                Picture= "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication%2FMqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg?versionId="
             };
+            lblFullName.Text = Info.FirstName + " " + Info.LastName;
+            pictureBoxProfile.LoadAsync(Info.Picture);
         }
 
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)

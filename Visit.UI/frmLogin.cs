@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing.Design;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using Visit.Shared;
 using Visit.Shared.Attributes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static Visit.Shared.UserRole;
 
 namespace Visit.UI
@@ -15,6 +18,7 @@ namespace Visit.UI
         public frmStart frmStart;
         private string randomCode;
         private bool isClose;
+        private int timeLeft = 60;
         public frmLogin()
         {
             InitializeComponent();
@@ -27,8 +31,17 @@ namespace Visit.UI
             {
                 lblNcNezam.Text = "کد نظام پزشکی";
             }
+            TimeProgressBar.Maximum = timeLeft;
         }
 
+        private void StartProgressBar()
+        {
+            this.Invoke(new Action(() =>
+            {
+                ProgressBar.Visible = true;
+                ProgressBar.Start();
+            }));
+        }
 
         private void frmBimar_Load(object sender, EventArgs e)
         {
@@ -50,11 +63,7 @@ namespace Visit.UI
             {
                 if (txtEnterCode.Text == randomCode)
                 {
-                    this.Invoke(new Action(() =>
-                    {
-                        ProgressBar.Visible = true;
-                        ProgressBar.Start();
-                    }));
+                    StartProgressBar();
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
@@ -67,6 +76,7 @@ namespace Visit.UI
                                 {
                                     Info = bimar.Data,
                                     FrmStart = frmStart,
+
                                 };
                                 frmBimars.Show();
                                 isClose = true;
@@ -80,27 +90,37 @@ namespace Visit.UI
                         var doctor = await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route);
                         if (doctor.IsSuccess)
                         {
-                            this.Invoke(new Action(() =>
+                            route = string.Format(RouteConstants.GetTakhasos, doctor.Data.DoctorID);
+                            var takhasos = await clientHelper.GetAsync<OprationResult<List<TakhasosInfo>>>(route);
+                            if (takhasos.IsSuccess)
                             {
-                                frmDoctors frmDoctors = new frmDoctors()
+                                this.Invoke(new Action(() =>
                                 {
-                                    Info = doctor.Data,
-                                    FrmStart = frmStart,
-                                };
-                                frmDoctors.Show();
-                                isClose = true;
-                                this.Close();
-                            }));
+                                    frmDoctors frmDoctors = new frmDoctors()
+                                    {
+                                        Info = doctor.Data,
+                                        FrmStart = frmStart,
+                                        Takhasos = takhasos.Data,
+                                    };
+                                    frmDoctors.Show();
+                                    isClose = true;
+                                    this.Close();
+                                }));
+                            }
+                            else
+                            {
+                                ShowError(takhasos.Message);
+                            }
                         }
                         else
                         {
-                            ShowError(doctor.Message); 
+                            ShowError(doctor.Message);
                         }
                     }
                 }
                 else
                 {
-                   ShowError(Messages.WrongCode);
+                    ShowError(Messages.WrongCode);
                 }
             });
             ProgressBar.Stop();
@@ -135,13 +155,12 @@ namespace Visit.UI
                     Random rnd = new Random();
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
+                    StartProgressBar();
                     var smsHandler = new UserCheckSmsHandler();
-                    ProgressBar.Start();
                     var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
-                        ProgressBar.Stop();
                         FixEnableControls(isTimer: false);
                         timer1.Enabled = true;
                     }
@@ -157,6 +176,8 @@ namespace Visit.UI
                     ShowError(message);
                 }
             });
+            ProgressBar.Stop();
+            ProgressBar.Visible = false;
         }
 
         private void FixEnableControls(bool isTimer)
@@ -167,27 +188,32 @@ namespace Visit.UI
                 {
                     txtMobile.Enabled = true;
                     txtNcNezam.Enabled = true;
-                    btnSend.Enabled = true;
+                    btnSend.Visible = true;
                     btnEnter.Enabled = false;
                     lbltime.Visible = false;
+                    TimeProgressBar.Visible = false;
+                    timer1.Enabled = false;
                 }
                 else
                 {
                     txtMobile.Enabled = false;
                     txtNcNezam.Enabled = false;
-                    btnSend.Enabled = false;
+                    btnSend.Visible = false;
                     btnEnter.Enabled = true;
+                    TimeProgressBar.Visible = true;
                     lbltime.Visible = true;
-                    lbltime.Text = "120";
+                    timeLeft = 60;
+                    timer1.Enabled = true;
                 }
             }));
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int time = int.Parse(lbltime.Text) - 1;
-            lbltime.Text = time.ToString();
-            if (time == 0)
+            timeLeft--;
+            TimeProgressBar.Value = timeLeft;
+            lbltime.Text= timeLeft.ToString();
+            if (timeLeft == 0)
             {
                 FixEnableControls(isTimer: true);
                 timer1.Enabled = false;

@@ -17,5 +17,6 @@
         public const string InsertVisit = "Visit/Insert";
         public const string SelectTakhasos = "Takhasos/Select";
         public const string InsertTakhasos = "Takhasos/Insert";
+        public const string GetTakhasos = "Takhasos/GetTakhasos?ID={0}";
     }
 }
