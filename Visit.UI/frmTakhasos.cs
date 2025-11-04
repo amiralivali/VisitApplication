@@ -15,6 +15,7 @@ namespace Visit.UI
 {
     public partial class frmTakhasos : frmStyle
     {
+        public frmDoctors FrmDoctors { get; set; }
         HttpClientHelper HttpClientHelper;
         public frmTakhasos()
         {
@@ -29,6 +30,7 @@ namespace Visit.UI
             {
                 ComboBox.DataSource = takhasoses.Data;
                 ComboBox.DisplayMember = "Titel";
+                ComboBox.ValueMember = "ID";
             }
             else
             {
@@ -36,9 +38,26 @@ namespace Visit.UI
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private async void guna2Button1_Click(object sender, EventArgs e)
         {
-            
+            var value = Convert.ToByte(ComboBox.SelectedValue);
+            var doctorTakhasos = new Doctor_TakhasosInfo()
+            {
+                DoctorID = FrmDoctors.Info.DoctorID,
+                TakhasosID = value,
+            };
+            var submitTakhasos= await HttpClientHelper.PostAsync<OprationResult,Doctor_TakhasosInfo>(RouteConstants.InsertTakhasos,doctorTakhasos);
+            if (submitTakhasos.IsSuccess)
+            {
+                var takhasos = new TakhasosInfo()
+                {
+                    ID = (byte)ComboBox.SelectedValue,
+                    Titel = ComboBox.Text
+                };
+                FrmDoctors.Takhasos=takhasos;
+                FrmDoctors.Show();
+                this.Close();
+            }
         }
     }
 }

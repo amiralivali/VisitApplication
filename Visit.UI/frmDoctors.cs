@@ -7,6 +7,7 @@ namespace Visit.UI
     public partial class frmDoctors : frmStyle
     {
         public DoctorInfo Info { get; set; }
+        public TakhasosInfo Takhasos { get; set; }
         public frmStart FrmStart { get; set; }
         public frmDoctors()
         {

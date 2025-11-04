@@ -89,6 +89,8 @@ namespace Visit.UI
                         var result = await clientHelper.PostAsync<OprationResult,BimarInfo>(RouteConstants.InsertBimar,bimarInfo);
                         if (result.IsSuccess)
                         {
+                            string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
+                            bimarInfo = (await clientHelper.GetAsync<OprationResult<BimarInfo>>(route)).Data;
                             this.Invoke(new Action(() =>
                             {
                                 ShowSuccess(result.Message);
@@ -132,16 +134,20 @@ namespace Visit.UI
                         var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                         if (result.IsSuccess)
                         {
+                            string route = string.Format(RouteConstants.GetDoctor, txtNcNezam.Text, txtMobile.Text);
+                            doctorInfo = (await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route)).Data;
                             this.Invoke(new Action(() =>
                             {
-                                frmTakhasos frmTakhasos = new frmTakhasos();
-                                frmTakhasos.Show();
                                 frmDoctors frmDoctors = new frmDoctors()
                                 {
                                     Info = doctorInfo,
                                     FrmStart = frmStart,
                                 };
-                                frmDoctors.Show();
+                                frmTakhasos frmTakhasos = new frmTakhasos()
+                                {
+                                    FrmDoctors = frmDoctors
+                                };
+                                frmTakhasos.Show();
                                 isClose = true;
                                 this.Close();
                             }));

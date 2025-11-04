@@ -44,12 +44,18 @@
     public class OprationResult<T> : OprationResult
     {
         public T Data { get; set; }
-        public static OprationResult<T> Success(T data)
+        public static OprationResult<T> Success(T data, string message="")
         {
+            string text = Messages.Success; 
+            if (message != null)
+            {
+                text = string.Format(text, message);
+            }
             return new OprationResult<T>()
             {
                 IsSuccess = true,
-                Data = data
+                Data = data,
+                Message=text
             };
         }
         public new static OprationResult<T> RunTimeError()
