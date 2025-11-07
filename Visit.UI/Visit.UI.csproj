@@ -139,6 +139,12 @@
     <Compile Include="frmTakhasos.Designer.cs">
       <DependentUpon>frmTakhasos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWorkingTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWorkingTime.Designer.cs">
+      <DependentUpon>frmWorkingTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="HttpClientHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTakhasos.resx">
       <DependentUpon>frmTakhasos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkingTime.resx">
+      <DependentUpon>frmWorkingTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

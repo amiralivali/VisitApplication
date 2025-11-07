@@ -40,6 +40,8 @@ namespace Visit.DAL
             {
                 DoctorID = info.DoctorID,
                 CodeNezamPezeshki = info.CodeNezamPezeshki,
+                StartWorkingTime=info.StartTime,
+                EndWorkingTime=info.EndTime,
             };
             return doctor;
         }

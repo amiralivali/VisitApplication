@@ -1,4 +1,6 @@
-﻿namespace Visit.Shared
+﻿using System;
+
+namespace Visit.Shared
 {
     public class DoctorDto
     {
@@ -6,5 +8,7 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CodeNezamPezeshki { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }

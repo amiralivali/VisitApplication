@@ -60,6 +60,8 @@ namespace Visit.DAL
                 user.MobileNumber = info.MobileNumber;
                 user.Picture = info.Picture;
                 doctor.CodeNezamPezeshki = info.CodeNezamPezeshki;
+                doctor.StartWorkingTime = info.StartTime;
+                doctor.EndWorkingTime = info.EndTime;
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;
@@ -80,7 +82,9 @@ namespace Visit.DAL
                     DoctorID = d.DoctorID,
                     FirstName = d.User.FirstName,
                     LastName = d.User.LastName,
-                    CodeNezamPezeshki = d.CodeNezamPezeshki
+                    CodeNezamPezeshki = d.CodeNezamPezeshki,
+                    StartTime=d.StartWorkingTime,
+                    EndTime=d.EndWorkingTime,
                 }).ToListAsync();
                 return doctors.Where(d => search == "" ||
                 d.FirstName.Contains(search) ||
@@ -111,6 +115,8 @@ namespace Visit.DAL
                     CodeNezamPezeshki = Nezam,
                     MobileNumber = user.MobileNumber,
                     Picture = user.Picture,
+                    StartTime=user.Doctor.StartWorkingTime,
+                    EndTime=user.Doctor.EndWorkingTime,
                 };
             }
             catch (Exception ex)

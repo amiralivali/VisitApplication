@@ -1,4 +1,5 @@
-﻿using Visit.Shared.Attributes;
+﻿using System;
+using Visit.Shared.Attributes;
 
 namespace Visit.Shared
 {
@@ -7,5 +8,7 @@ namespace Visit.Shared
         public int DoctorID { get; set; }
         [NezamValidation]
         public string CodeNezamPezeshki { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }

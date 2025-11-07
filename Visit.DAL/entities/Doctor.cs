@@ -14,6 +14,10 @@ namespace Visit.DAL
         [StringLength(5)]
         public string CodeNezamPezeshki { get; set; }
 
+        [Required]
+        public TimeSpan StartWorkingTime { get; set; }
+        [Required]
+        public TimeSpan EndWorkingTime { get; set; }
         public virtual ICollection<Doctor_Takhasos> Doctor_Takhasoses { get; set; }
 
         public virtual User User { get; set; }

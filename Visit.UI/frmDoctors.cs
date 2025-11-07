@@ -18,27 +18,38 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
-            //Takhasos = new List<TakhasosInfo>()
-            //{
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 0,
-            //     Titel="مغز و اعصاب"
-            //     },
-            //};
-            //Info = new DoctorInfo()
-            //{
-            //    DoctorID = 1,
-            //    FirstName = "امیرعلی",
-            //    LastName = "والی",
-            //    CodeNezamPezeshki = "1251039502",
-            //    MobileNumber = "09361842050",
-            //    Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication%2FMqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg?versionId="
-            //};
+            Takhasos = new List<TakhasosInfo>()
+            {
+                 new TakhasosInfo()
+                 {
+                 ID = 6,
+                 Titel="روانشناسی"
+                 },
+                 new TakhasosInfo()
+                 {
+                 ID = 3,
+                 Titel="قلب و عروق"
+                 },
+                 new TakhasosInfo()
+                 {
+                 ID = 2,
+                 Titel="مغز و اعصاب"
+                 },
+            };
+            Info = new DoctorInfo()
+            {
+                DoctorID = 6,
+                FirstName = "ابوالفضل",
+                LastName = "والی",
+                CodeNezamPezeshki = "55555",
+                MobileNumber = "09131630330",
+                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/MqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg"
+            };
             FillInformation();
         }
         public void FillInformation()
         {
+            lblTakhasos.Text = "";
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             var titles = Takhasos.Select(t => t.Titel).ToList();
             lblTakhasos.Text += string.Join(" , ", titles);

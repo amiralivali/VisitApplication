@@ -69,6 +69,7 @@ namespace Visit.UI
                 if (txtEnterCode.Text == randomCode)
                 {
                     StartProgressBar();
+                    timer1.Enabled = false;
                     if (UserRole.CurrentRole == Role.Bimar)
                     {
                         BimarInfo bimarInfo = new BimarInfo()
@@ -123,6 +124,10 @@ namespace Visit.UI
                             CodeNezamPezeshki = txtNcNezam.Text,
                             MobileNumber = txtMobile.Text,
                         };
+                        frmWorkingTime frmWorkingTime = new frmWorkingTime();
+                        frmWorkingTime.Show();
+                        doctorInfo.StartTime= frmWorkingTime.StartTime;
+                        doctorInfo.EndTime= frmWorkingTime.EndTime;
                         if (PictureBoxProfile.ImageLocation != null)
                         {
                             var check = await SavePicture.Save(PictureBoxProfile.ImageLocation);

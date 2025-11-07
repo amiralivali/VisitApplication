@@ -199,7 +199,7 @@
             this.btnEnter.Enabled = false;
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.Location = new System.Drawing.Point(276, 195);
+            this.btnEnter.Location = new System.Drawing.Point(277, 202);
             this.btnEnter.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(129, 40);
@@ -228,7 +228,7 @@
             this.txtEnterCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEnterCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEnterCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnterCode.Location = new System.Drawing.Point(248, 154);
+            this.txtEnterCode.Location = new System.Drawing.Point(246, 154);
             this.txtEnterCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnterCode.Name = "txtEnterCode";
             this.txtEnterCode.PlaceholderText = "";
@@ -273,7 +273,7 @@
             // 
             // ProgressBar
             // 
-            this.ProgressBar.Location = new System.Drawing.Point(24, 188);
+            this.ProgressBar.Location = new System.Drawing.Point(33, 195);
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.Size = new System.Drawing.Size(62, 54);
             this.ProgressBar.TabIndex = 39;
@@ -285,7 +285,7 @@
             this.TimeProgressBar.FillColor = System.Drawing.Color.White;
             this.TimeProgressBar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.TimeProgressBar.ForeColor = System.Drawing.Color.White;
-            this.TimeProgressBar.Location = new System.Drawing.Point(156, 167);
+            this.TimeProgressBar.Location = new System.Drawing.Point(146, 169);
             this.TimeProgressBar.Minimum = 0;
             this.TimeProgressBar.Name = "TimeProgressBar";
             this.TimeProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -320,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 263);
+            this.ClientSize = new System.Drawing.Size(474, 271);
             this.Controls.Add(this.TimeProgressBar);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.btnSend);

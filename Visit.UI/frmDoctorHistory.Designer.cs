@@ -34,12 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvHistorys = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.FullNameDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullNameBimar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chat = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,12 +54,12 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(345, 26);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Location = new System.Drawing.Point(259, 21);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(233, 34);
+            this.txtSearch.Size = new System.Drawing.Size(175, 28);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -99,7 +99,8 @@
             this.dgvHistorys.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHistorys.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvHistorys.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.Location = new System.Drawing.Point(0, 99);
+            this.dgvHistorys.Location = new System.Drawing.Point(0, 80);
+            this.dgvHistorys.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvHistorys.Name = "dgvHistorys";
             this.dgvHistorys.ReadOnly = true;
             this.dgvHistorys.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -115,7 +116,7 @@
             this.dgvHistorys.RowHeadersVisible = false;
             this.dgvHistorys.RowHeadersWidth = 51;
             this.dgvHistorys.RowTemplate.Height = 25;
-            this.dgvHistorys.Size = new System.Drawing.Size(671, 315);
+            this.dgvHistorys.Size = new System.Drawing.Size(503, 256);
             this.dgvHistorys.TabIndex = 1;
             this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -140,6 +141,34 @@
             this.dgvHistorys.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvHistorys.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorys_CellContentClick);
             // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(438, 28);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(62, 13);
+            this.lblSearch.TabIndex = 2;
+            this.lblSearch.Text = ": جست و جو";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Animated = true;
+            this.btnRefresh.AutoRoundedCorners = true;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(20, 16);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(121, 38);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "تازه سازی";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // FullNameDoctor
             // 
             this.FullNameDoctor.DataPropertyName = "FullNameDoctor";
@@ -158,7 +187,7 @@
             // 
             // Date
             // 
-            this.Date.DataPropertyName = "Date";
+            this.Date.DataPropertyName = "DateTime";
             this.Date.HeaderText = "تاریخ و ساعت";
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
@@ -171,42 +200,15 @@
             this.Chat.Name = "Chat";
             this.Chat.ReadOnly = true;
             // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(584, 34);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(65, 16);
-            this.lblSearch.TabIndex = 2;
-            this.lblSearch.Text = ": جست و جو";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Animated = true;
-            this.btnRefresh.AutoRoundedCorners = true;
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(26, 20);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(161, 47);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.Text = "تازه سازی";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // frmDoctorHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 414);
+            this.ClientSize = new System.Drawing.Size(503, 336);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dgvHistorys);
             this.Controls.Add(this.txtSearch);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmDoctorHistory";
             this.Text = "ویزیت 24";
@@ -222,10 +224,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2DataGridView dgvHistorys;
         private System.Windows.Forms.Label lblSearch;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullNameDoctor;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullNameBimar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewButtonColumn Chat;
-        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

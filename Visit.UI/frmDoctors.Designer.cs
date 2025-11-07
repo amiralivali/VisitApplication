@@ -137,7 +137,7 @@
             this.Controls.Add(this.btnOpenChat);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmDoctors";
             this.Text = "ویزیت 24";
