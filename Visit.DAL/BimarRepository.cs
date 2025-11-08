@@ -97,7 +97,7 @@ namespace Visit.DAL
         {
             try
             {
-                var user = await db.Users.Where(b => b.Bimar.NationalCode == nc && b.MobileNumber == Mobile).SingleOrDefaultAsync();
+                var user = await db.Users.Include(b=> b.Bimar).Where(b => b.Bimar.NationalCode == nc && b.MobileNumber == Mobile).SingleOrDefaultAsync();
                 if (user != null)
                 {
                     return new BimarInfo()

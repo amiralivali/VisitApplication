@@ -18,7 +18,7 @@ namespace Visit.API.Controllers
             return result;
         }
         [HttpGet]
-        public async Task<OprationResult<List<VisitDto>>> SelectAsync(int id,string search)
+        public async Task<OprationResult<List<VisitDto>>> SelectAsync(int id,string search="")
         {
             var result = await visitService.SelectAsync(id,search);
             return result;

@@ -125,7 +125,7 @@ namespace Visit.UI
                             MobileNumber = txtMobile.Text,
                         };
                         frmWorkingTime frmWorkingTime = new frmWorkingTime();
-                        frmWorkingTime.Show();
+                        frmWorkingTime.ShowDialog();
                         doctorInfo.StartTime= frmWorkingTime.StartTime;
                         doctorInfo.EndTime= frmWorkingTime.EndTime;
                         if (PictureBoxProfile.ImageLocation != null)

@@ -34,6 +34,7 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTakhasos = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // 
             this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(114, 40);
+            this.lblFullName.Location = new System.Drawing.Point(114, 27);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(350, 33);
             this.lblFullName.TabIndex = 7;
@@ -119,18 +120,30 @@
             // 
             this.lblTakhasos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTakhasos.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTakhasos.Location = new System.Drawing.Point(98, 73);
+            this.lblTakhasos.Location = new System.Drawing.Point(98, 60);
             this.lblTakhasos.Name = "lblTakhasos";
             this.lblTakhasos.Size = new System.Drawing.Size(366, 33);
             this.lblTakhasos.TabIndex = 8;
             this.lblTakhasos.Text = "متخصص : ";
             this.lblTakhasos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.lblTime.Location = new System.Drawing.Point(114, 93);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(350, 33);
+            this.lblTime.TabIndex = 9;
+            this.lblTime.Text = ".";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmDoctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblTakhasos);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.pictureBoxProfile);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Label lblFullName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxProfile;
         private System.Windows.Forms.Label lblTakhasos;
+        private System.Windows.Forms.Label lblTime;
     }
 }

@@ -14,45 +14,47 @@ namespace Visit.UI
         public frmDoctors()
         {
             InitializeComponent();
+            Takhasos = new List<TakhasosInfo>();
         }
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
-            Takhasos = new List<TakhasosInfo>()
-            {
-                 new TakhasosInfo()
-                 {
-                 ID = 6,
-                 Titel="روانشناسی"
-                 },
-                 new TakhasosInfo()
-                 {
-                 ID = 3,
-                 Titel="قلب و عروق"
-                 },
-                 new TakhasosInfo()
-                 {
-                 ID = 2,
-                 Titel="مغز و اعصاب"
-                 },
-            };
-            Info = new DoctorInfo()
-            {
-                DoctorID = 6,
-                FirstName = "ابوالفضل",
-                LastName = "والی",
-                CodeNezamPezeshki = "55555",
-                MobileNumber = "09131630330",
-                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/MqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg"
-            };
+            //Takhasos = new List<TakhasosInfo>()
+            //{
+            //     new TakhasosInfo()
+            //     {
+            //     ID = 6,
+            //     Titel="روانشناسی"
+            //     },
+            //     new TakhasosInfo()
+            //     {
+            //     ID = 3,
+            //     Titel="قلب و عروق"
+            //     },
+            //     new TakhasosInfo()
+            //     {
+            //     ID = 2,
+            //     Titel="مغز و اعصاب"
+            //     },
+            //};
+            //Info = new DoctorInfo()
+            //{
+            //    DoctorID = 6,
+            //    FirstName = "ابوالفضل",
+            //    LastName = "والی",
+            //    CodeNezamPezeshki = "55555",
+            //    MobileNumber = "09131630330",
+            //    Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/MqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg"
+            //};
             FillInformation();
         }
         public void FillInformation()
         {
-            lblTakhasos.Text = "";
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             var titles = Takhasos.Select(t => t.Titel).ToList();
-            lblTakhasos.Text += string.Join(" , ", titles);
+            lblTakhasos.Text = Messages.Takhasos + " : " + string.Join(" , ", titles);
+            string timeText = string.Format("ساعت کاری : از {0} تا {1}",Info.StartTime,Info.EndTime);
+            lblTime.Text = timeText;
             pictureBoxProfile.LoadAsync(Info.Picture);
         }
         private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)

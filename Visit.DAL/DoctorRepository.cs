@@ -106,7 +106,7 @@ namespace Visit.DAL
         {
             try
             {
-                var user = await db.Users.Where(d => d.Doctor.CodeNezamPezeshki == Nezam && d.MobileNumber == Mobile).SingleAsync();
+                var user = await db.Users.Include(u => u.Doctor).Where(d => d.Doctor.CodeNezamPezeshki == Nezam && d.MobileNumber == Mobile).SingleAsync();
                 return new DoctorInfo()
                 {
                     DoctorID = user.ID,
