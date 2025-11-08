@@ -19,33 +19,30 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
-            //Takhasos = new List<TakhasosInfo>()
-            //{
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 6,
-            //     Titel="روانشناسی"
-            //     },
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 3,
-            //     Titel="قلب و عروق"
-            //     },
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 2,
-            //     Titel="مغز و اعصاب"
-            //     },
-            //};
-            //Info = new DoctorInfo()
-            //{
-            //    DoctorID = 6,
-            //    FirstName = "ابوالفضل",
-            //    LastName = "والی",
-            //    CodeNezamPezeshki = "55555",
-            //    MobileNumber = "09131630330",
-            //    Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/MqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg"
-            //};
+            Takhasos = new List<TakhasosInfo>()
+            {
+                 new TakhasosInfo()
+                 {
+                 ID = 6,
+                 Titel="روانشناسی"
+                 },
+                 new TakhasosInfo()
+                 {
+                 ID = 2,
+                 Titel="مغز و اعصاب"
+                 },
+            };
+            Info = new DoctorInfo()
+            {
+                DoctorID = 1008,
+                FirstName = "شهرام",
+                LastName = "شپره",
+                CodeNezamPezeshki = "85236",
+                MobileNumber = "09005868412",
+                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/000048168.png",
+                StartTime=new TimeSpan(8,0,0),
+                EndTime=new TimeSpan(13,0,0),
+            };
             FillInformation();
         }
         public void FillInformation()

@@ -98,7 +98,7 @@
             // 
             this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(114, 27);
+            this.lblFullName.Location = new System.Drawing.Point(114, 22);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(350, 33);
             this.lblFullName.TabIndex = 7;
@@ -120,7 +120,7 @@
             // 
             this.lblTakhasos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTakhasos.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTakhasos.Location = new System.Drawing.Point(98, 60);
+            this.lblTakhasos.Location = new System.Drawing.Point(98, 55);
             this.lblTakhasos.Name = "lblTakhasos";
             this.lblTakhasos.Size = new System.Drawing.Size(366, 33);
             this.lblTakhasos.TabIndex = 8;
@@ -131,7 +131,7 @@
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTime.Location = new System.Drawing.Point(114, 93);
+            this.lblTime.Location = new System.Drawing.Point(114, 88);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(350, 33);
             this.lblTime.TabIndex = 9;

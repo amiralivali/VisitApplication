@@ -49,5 +49,10 @@ namespace Visit.UI
         {
             FillDGV(txtSearch.Text);
         }
+
+        private void dgvHistorys_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace Visit.Shared
     {
         public string FullNameBimar { get; set; }
         public string FullNameDoctor { get; set; }
-        public string DateTime { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

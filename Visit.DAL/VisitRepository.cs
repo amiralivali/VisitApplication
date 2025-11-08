@@ -15,7 +15,7 @@ namespace Visit.DAL
         {
             try
             {
-                var visits = await db.Visits.Where(v => v.BimarID == id || v.DoctorID == id)
+                var visits = await db.Visits.Include(d=>d.Doctor.User).Include(b=>b.Bimar.User).Where(v => v.BimarID == id || v.DoctorID == id)
                     .Where(v => search == "" ||
                     v.Bimar.User.FirstName.Contains(search) ||
                     v.Bimar.User.LastName.Contains(search) ||
@@ -25,9 +25,9 @@ namespace Visit.DAL
                     v.Date.ToString().Contains(search)).ToListAsync();
                 return visits.Select(v => new VisitDto()
                 {
-                    FullNameBimar = v.Bimar.User.FirstName + v.Bimar.User.LastName,
-                    FullNameDoctor = v.Doctor.User.FirstName + v.Doctor.User.LastName,
-                    DateTime = v.Date.ToString()
+                    FullNameBimar = v.Bimar.User.FirstName + " " + v.Bimar.User.LastName,
+                    FullNameDoctor = v.Doctor.User.FirstName + " " + v.Doctor.User.LastName,
+                    DateTime = v.Date
                 }).ToList();
             }
             catch (Exception ex)
