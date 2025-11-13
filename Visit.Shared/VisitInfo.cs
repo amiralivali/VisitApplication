@@ -11,7 +11,6 @@ namespace Visit.Shared
         public int ID { get; set; }
         public int BimarID { get; set; }
         public int DoctorID { get; set; }
-        public TimeSpan Time { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

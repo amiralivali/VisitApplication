@@ -32,7 +32,7 @@ namespace Visit.UI
                 LastName = "والی",
                 NationalCode = "1251039502",
                 MobileNumber = "09361842050",
-                Picture= "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication%2FMqkYBsRLHYdDy8AJPuiGfhunwbkSW2Oocv2ruugs.jpg?versionId="
+                Picture= "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/3f886560-8df2-11ee-b418-512ccd6bd884.jpg"
             };
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             pictureBoxProfile.LoadAsync(Info.Picture);

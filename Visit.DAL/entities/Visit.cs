@@ -11,10 +11,7 @@ namespace Visit.DAL
 
         public int BimarID { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime Date { get; set; }
-
-        public TimeSpan Time { get; set; }
+        public DateTime DateTime { get; set; }
 
         public virtual Bimar Bimar { get; set; }
 

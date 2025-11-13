@@ -51,8 +51,7 @@ namespace Visit.DAL
             {
                 BimarID = info.BimarID,
                 DoctorID = info.DoctorID,
-                Date = info.Date,
-                Time = info.Time,
+                DateTime = info.DateTime,
             };
             return visit;
         }

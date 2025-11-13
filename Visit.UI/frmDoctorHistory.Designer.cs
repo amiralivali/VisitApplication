@@ -32,6 +32,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn1 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(20, 16);
+            this.btnRefresh.Location = new System.Drawing.Point(23, 24);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(121, 38);
@@ -62,7 +63,7 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(454, 35);
+            this.lblSearch.Location = new System.Drawing.Point(485, 35);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(62, 13);
@@ -80,7 +81,7 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(259, 20);
+            this.txtSearch.Location = new System.Drawing.Point(297, 28);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
@@ -91,36 +92,51 @@
             // 
             // dgvHistorys
             // 
+            this.dgvHistorys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.dgvHistorys.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvHistorys.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvHistorys.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvHistorys.Location = new System.Drawing.Point(0, 76);
+            this.dgvHistorys.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvHistorys.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvHistorys.Location = new System.Drawing.Point(0, 107);
             // 
             // 
             // 
             this.dgvHistorys.MasterTemplate.AllowAddNewRow = false;
             this.dgvHistorys.MasterTemplate.AllowColumnReorder = false;
+            gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.FieldName = "FullNameBimar";
             gridViewTextBoxColumn1.HeaderText = "نام بیمار";
             gridViewTextBoxColumn1.Name = "FullNameBimar";
-            gridViewTextBoxColumn1.Width = 46;
+            gridViewTextBoxColumn1.Width = 122;
+            gridViewTextBoxColumn2.EnableExpressionEditor = false;
             gridViewTextBoxColumn2.FieldName = "FullNameDoctor";
             gridViewTextBoxColumn2.HeaderText = "نام دکتر";
             gridViewTextBoxColumn2.Name = "FullNameDoctor";
-            gridViewTextBoxColumn2.Width = 46;
+            gridViewTextBoxColumn2.Width = 124;
+            gridViewDateTimeColumn1.DataType = typeof(string);
+            gridViewDateTimeColumn1.EnableExpressionEditor = false;
             gridViewDateTimeColumn1.FieldName = "DateTime";
             gridViewDateTimeColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewDateTimeColumn1.HeaderText = "تاریخ و ساعت";
             gridViewDateTimeColumn1.Name = "DateTime";
             gridViewDateTimeColumn1.ReadOnly = true;
-            gridViewDateTimeColumn1.Width = 73;
+            gridViewDateTimeColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
+            gridViewDateTimeColumn1.Width = 193;
+            gridViewCommandColumn1.EnableExpressionEditor = false;
             gridViewCommandColumn1.HeaderText = "صفحه چت";
             gridViewCommandColumn1.Name = "Chat";
-            gridViewCommandColumn1.Width = 58;
+            gridViewCommandColumn1.Width = 112;
             this.dgvHistorys.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
             gridViewDateTimeColumn1,
             gridViewCommandColumn1});
+            this.dgvHistorys.MasterTemplate.EnableGrouping = false;
+            this.dgvHistorys.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
+            sortDescriptor1.PropertyName = "DateTime";
+            this.dgvHistorys.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            sortDescriptor1});
             this.dgvHistorys.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.dgvHistorys.Name = "dgvHistorys";
             this.dgvHistorys.ReadOnly = true;
@@ -128,10 +144,12 @@
             // 
             // 
             // 
-            this.dgvHistorys.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            this.dgvHistorys.RootElement.AutoSize = true;
+            this.dgvHistorys.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
             this.dgvHistorys.RootElement.ClipDrawing = false;
-            this.dgvHistorys.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            this.dgvHistorys.Size = new System.Drawing.Size(544, 208);
+            this.dgvHistorys.RootElement.EnableRippleAnimation = false;
+            this.dgvHistorys.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.dgvHistorys.Size = new System.Drawing.Size(569, 208);
             this.dgvHistorys.TabIndex = 4;
             this.dgvHistorys.Click += new System.EventHandler(this.dgvHistorys_Click);
             // 
@@ -139,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 284);
+            this.ClientSize = new System.Drawing.Size(569, 315);
             this.Controls.Add(this.dgvHistorys);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);

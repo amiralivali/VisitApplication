@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn1 = new Telerik.WinControls.UI.GridViewCommandColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.dgvHistorys = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.FullNameBimar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullNameDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chat = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvHistorys = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefresh
@@ -53,7 +52,7 @@
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(20, 13);
+            this.btnRefresh.Location = new System.Drawing.Point(43, 30);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(121, 38);
@@ -64,120 +63,12 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(439, 27);
+            this.lblSearch.Location = new System.Drawing.Point(495, 40);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(62, 13);
             this.lblSearch.TabIndex = 6;
             this.lblSearch.Text = ": جست و جو";
-            // 
-            // dgvHistorys
-            // 
-            this.dgvHistorys.AllowUserToAddRows = false;
-            this.dgvHistorys.AllowUserToDeleteRows = false;
-            this.dgvHistorys.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Navy;
-            this.dgvHistorys.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHistorys.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvHistorys.ColumnHeadersHeight = 26;
-            this.dgvHistorys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvHistorys.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FullNameBimar,
-            this.FullNameDoctor,
-            this.Date,
-            this.Chat});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHistorys.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvHistorys.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvHistorys.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.Location = new System.Drawing.Point(0, 80);
-            this.dgvHistorys.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvHistorys.Name = "dgvHistorys";
-            this.dgvHistorys.ReadOnly = true;
-            this.dgvHistorys.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvHistorys.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHistorys.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvHistorys.RowHeadersVisible = false;
-            this.dgvHistorys.RowHeadersWidth = 51;
-            this.dgvHistorys.RowTemplate.Height = 25;
-            this.dgvHistorys.Size = new System.Drawing.Size(503, 256);
-            this.dgvHistorys.TabIndex = 5;
-            this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Navy;
-            this.dgvHistorys.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvHistorys.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvHistorys.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dgvHistorys.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvHistorys.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvHistorys.ThemeStyle.HeaderStyle.Height = 26;
-            this.dgvHistorys.ThemeStyle.ReadOnly = true;
-            this.dgvHistorys.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvHistorys.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvHistorys.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHistorys.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvHistorys.ThemeStyle.RowsStyle.Height = 25;
-            this.dgvHistorys.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // FullNameBimar
-            // 
-            this.FullNameBimar.DataPropertyName = "FullNameBimar";
-            this.FullNameBimar.HeaderText = "نام بیمار";
-            this.FullNameBimar.MinimumWidth = 6;
-            this.FullNameBimar.Name = "FullNameBimar";
-            this.FullNameBimar.ReadOnly = true;
-            // 
-            // FullNameDoctor
-            // 
-            this.FullNameDoctor.DataPropertyName = "FullNameDoctor";
-            this.FullNameDoctor.HeaderText = "نام دکتر";
-            this.FullNameDoctor.MinimumWidth = 6;
-            this.FullNameDoctor.Name = "FullNameDoctor";
-            this.FullNameDoctor.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "تاریخ و ساعت";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Chat
-            // 
-            this.Chat.HeaderText = "مشاهده گفت و گو";
-            this.Chat.MinimumWidth = 6;
-            this.Chat.Name = "Chat";
-            this.Chat.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -190,7 +81,7 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(262, 19);
+            this.txtSearch.Location = new System.Drawing.Point(318, 32);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
@@ -199,19 +90,81 @@
             this.txtSearch.TabIndex = 4;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // dgvHistorys
+            // 
+            this.dgvHistorys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.dgvHistorys.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvHistorys.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvHistorys.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvHistorys.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvHistorys.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvHistorys.Location = new System.Drawing.Point(0, 114);
+            // 
+            // 
+            // 
+            this.dgvHistorys.MasterTemplate.AllowAddNewRow = false;
+            this.dgvHistorys.MasterTemplate.AllowColumnReorder = false;
+            gridViewTextBoxColumn1.EnableExpressionEditor = false;
+            gridViewTextBoxColumn1.FieldName = "FullNameBimar";
+            gridViewTextBoxColumn1.HeaderText = "نام بیمار";
+            gridViewTextBoxColumn1.Name = "FullNameBimar";
+            gridViewTextBoxColumn1.Width = 122;
+            gridViewTextBoxColumn2.EnableExpressionEditor = false;
+            gridViewTextBoxColumn2.FieldName = "FullNameDoctor";
+            gridViewTextBoxColumn2.HeaderText = "نام دکتر";
+            gridViewTextBoxColumn2.Name = "FullNameDoctor";
+            gridViewTextBoxColumn2.Width = 124;
+            gridViewDateTimeColumn1.DataType = typeof(string);
+            gridViewDateTimeColumn1.EnableExpressionEditor = false;
+            gridViewDateTimeColumn1.FieldName = "DateTime";
+            gridViewDateTimeColumn1.HeaderText = "تاریخ و ساعت";
+            gridViewDateTimeColumn1.Name = "DateTime";
+            gridViewDateTimeColumn1.ReadOnly = true;
+            gridViewDateTimeColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewDateTimeColumn1.Width = 191;
+            gridViewCommandColumn1.EnableExpressionEditor = false;
+            gridViewCommandColumn1.HeaderText = "صفحه چت";
+            gridViewCommandColumn1.Name = "Chat";
+            gridViewCommandColumn1.Width = 112;
+            this.dgvHistorys.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewDateTimeColumn1,
+            gridViewCommandColumn1});
+            this.dgvHistorys.MasterTemplate.EnableGrouping = false;
+            this.dgvHistorys.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
+            sortDescriptor1.PropertyName = "Time";
+            this.dgvHistorys.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            sortDescriptor1});
+            this.dgvHistorys.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvHistorys.Name = "dgvHistorys";
+            this.dgvHistorys.ReadOnly = true;
+            this.dgvHistorys.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            // 
+            // 
+            // 
+            this.dgvHistorys.RootElement.AutoSize = true;
+            this.dgvHistorys.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.dgvHistorys.RootElement.ClipDrawing = false;
+            this.dgvHistorys.RootElement.EnableRippleAnimation = false;
+            this.dgvHistorys.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.dgvHistorys.Size = new System.Drawing.Size(567, 230);
+            this.dgvHistorys.TabIndex = 8;
+            // 
             // frmBimarHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 336);
+            this.ClientSize = new System.Drawing.Size(567, 344);
+            this.Controls.Add(this.dgvHistorys);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.dgvHistorys);
             this.Controls.Add(this.txtSearch);
             this.MaximizeBox = false;
             this.Name = "frmBimarHistory";
             this.Text = "ویزیت 24";
             this.Load += new System.EventHandler(this.frmBimarHistory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,11 +175,7 @@
 
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private System.Windows.Forms.Label lblSearch;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvHistorys;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullNameBimar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullNameDoctor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewButtonColumn Chat;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private Telerik.WinControls.UI.RadGridView dgvHistorys;
     }
 }
