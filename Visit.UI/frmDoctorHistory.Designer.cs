@@ -37,9 +37,9 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dgvHistorys = new Telerik.WinControls.UI.RadGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys.MasterTemplate)).BeginInit();
+            this.dgvHistory = new Telerik.WinControls.UI.RadGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefresh
@@ -90,22 +90,23 @@
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // dgvHistorys
+            // dgvHistory
             // 
-            this.dgvHistorys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.dgvHistorys.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvHistorys.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvHistorys.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dgvHistorys.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvHistorys.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvHistorys.Location = new System.Drawing.Point(0, 107);
+            this.dgvHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.dgvHistory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvHistory.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dgvHistory.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvHistory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvHistory.Location = new System.Drawing.Point(0, 85);
             // 
             // 
             // 
-            this.dgvHistorys.MasterTemplate.AllowAddNewRow = false;
-            this.dgvHistorys.MasterTemplate.AllowColumnReorder = false;
+            this.dgvHistory.MasterTemplate.AllowAddNewRow = false;
+            this.dgvHistory.MasterTemplate.AllowColumnReorder = false;
             gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.FieldName = "FullNameBimar";
+            gridViewTextBoxColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewTextBoxColumn1.HeaderText = "نام بیمار";
             gridViewTextBoxColumn1.Name = "FullNameBimar";
             gridViewTextBoxColumn1.Width = 122;
@@ -114,51 +115,52 @@
             gridViewTextBoxColumn2.HeaderText = "نام دکتر";
             gridViewTextBoxColumn2.Name = "FullNameDoctor";
             gridViewTextBoxColumn2.Width = 124;
-            gridViewDateTimeColumn1.DataType = typeof(string);
             gridViewDateTimeColumn1.EnableExpressionEditor = false;
             gridViewDateTimeColumn1.FieldName = "DateTime";
+            gridViewDateTimeColumn1.FilteringMode = ((Telerik.WinControls.UI.GridViewTimeFilteringMode)((Telerik.WinControls.UI.GridViewTimeFilteringMode.Time | Telerik.WinControls.UI.GridViewTimeFilteringMode.Date)));
             gridViewDateTimeColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewDateTimeColumn1.HeaderText = "تاریخ و ساعت";
             gridViewDateTimeColumn1.Name = "DateTime";
             gridViewDateTimeColumn1.ReadOnly = true;
-            gridViewDateTimeColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
-            gridViewDateTimeColumn1.Width = 193;
+            gridViewDateTimeColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
+            gridViewDateTimeColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewDateTimeColumn1.Width = 191;
             gridViewCommandColumn1.EnableExpressionEditor = false;
             gridViewCommandColumn1.HeaderText = "صفحه چت";
             gridViewCommandColumn1.Name = "Chat";
             gridViewCommandColumn1.Width = 112;
-            this.dgvHistorys.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            this.dgvHistory.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
             gridViewDateTimeColumn1,
             gridViewCommandColumn1});
-            this.dgvHistorys.MasterTemplate.EnableGrouping = false;
-            this.dgvHistorys.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
+            this.dgvHistory.MasterTemplate.EnableGrouping = false;
+            this.dgvHistory.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
+            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
             sortDescriptor1.PropertyName = "DateTime";
-            this.dgvHistorys.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            this.dgvHistory.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
             sortDescriptor1});
-            this.dgvHistorys.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.dgvHistorys.Name = "dgvHistorys";
-            this.dgvHistorys.ReadOnly = true;
-            this.dgvHistorys.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvHistory.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvHistory.Name = "dgvHistory";
+            this.dgvHistory.ReadOnly = true;
+            this.dgvHistory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             // 
             // 
             // 
-            this.dgvHistorys.RootElement.AutoSize = true;
-            this.dgvHistorys.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
-            this.dgvHistorys.RootElement.ClipDrawing = false;
-            this.dgvHistorys.RootElement.EnableRippleAnimation = false;
-            this.dgvHistorys.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
-            this.dgvHistorys.Size = new System.Drawing.Size(569, 208);
-            this.dgvHistorys.TabIndex = 4;
-            this.dgvHistorys.Click += new System.EventHandler(this.dgvHistorys_Click);
+            this.dgvHistory.RootElement.AutoSize = true;
+            this.dgvHistory.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.dgvHistory.RootElement.ClipDrawing = false;
+            this.dgvHistory.RootElement.EnableRippleAnimation = false;
+            this.dgvHistory.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.dgvHistory.Size = new System.Drawing.Size(569, 230);
+            this.dgvHistory.TabIndex = 9;
             // 
             // frmDoctorHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 315);
-            this.Controls.Add(this.dgvHistorys);
+            this.Controls.Add(this.dgvHistory);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
@@ -166,8 +168,8 @@
             this.Name = "frmDoctorHistory";
             this.Text = "ویزیت 24";
             this.Load += new System.EventHandler(this.frmDoctorHistory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +180,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
-        private Telerik.WinControls.UI.RadGridView dgvHistorys;
+        private Telerik.WinControls.UI.RadGridView dgvHistory;
     }
 }

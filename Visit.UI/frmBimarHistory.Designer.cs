@@ -106,6 +106,7 @@
             this.dgvHistorys.MasterTemplate.AllowColumnReorder = false;
             gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.FieldName = "FullNameBimar";
+            gridViewTextBoxColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewTextBoxColumn1.HeaderText = "نام بیمار";
             gridViewTextBoxColumn1.Name = "FullNameBimar";
             gridViewTextBoxColumn1.Width = 122;
@@ -114,12 +115,14 @@
             gridViewTextBoxColumn2.HeaderText = "نام دکتر";
             gridViewTextBoxColumn2.Name = "FullNameDoctor";
             gridViewTextBoxColumn2.Width = 124;
-            gridViewDateTimeColumn1.DataType = typeof(string);
             gridViewDateTimeColumn1.EnableExpressionEditor = false;
             gridViewDateTimeColumn1.FieldName = "DateTime";
+            gridViewDateTimeColumn1.FilteringMode = ((Telerik.WinControls.UI.GridViewTimeFilteringMode)((Telerik.WinControls.UI.GridViewTimeFilteringMode.Time | Telerik.WinControls.UI.GridViewTimeFilteringMode.Date)));
+            gridViewDateTimeColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewDateTimeColumn1.HeaderText = "تاریخ و ساعت";
             gridViewDateTimeColumn1.Name = "DateTime";
             gridViewDateTimeColumn1.ReadOnly = true;
+            gridViewDateTimeColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
             gridViewDateTimeColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             gridViewDateTimeColumn1.Width = 191;
             gridViewCommandColumn1.EnableExpressionEditor = false;
@@ -133,7 +136,8 @@
             gridViewCommandColumn1});
             this.dgvHistorys.MasterTemplate.EnableGrouping = false;
             this.dgvHistorys.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
-            sortDescriptor1.PropertyName = "Time";
+            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor1.PropertyName = "DateTime";
             this.dgvHistorys.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
             sortDescriptor1});
             this.dgvHistorys.MasterTemplate.ViewDefinition = tableViewDefinition1;

@@ -126,8 +126,8 @@ namespace Visit.UI
                         };
                         frmWorkingTime frmWorkingTime = new frmWorkingTime();
                         frmWorkingTime.ShowDialog();
-                        doctorInfo.StartTime= frmWorkingTime.StartTime;
-                        doctorInfo.EndTime= frmWorkingTime.EndTime;
+                        doctorInfo.StartTime = frmWorkingTime.StartTime;
+                        doctorInfo.EndTime = frmWorkingTime.EndTime;
                         if (PictureBoxProfile.ImageLocation != null)
                         {
                             var check = await SavePicture.Save(PictureBoxProfile.ImageLocation);

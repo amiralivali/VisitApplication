@@ -13,7 +13,7 @@ namespace Visit.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBimars());
+            Application.Run(new frmDoctors());
         }
 
     }

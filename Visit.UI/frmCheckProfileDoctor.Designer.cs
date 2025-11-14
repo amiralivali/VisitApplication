@@ -40,6 +40,7 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNezam = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnChangeTime = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Location = new System.Drawing.Point(375, 185);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(374, 195);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(80, 77);
@@ -61,7 +62,7 @@
             // 
             // ProgressBar
             // 
-            this.ProgressBar.Location = new System.Drawing.Point(36, 197);
+            this.ProgressBar.Location = new System.Drawing.Point(36, 207);
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.Size = new System.Drawing.Size(72, 52);
             this.ProgressBar.TabIndex = 34;
@@ -77,7 +78,7 @@
             this.btnRecordinformation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRecordinformation.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRecordinformation.ForeColor = System.Drawing.Color.White;
-            this.btnRecordinformation.Location = new System.Drawing.Point(151, 207);
+            this.btnRecordinformation.Location = new System.Drawing.Point(125, 217);
             this.btnRecordinformation.Name = "btnRecordinformation";
             this.btnRecordinformation.Size = new System.Drawing.Size(157, 42);
             this.btnRecordinformation.TabIndex = 33;
@@ -219,11 +220,28 @@
             this.txtNezam.Size = new System.Drawing.Size(127, 27);
             this.txtNezam.TabIndex = 2;
             // 
+            // btnChangeTime
+            // 
+            this.btnChangeTime.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangeTime.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangeTime.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangeTime.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangeTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnChangeTime.ForeColor = System.Drawing.Color.White;
+            this.btnChangeTime.Location = new System.Drawing.Point(288, 196);
+            this.btnChangeTime.Name = "btnChangeTime";
+            this.btnChangeTime.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnChangeTime.Size = new System.Drawing.Size(80, 77);
+            this.btnChangeTime.TabIndex = 37;
+            this.btnChangeTime.Text = "تغییر ساعت کاری";
+            this.btnChangeTime.Click += new System.EventHandler(this.btnChangeTime_Click);
+            // 
             // frmCheckProfileDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 271);
+            this.ClientSize = new System.Drawing.Size(459, 284);
+            this.Controls.Add(this.btnChangeTime);
             this.Controls.Add(this.guna2CircleButton1);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.btnRecordinformation);
@@ -261,5 +279,6 @@
         private Guna.UI2.WinForms.Guna2Button btnRecordinformation;
         private Guna.UI2.WinForms.Guna2WinProgressIndicator ProgressBar;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2CircleButton btnChangeTime;
     }
 }

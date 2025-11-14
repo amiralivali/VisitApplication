@@ -29,7 +29,7 @@ namespace Visit.UI
             var visits = await httpHelper.GetAsync<OprationResult<List<VisitDto>>>(route);
             if (visits.IsSuccess)
             {
-                dgvHistorys.DataSource = visits.Data;
+                dgvHistory.DataSource = visits.Data;
             }
             else
             {

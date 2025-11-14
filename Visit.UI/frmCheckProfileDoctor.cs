@@ -9,6 +9,8 @@ namespace Visit.UI
         public DoctorInfo DoctorInfo { get; set; }
         public frmDoctors FrmDoctors { get; set; }
         HttpClientHelper HttpClient;
+        private TimeSpan? startTime;
+        private TimeSpan? endTime;
         public frmCheckProfileDoctor()
         {
             InitializeComponent();
@@ -32,7 +34,8 @@ namespace Visit.UI
             // شرط برای این است که در صورتی که تغییر اعمال شد به دیتابیس درخواست بدم
             if (txtFirstName.Text != DoctorInfo.FirstName || txtLastName.Text != DoctorInfo.LastName ||
                 txtMobile.Text != DoctorInfo.MobileNumber || txtNezam.Text != DoctorInfo.CodeNezamPezeshki ||
-                pbProfile.ImageLocation != null || pbProfile.ImageLocation != DoctorInfo.Picture)
+                pbProfile.ImageLocation != null || pbProfile.ImageLocation != DoctorInfo.Picture ||
+                startTime != DoctorInfo.StartTime || endTime != DoctorInfo.EndTime) 
             {
                 ProgressBar.Visible = false;
                 ProgressBar.Start();
@@ -55,6 +58,8 @@ namespace Visit.UI
                 DoctorInfo.LastName = txtLastName.Text;
                 DoctorInfo.MobileNumber = txtMobile.Text;
                 DoctorInfo.CodeNezamPezeshki = txtNezam.Text;
+                DoctorInfo.StartTime=startTime;
+                DoctorInfo.EndTime=endTime;
                 if (DoctorInfo.IsValid)
                 {
                     var result = await HttpClient.PostAsync<OprationResult, DoctorInfo>(RouteConstants.UpdateDoctor, DoctorInfo);
@@ -105,6 +110,18 @@ namespace Visit.UI
             };
             frmTakhasos.Show();
             this.Close();
+        }
+
+        private void btnChangeTime_Click(object sender, EventArgs e)
+        {
+            frmWorkingTime frmWorkingTime = new frmWorkingTime()
+            {
+                StartTime = DoctorInfo.StartTime,
+                EndTime = DoctorInfo.EndTime,
+            };
+            frmWorkingTime.ShowDialog();
+            startTime = frmWorkingTime.StartTime;
+            endTime = frmWorkingTime.EndTime;
         }
     }
 }

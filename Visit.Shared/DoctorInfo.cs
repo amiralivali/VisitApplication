@@ -8,7 +8,7 @@ namespace Visit.Shared
         public int DoctorID { get; set; }
         [NezamValidation]
         public string CodeNezamPezeshki { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public TimeSpan? StartTime { get; set; }
+        public TimeSpan? EndTime { get; set; }
     }
 }

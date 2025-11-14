@@ -13,8 +13,8 @@ namespace Visit.UI
 {
     public partial class frmWorkingTime : Form
     {
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public TimeSpan? StartTime { get; set; }
+        public TimeSpan? EndTime { get; set; }
         public frmWorkingTime()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Visit.UI
             EndTime = timePickerEnd.Value.Value.TimeOfDay;
             this.Close();
         }
-        void FillWorkingTime()
+        void FillWorkingTimeText()
         {
             var startTime = timePickerStart.Value.Value.TimeOfDay;
             var endTime = timePickerEnd.Value.Value.TimeOfDay;
@@ -42,7 +42,15 @@ namespace Visit.UI
         }
         private void frmWorkingTime_Load(object sender, EventArgs e)
         {
-            FillWorkingTime();
+            if (StartTime.HasValue && EndTime.HasValue)
+            {
+                // ساخت یک DateTime با تاریخ امروز و ساعت مورد نظر
+                DateTime dt = DateTime.Today.Add(StartTime.Value);
+                timePickerStart.Value = dt;
+                dt = DateTime.Today.Add(EndTime.Value);
+                timePickerEnd.Value = dt;
+            }
+            FillWorkingTimeText();
         }
 
         private void timePickerStart_Click(object sender, EventArgs e)
@@ -52,12 +60,12 @@ namespace Visit.UI
 
         private void timePickerStart_ValueChanged(object sender, EventArgs e)
         {
-            FillWorkingTime();
+            FillWorkingTimeText();
         }
 
         private void timePickerEnd_ValueChanged(object sender, EventArgs e)
         {
-            FillWorkingTime();
+            FillWorkingTimeText();
         }
     }
 }

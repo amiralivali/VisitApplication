@@ -52,7 +52,10 @@ namespace Visit.UI
             lblTakhasos.Text = Messages.Takhasos + " : " + string.Join(" , ", titles);
             string timeText = string.Format("ساعت کاری : از {0} تا {1}",Info.StartTime,Info.EndTime);
             lblTime.Text = timeText;
-            pictureBoxProfile.LoadAsync(Info.Picture);
+            if (Info.Picture != null)
+            {
+                pictureBoxProfile.LoadAsync(Info.Picture);
+            }
         }
         private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
         {

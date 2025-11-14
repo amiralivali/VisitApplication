@@ -35,7 +35,10 @@ namespace Visit.UI
                 Picture= "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/3f886560-8df2-11ee-b418-512ccd6bd884.jpg"
             };
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
-            pictureBoxProfile.LoadAsync(Info.Picture);
+            if (Info.Picture != null)
+            {
+                pictureBoxProfile.LoadAsync(Info.Picture);
+            }
         }
 
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
