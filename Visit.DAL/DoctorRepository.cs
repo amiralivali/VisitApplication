@@ -32,16 +32,17 @@ namespace Visit.DAL
         }
         public async Task<bool> DeleteAsync(int id)
         {
-            var tran= db.Database.BeginTransaction();
+            var tran = db.Database.BeginTransaction();
             try
-            {
-                var user = db.Users.Where(d => d.ID == id).Single();
+            { 
+                var user = db.Users.Include(d=>d.Doctor).ThenInclude(d=>d.Visits).Where(d => d.ID == id).Single();
+                db.Visits.RemoveRange(user.Doctor.Visits);
                 db.Users.Remove(user);
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.AddLog();
                 tran.Rollback();

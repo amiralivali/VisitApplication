@@ -89,15 +89,23 @@ namespace Visit.DAL
                 .WithOne(e => e.User1)
                 .HasForeignKey(e => e.ToID)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Bimar>()
-                .HasOne(b => b.User)
-                .WithOne(u => u.Bimar)
-                .HasForeignKey<Bimar>(b => b.BimarID);
-
             modelBuilder.Entity<Doctor>()
                 .HasOne(d => d.User)
                 .WithOne(u => u.Doctor)
-                .HasForeignKey<Doctor>(d => d.DoctorID);
+                .HasForeignKey<Doctor>(d => d.DoctorID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Bimar>()
+                .HasOne(b => b.User)
+                .WithOne(u => u.Bimar)
+                .HasForeignKey<Bimar>(b => b.BimarID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Doctor_Takhasos>()
+                .HasOne(d => d.Doctor)
+                .WithMany(t => t.Doctor_Takhasoses)
+                .HasForeignKey(d => d.DoctorID)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
         }

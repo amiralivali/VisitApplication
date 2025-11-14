@@ -35,7 +35,8 @@ namespace Visit.DAL
             var tran = db.Database.BeginTransaction();
             try
             {
-                var user = db.Users.Where(u => u.ID == id).Single();
+                var user = db.Users.Include(d => d.Bimar).ThenInclude(d => d.Visits).Where(d => d.ID == id).Single();
+                db.Visits.RemoveRange(user.Bimar.Visits);
                 db.Users.Remove(user);
                 await db.SaveChangesAsync();
                 tran.Commit();

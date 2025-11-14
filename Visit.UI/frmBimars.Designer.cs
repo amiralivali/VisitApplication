@@ -33,6 +33,7 @@
             this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnCheckProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistoryes = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDeleteAccount = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             this.btnOpenChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnOpenChat.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnOpenChat.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChat.Location = new System.Drawing.Point(286, 277);
+            this.btnOpenChat.Location = new System.Drawing.Point(474, 270);
             this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenChat.Name = "btnOpenChat";
             this.btnOpenChat.Size = new System.Drawing.Size(155, 57);
@@ -58,17 +59,20 @@
             // 
             this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(139, 54);
+            this.lblFullName.Location = new System.Drawing.Point(287, 52);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(177, 33);
+            this.lblFullName.Size = new System.Drawing.Size(218, 33);
             this.lblFullName.TabIndex = 3;
             this.lblFullName.Text = ".";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBoxProfile
             // 
+            this.pictureBoxProfile.ErrorImage = global::Visit.UI.Properties.Resources.Profile;
+            this.pictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
             this.pictureBoxProfile.ImageRotate = 0F;
-            this.pictureBoxProfile.Location = new System.Drawing.Point(322, 12);
+            this.pictureBoxProfile.InitialImage = global::Visit.UI.Properties.Resources.Profile;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(511, 12);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pictureBoxProfile.Size = new System.Drawing.Size(118, 116);
@@ -87,7 +91,7 @@
             this.btnCheckProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
-            this.btnCheckProfile.Location = new System.Drawing.Point(285, 155);
+            this.btnCheckProfile.Location = new System.Drawing.Point(473, 148);
             this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckProfile.Name = "btnCheckProfile";
             this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
@@ -106,7 +110,7 @@
             this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnHistoryes.ForeColor = System.Drawing.Color.White;
-            this.btnHistoryes.Location = new System.Drawing.Point(286, 216);
+            this.btnHistoryes.Location = new System.Drawing.Point(474, 209);
             this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
             this.btnHistoryes.Name = "btnHistoryes";
             this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
@@ -114,11 +118,31 @@
             this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
             this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
             // 
+            // btnDeleteAccount
+            // 
+            this.btnDeleteAccount.Animated = true;
+            this.btnDeleteAccount.AnimatedGIF = true;
+            this.btnDeleteAccount.AutoRoundedCorners = true;
+            this.btnDeleteAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteAccount.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAccount.Location = new System.Drawing.Point(474, 331);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteAccount.Name = "btnDeleteAccount";
+            this.btnDeleteAccount.Size = new System.Drawing.Size(155, 57);
+            this.btnDeleteAccount.TabIndex = 5;
+            this.btnDeleteAccount.Text = "حذف حساب کاربری";
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+            // 
             // frmBimars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 366);
+            this.ClientSize = new System.Drawing.Size(639, 404);
+            this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.btnOpenChat);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.pictureBoxProfile);
@@ -142,5 +166,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxProfile;
         private System.Windows.Forms.Label lblFullName;
         private Guna.UI2.WinForms.Guna2Button btnOpenChat;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteAccount;
     }
 }

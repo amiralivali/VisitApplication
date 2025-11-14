@@ -35,6 +35,7 @@
             this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTakhasos = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.btnDeleteAccount = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             this.lblTakhasos.Name = "lblTakhasos";
             this.lblTakhasos.Size = new System.Drawing.Size(366, 33);
             this.lblTakhasos.TabIndex = 8;
-            this.lblTakhasos.Text = "متخصص : ";
+            this.lblTakhasos.Text = ".";
             this.lblTakhasos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTime
@@ -138,11 +139,31 @@
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnDeleteAccount
+            // 
+            this.btnDeleteAccount.Animated = true;
+            this.btnDeleteAccount.AnimatedGIF = true;
+            this.btnDeleteAccount.AutoRoundedCorners = true;
+            this.btnDeleteAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteAccount.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAccount.Location = new System.Drawing.Point(11, 298);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteAccount.Name = "btnDeleteAccount";
+            this.btnDeleteAccount.Size = new System.Drawing.Size(155, 57);
+            this.btnDeleteAccount.TabIndex = 10;
+            this.btnDeleteAccount.Text = "حذف حساب کاربری";
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+            // 
             // frmDoctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblTakhasos);
             this.Controls.Add(this.lblFullName);
@@ -170,5 +191,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxProfile;
         private System.Windows.Forms.Label lblTakhasos;
         private System.Windows.Forms.Label lblTime;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteAccount;
     }
 }

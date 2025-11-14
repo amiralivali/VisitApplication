@@ -8,9 +8,11 @@ namespace Visit.UI
     {
         public BimarInfo Info { get; set; }
         public frmStart FrmStart { get; set; }
+        HttpClientHelper httpClient;
         public frmBimars()
         {
             InitializeComponent();
+            httpClient = HttpClientHelper.GetInstance();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -55,6 +57,24 @@ namespace Visit.UI
                 ID = Info.BimarID,
             };
             frmHistory.Show();
+        }
+
+        private async void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string route = string.Format(RouteConstants.DeleteBimar, Info.BimarID);
+                var result = await httpClient.GetAsync<OprationResult>(route);
+                if (result.IsSuccess)
+                {
+                    ShowSuccess(result.Message);
+                    this.Close();
+                }
+                else
+                {
+                    ShowError(result.Message);
+                }
+            }
         }
     }
 }

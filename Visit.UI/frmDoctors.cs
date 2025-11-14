@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Windows.Forms;
 using Visit.Shared;
 
@@ -11,10 +12,12 @@ namespace Visit.UI
         public DoctorInfo Info { get; set; }
         public List<TakhasosInfo> Takhasos { get; set; }
         public frmStart FrmStart { get; set; }
+        HttpClientHelper httpClient;
         public frmDoctors()
         {
             InitializeComponent();
             Takhasos = new List<TakhasosInfo>();
+            httpClient=HttpClientHelper.GetInstance();
         }
         
         private void frmDoctors_Load(object sender, EventArgs e)
@@ -82,6 +85,24 @@ namespace Visit.UI
                 ID = Info.DoctorID,
             };
             frmDoctorHistory.Show();
+        }
+
+        private async void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string route = string.Format(RouteConstants.DeleteDoctor, Info.DoctorID);
+                var result = await httpClient.GetAsync<OprationResult>(route);
+                if (result.IsSuccess)
+                {
+                    ShowSuccess(result.Message);
+                    this.Close();
+                }
+                else
+                {
+                    ShowError(result.Message);
+                }
+            }
         }
     }
 }
