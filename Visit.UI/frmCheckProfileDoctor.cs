@@ -4,7 +4,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmCheckProfileDoctor : frmStyle
+    public partial class frmCheckProfileDoctor : FrmStyleHelpers
     {
         public DoctorInfo DoctorInfo { get; set; }
         public frmDoctors FrmDoctors { get; set; }

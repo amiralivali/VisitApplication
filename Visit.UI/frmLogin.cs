@@ -5,6 +5,7 @@ using System.Drawing.Design;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using Telerik.WinControls;
 using Visit.Shared;
 using Visit.Shared.Attributes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
@@ -12,7 +13,7 @@ using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {
-    public partial class frmLogin : frmStyle
+    public partial class frmLogin : FrmStyleHelpers
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;

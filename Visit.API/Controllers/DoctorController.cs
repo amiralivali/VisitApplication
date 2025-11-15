@@ -30,7 +30,7 @@ namespace Visit.API.Controllers
             return result;
         }
         [HttpGet]
-        public async Task<OprationResult<List<DoctorDto>>> SelectAsync(string search)
+        public async Task<OprationResult<List<DoctorDto>>> SelectAsync(string search="")
         {
             var result = await doctorService.SelectAsync(search);
             return result;

@@ -8,7 +8,7 @@ using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {
-    public partial class frmSign : frmStyle
+    public partial class frmSign : FrmStyleHelpers
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;

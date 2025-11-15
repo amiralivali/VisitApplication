@@ -6,7 +6,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimarHistory : frmStyle
+    public partial class frmBimarHistory : FrmStyleHelpers
     {
         HttpClientHelper httpHelper;
         public int ID { private get; set; }

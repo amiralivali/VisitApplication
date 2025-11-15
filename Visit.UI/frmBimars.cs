@@ -6,7 +6,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimars : frmStyle
+    public partial class frmBimars : FrmStyleHelpers
     {
         public BimarInfo Info { get; set; }
         public frmStart FrmStart { get; set; }
@@ -27,7 +27,7 @@ namespace Visit.UI
             frmCheckProfile.Show();
         }
 
-        private async void frmBimars_Load(object sender, EventArgs e)
+        private void frmBimars_Load(object sender, EventArgs e)
         {
             Info = new BimarInfo()
             {
@@ -36,7 +36,7 @@ namespace Visit.UI
                 LastName = "والی",
                 NationalCode = "1251039502",
                 MobileNumber = "09361842050",
-                Picture= "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/3f886560-8df2-11ee-b418-512ccd6bd884.jpg"
+                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/3f886560-8df2-11ee-b418-512ccd6bd884.jpg"
             };
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             if (Info.Picture != null)
@@ -47,6 +47,7 @@ namespace Visit.UI
         }
         private async void ShowDoctors(string search="")
         {
+            flpDoctors.Controls.Clear();
             string route = string.Format(RouteConstants.SelectDoctor, search);
             var result = await httpClient.GetAsync<OprationResult<List<DoctorDto>>>(route);
             if (result.IsSuccess)

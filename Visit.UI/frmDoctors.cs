@@ -7,7 +7,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmDoctors : frmStyle
+    public partial class frmDoctors : FrmStyleHelpers
     {
         public DoctorInfo Info { get; set; }
         public List<TakhasosInfo> Takhasos { get; set; }
@@ -22,30 +22,30 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
-            Takhasos = new List<TakhasosInfo>()
-            {
-                 new TakhasosInfo()
-                 {
-                 ID = 6,
-                 Titel="روانشناسی"
-                 },
-                 new TakhasosInfo()
-                 {
-                 ID = 2,
-                 Titel="مغز و اعصاب"
-                 },
-            };
-            Info = new DoctorInfo()
-            {
-                DoctorID = 1008,
-                FirstName = "شهرام",
-                LastName = "شپره",
-                CodeNezamPezeshki = "85236",
-                MobileNumber = "09005868412",
-                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/000048168.png",
-                StartTime=new TimeSpan(8,0,0),
-                EndTime=new TimeSpan(13,0,0),
-            };
+            //Takhasos = new List<TakhasosInfo>()
+            //{
+            //     new TakhasosInfo()
+            //     {
+            //     ID = 6,
+            //     Titel="روانشناسی"
+            //     },
+            //     new TakhasosInfo()
+            //     {
+            //     ID = 2,
+            //     Titel="مغز و اعصاب"
+            //     },
+            //};
+            //Info = new DoctorInfo()
+            //{
+            //    DoctorID = 1008,
+            //    FirstName = "شهرام",
+            //    LastName = "شپره",
+            //    CodeNezamPezeshki = "85236",
+            //    MobileNumber = "09005868412",
+            //    Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/000048168.png",
+            //    StartTime=new TimeSpan(8,0,0),
+            //    EndTime=new TimeSpan(13,0,0),
+            //};
             FillInformation();
         }
         public void FillInformation()
