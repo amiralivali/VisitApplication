@@ -78,19 +78,27 @@ namespace Visit.DAL
         {
             try
             {
-                var doctors = await db.Doctors.AsNoTracking().Select(d => new DoctorDto()
-                {
-                    DoctorID = d.DoctorID,
-                    FirstName = d.User.FirstName,
-                    LastName = d.User.LastName,
-                    CodeNezamPezeshki = d.CodeNezamPezeshki,
-                    StartTime=d.StartWorkingTime,
-                    EndTime=d.EndWorkingTime,
-                }).ToListAsync();
+                var doctors = await db.Doctors.Include(d => d.User)
+                    .Include(d => d.Doctor_Takhasoses)
+                    .ThenInclude(d => d.Takhasos).AsNoTracking()
+                    .Select(d => new DoctorDto()
+                    {
+                        DoctorID = d.DoctorID,
+                        FullName = d.User.FirstName + " " + d.User.LastName,
+                        Picture = d.User.Picture,
+                        Takhasos = d.Doctor_Takhasoses.Select(d => d.Takhasos).Select(x => new TakhasosInfo()
+                        {
+                            ID = x.ID,
+                            Titel = x.Titel,
+                        }).ToList(),
+                        StartTime = d.StartWorkingTime,
+                        EndTime = d.EndWorkingTime,
+                    }).ToListAsync();
                 return doctors.Where(d => search == "" ||
-                d.FirstName.Contains(search) ||
-                d.LastName.Contains(search) ||
-                d.CodeNezamPezeshki.Contains(search)).ToList();
+                d.FullName.Contains(search) ||
+                d.Takhasos.ToString().Contains(search) ||
+                d.StartTime.ToString().Contains(search) ||
+                d.EndTime.ToString().Contains(search)).ToList();
             }
             catch(Exception ex)
             {

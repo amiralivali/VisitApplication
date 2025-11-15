@@ -113,6 +113,12 @@
     <Compile Include="frmDoctors.Designer.cs">
       <DependentUpon>frmDoctors.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoctorTurn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctorTurn.Designer.cs">
+      <DependentUpon>frmDoctorTurn.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     </Compile>
     <Compile Include="RouteConstants.cs" />
     <Compile Include="SavePicture.cs" />
+    <Compile Include="UC_Doctors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Doctors.Designer.cs">
+      <DependentUpon>UC_Doctors.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserCheckSmsHandler.cs" />
     <EmbeddedResource Include="frmBimarHistory.resx">
       <DependentUpon>frmBimarHistory.cs</DependentUpon>
@@ -174,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoctors.resx">
       <DependentUpon>frmDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctorTurn.resx">
+      <DependentUpon>frmDoctorTurn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -198,6 +213,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Doctors.resx">
+      <DependentUpon>UC_Doctors.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

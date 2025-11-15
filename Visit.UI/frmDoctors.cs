@@ -53,7 +53,7 @@ namespace Visit.UI
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             var titles = Takhasos.Select(t => t.Titel).ToList();
             lblTakhasos.Text = Messages.Takhasos + " : " + string.Join(" , ", titles);
-            string timeText = string.Format("ساعت کاری : از {0} تا {1}",Info.StartTime,Info.EndTime);
+            string timeText = string.Format(Messages.WorkingTime,Info.StartTime,Info.EndTime);
             lblTime.Text = timeText;
             if (Info.Picture != null)
             {

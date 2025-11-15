@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.ModelBinding;
 using System.Windows.Forms;
 using Visit.Shared;
 
@@ -25,7 +27,7 @@ namespace Visit.UI
             frmCheckProfile.Show();
         }
 
-        private void frmBimars_Load(object sender, EventArgs e)
+        private async void frmBimars_Load(object sender, EventArgs e)
         {
             Info = new BimarInfo()
             {
@@ -41,8 +43,28 @@ namespace Visit.UI
             {
                 pictureBoxProfile.LoadAsync(Info.Picture);
             }
+            ShowDoctors();
         }
-
+        private async void ShowDoctors(string search="")
+        {
+            string route = string.Format(RouteConstants.SelectDoctor, search);
+            var result = await httpClient.GetAsync<OprationResult<List<DoctorDto>>>(route);
+            if (result.IsSuccess)
+            {
+                foreach (var doctor in result.Data)
+                {
+                    UC_Doctors uC_Doctors = new UC_Doctors()
+                    {
+                        Info = doctor,
+                    };
+                    flpDoctors.Controls.Add(uC_Doctors);
+                }
+            }
+            else
+            {
+                ShowError(result.Message);
+            }
+        }
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
@@ -75,6 +97,16 @@ namespace Visit.UI
                     ShowError(result.Message);
                 }
             }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            ShowDoctors(txtSearch.Text);
         }
     }
 }

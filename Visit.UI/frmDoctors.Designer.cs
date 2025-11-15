@@ -32,10 +32,10 @@
             this.btnHistoryes = new Guna.UI2.WinForms.Guna2Button();
             this.btnOpenChat = new Guna.UI2.WinForms.Guna2Button();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTakhasos = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.btnDeleteAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,10 +50,10 @@
             this.btnCheckProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
-            this.btnCheckProfile.Location = new System.Drawing.Point(434, 167);
-            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCheckProfile.Location = new System.Drawing.Point(579, 206);
+            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckProfile.Name = "btnCheckProfile";
-            this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
+            this.btnCheckProfile.Size = new System.Drawing.Size(207, 70);
             this.btnCheckProfile.TabIndex = 3;
             this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.btnCheckProfile_Click);
@@ -69,10 +69,10 @@
             this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnHistoryes.ForeColor = System.Drawing.Color.White;
-            this.btnHistoryes.Location = new System.Drawing.Point(434, 228);
-            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHistoryes.Location = new System.Drawing.Point(579, 281);
+            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHistoryes.Name = "btnHistoryes";
-            this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
+            this.btnHistoryes.Size = new System.Drawing.Size(207, 70);
             this.btnHistoryes.TabIndex = 2;
             this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
             this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
@@ -88,10 +88,10 @@
             this.btnOpenChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnOpenChat.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnOpenChat.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChat.Location = new System.Drawing.Point(434, 289);
-            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpenChat.Location = new System.Drawing.Point(579, 356);
+            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenChat.Name = "btnOpenChat";
-            this.btnOpenChat.Size = new System.Drawing.Size(155, 57);
+            this.btnOpenChat.Size = new System.Drawing.Size(207, 70);
             this.btnOpenChat.TabIndex = 5;
             this.btnOpenChat.Text = "مشاهده چت";
             // 
@@ -99,31 +99,22 @@
             // 
             this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(114, 22);
+            this.lblFullName.Location = new System.Drawing.Point(152, 27);
+            this.lblFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(350, 33);
+            this.lblFullName.Size = new System.Drawing.Size(467, 41);
             this.lblFullName.TabIndex = 7;
             this.lblFullName.Text = ".";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.ImageRotate = 0F;
-            this.pictureBoxProfile.Location = new System.Drawing.Point(470, 12);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureBoxProfile.Size = new System.Drawing.Size(118, 116);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 6;
-            this.pictureBoxProfile.TabStop = false;
             // 
             // lblTakhasos
             // 
             this.lblTakhasos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTakhasos.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTakhasos.Location = new System.Drawing.Point(98, 55);
+            this.lblTakhasos.Location = new System.Drawing.Point(131, 67);
+            this.lblTakhasos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTakhasos.Name = "lblTakhasos";
-            this.lblTakhasos.Size = new System.Drawing.Size(366, 33);
+            this.lblTakhasos.Size = new System.Drawing.Size(488, 41);
             this.lblTakhasos.TabIndex = 8;
             this.lblTakhasos.Text = ".";
             this.lblTakhasos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,9 +123,10 @@
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTime.Location = new System.Drawing.Point(114, 88);
+            this.lblTime.Location = new System.Drawing.Point(152, 108);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(350, 33);
+            this.lblTime.Size = new System.Drawing.Size(467, 41);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -150,19 +142,34 @@
             this.btnDeleteAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDeleteAccount.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteAccount.Location = new System.Drawing.Point(11, 298);
-            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(15, 367);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(155, 57);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(207, 70);
             this.btnDeleteAccount.TabIndex = 10;
             this.btnDeleteAccount.Text = "حذف حساب کاربری";
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.ErrorImage = global::Visit.UI.Properties.Resources.Profile;
+            this.pictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.pictureBoxProfile.ImageRotate = 0F;
+            this.pictureBoxProfile.InitialImage = global::Visit.UI.Properties.Resources.Profile;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(627, 15);
+            this.pictureBoxProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxProfile.Size = new System.Drawing.Size(157, 143);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 6;
+            this.pictureBoxProfile.TabStop = false;
+            // 
             // frmDoctors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblTakhasos);
@@ -171,7 +178,7 @@
             this.Controls.Add(this.btnOpenChat);
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "frmDoctors";
             this.Text = "ویزیت 24";

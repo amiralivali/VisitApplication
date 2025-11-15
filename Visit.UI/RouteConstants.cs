@@ -5,6 +5,7 @@
         public const string BaseUrl = "https://localhost:7054";
         public const string InsertBimar = "Bimar/Insert";
         public const string InsertDoctor = "Doctor/Insert";
+        public const string SelectDoctor = "Doctor/Select?search={0}";
         public const string UpdateBimar = "Bimar/Update";
         public const string UpdateDoctor = "Doctor/Update";
         public const string DeleteBimar = "Bimar/Delete?ID={0}";
