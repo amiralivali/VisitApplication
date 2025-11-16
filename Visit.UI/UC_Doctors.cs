@@ -19,7 +19,7 @@ namespace Visit.UI
             InitializeComponent();
         }
 
-        private void UC_Doctors_Load(object sender, EventArgs e)
+        private async void UC_Doctors_Load(object sender, EventArgs e)
         {
             if (Info != null)
             {
@@ -32,7 +32,21 @@ namespace Visit.UI
                 {
                     pictureBoxProfile.LoadAsync(Info.Picture);
                 }
-                //if(data)چک کردن ساعت جهانی که اگه اون ساعتش بود باتن فعال باشه
+                var realTime = await TehranTimeProvider.GetTimeSpanAsync();
+                if (Info.StartTime < Info.EndTime)
+                {
+                    if (!(realTime >= Info.StartTime && realTime < Info.EndTime))
+                    {
+                        btnVisit.Enabled = false;
+                    }
+                }
+                else
+                {
+                    if (realTime < Info.StartTime && realTime > Info.EndTime)
+                    {
+                        btnVisit.Enabled = false;
+                    }
+                }
             }
         }
 

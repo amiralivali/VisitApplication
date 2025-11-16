@@ -98,7 +98,7 @@
             this.dgvHistorys.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvHistorys.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dgvHistorys.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvHistorys.Location = new System.Drawing.Point(0, 114);
+            this.dgvHistorys.Location = new System.Drawing.Point(0, 102);
             // 
             // 
             // 
@@ -152,7 +152,7 @@
             this.dgvHistorys.RootElement.ClipDrawing = false;
             this.dgvHistorys.RootElement.EnableRippleAnimation = false;
             this.dgvHistorys.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
-            this.dgvHistorys.Size = new System.Drawing.Size(567, 230);
+            this.dgvHistorys.Size = new System.Drawing.Size(567, 242);
             this.dgvHistorys.TabIndex = 8;
             // 
             // frmBimarHistory

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.ModelBinding;
 using System.Windows.Forms;
 using Visit.Shared;
@@ -36,7 +37,6 @@ namespace Visit.UI
                 LastName = "والی",
                 NationalCode = "1251039502",
                 MobileNumber = "09361842050",
-                Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/3f886560-8df2-11ee-b418-512ccd6bd884.jpg"
             };
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
             if (Info.Picture != null)
@@ -45,13 +45,29 @@ namespace Visit.UI
             }
             ShowDoctors();
         }
-        private async void ShowDoctors(string search="")
+        private async void ShowDoctors(string search="",bool isFilter=false)
         {
             flpDoctors.Controls.Clear();
             string route = string.Format(RouteConstants.SelectDoctor, search);
             var result = await httpClient.GetAsync<OprationResult<List<DoctorDto>>>(route);
             if (result.IsSuccess)
             {
+                //if (isFilter)
+                //{
+                //    var realTime = await TehranTimeProvider.GetTimeSpanAsync();
+                //    if (cbFilter.SelectedIndex == 0) //Online Doctors 
+                //    {
+                //        result.Data = result.Data.Where(x=>x.StartTime<x.EndTime
+                //        ?realTime>=x.StartTime && realTime<x.EndTime
+                //        :realTime>=x.StartTime || realTime<x.EndTime).ToList();
+                //    }
+                //    else //Ofline Doctors
+                //    {
+                //        result.Data = result.Data.Where(x => x.StartTime < x.EndTime?
+                //        !(realTime >= x.StartTime && realTime < x.EndTime)
+                //        :realTime<x.StartTime && realTime>x.EndTime).ToList();
+                //    }
+                //}
                 foreach (var doctor in result.Data)
                 {
                     UC_Doctors uC_Doctors = new UC_Doctors()
@@ -107,7 +123,20 @@ namespace Visit.UI
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            ShowDoctors(txtSearch.Text);
+            bool isFilter = cbFilter.SelectedIndex != -1;
+            ShowDoctors(txtSearch.Text,isFilter);
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            cbFilter.SelectedItem = null;
+            btnDeleteFilter.Enabled = false;
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteFilter.Enabled = true;
+            ShowDoctors(txtSearch.Text,true);
         }
     }
 }

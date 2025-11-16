@@ -96,7 +96,7 @@ namespace Visit.DAL
                     }).ToListAsync();
                 return doctors.Where(d => search == "" ||
                 d.FullName.Contains(search) ||
-                d.Takhasos.ToString().Contains(search) ||
+                d.Takhasos.Any(t=>t.Titel.Contains(search)) ||
                 d.StartTime.ToString().Contains(search) ||
                 d.EndTime.ToString().Contains(search)).ToList();
             }
