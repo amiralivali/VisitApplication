@@ -9,7 +9,6 @@ namespace Visit.UI
     internal class HttpClientHelper
     {
         HttpClient httpClient;
-        private readonly HttpClientHandler httpHandler;
         private static HttpClientHelper instance;
         private HttpClientHelper()
         {

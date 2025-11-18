@@ -14,12 +14,16 @@ namespace Visit.UI
     public partial class UC_Doctors : UserControl
     {
         public DoctorDto Info { get; set; }
+        public bool IsPresentTime
+        {
+            get => btnVisit.Enabled; set => btnVisit.Enabled = value;
+        }
         public UC_Doctors()
         {
             InitializeComponent();
         }
 
-        private async void UC_Doctors_Load(object sender, EventArgs e)
+        private void UC_Doctors_Load(object sender, EventArgs e)
         {
             if (Info != null)
             {
@@ -31,21 +35,6 @@ namespace Visit.UI
                 if (Info.Picture != null)
                 {
                     pictureBoxProfile.LoadAsync(Info.Picture);
-                }
-                var realTime = await TehranTimeProvider.GetTimeSpanAsync();
-                if (Info.StartTime < Info.EndTime)
-                {
-                    if (!(realTime >= Info.StartTime && realTime < Info.EndTime))
-                    {
-                        btnVisit.Enabled = false;
-                    }
-                }
-                else
-                {
-                    if (realTime < Info.StartTime && realTime > Info.EndTime)
-                    {
-                        btnVisit.Enabled = false;
-                    }
                 }
             }
         }

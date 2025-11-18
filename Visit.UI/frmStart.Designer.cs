@@ -41,10 +41,10 @@
             this.btnDoctor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDoctor.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnDoctor.ForeColor = System.Drawing.Color.White;
-            this.btnDoctor.Location = new System.Drawing.Point(113, 87);
+            this.btnDoctor.Location = new System.Drawing.Point(105, 87);
             this.btnDoctor.Name = "btnDoctor";
             this.btnDoctor.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnDoctor.Size = new System.Drawing.Size(92, 88);
+            this.btnDoctor.Size = new System.Drawing.Size(100, 100);
             this.btnDoctor.TabIndex = 0;
             this.btnDoctor.Text = "ورود دکتر";
             this.btnDoctor.Click += new System.EventHandler(this.btnDoctor_Click);
@@ -61,7 +61,7 @@
             this.btnBimar.Location = new System.Drawing.Point(211, 87);
             this.btnBimar.Name = "btnBimar";
             this.btnBimar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnBimar.Size = new System.Drawing.Size(92, 88);
+            this.btnBimar.Size = new System.Drawing.Size(100, 100);
             this.btnBimar.TabIndex = 1;
             this.btnBimar.Text = "ورود بیمار";
             this.btnBimar.Click += new System.EventHandler(this.btnBimar_Click);

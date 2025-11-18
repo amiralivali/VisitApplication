@@ -27,22 +27,9 @@ namespace Visit.UI
             };
             frmCheckProfile.Show();
         }
-
         private void frmBimars_Load(object sender, EventArgs e)
         {
-            Info = new BimarInfo()
-            {
-                BimarID = 1,
-                FirstName = "امیرعلی",
-                LastName = "والی",
-                NationalCode = "1251039502",
-                MobileNumber = "09361842050",
-            };
-            lblFullName.Text = Info.FirstName + " " + Info.LastName;
-            if (Info.Picture != null)
-            {
-                pictureBoxProfile.LoadAsync(Info.Picture);
-            }
+            ShowInformation();
             ShowDoctors();
         }
         private async void ShowDoctors(string search="",bool isFilter=false)
@@ -52,27 +39,43 @@ namespace Visit.UI
             var result = await httpClient.GetAsync<OprationResult<List<DoctorDto>>>(route);
             if (result.IsSuccess)
             {
-                //if (isFilter)
-                //{
-                //    var realTime = await TehranTimeProvider.GetTimeSpanAsync();
-                //    if (cbFilter.SelectedIndex == 0) //Online Doctors 
-                //    {
-                //        result.Data = result.Data.Where(x=>x.StartTime<x.EndTime
-                //        ?realTime>=x.StartTime && realTime<x.EndTime
-                //        :realTime>=x.StartTime || realTime<x.EndTime).ToList();
-                //    }
-                //    else //Ofline Doctors
-                //    {
-                //        result.Data = result.Data.Where(x => x.StartTime < x.EndTime?
-                //        !(realTime >= x.StartTime && realTime < x.EndTime)
-                //        :realTime<x.StartTime && realTime>x.EndTime).ToList();
-                //    }
-                //}
+                var realTime = await TehranTimeProvider.GetTimeSpanAsync();
+                if (isFilter)
+                {
+                    if (cbFilter.SelectedIndex == 0) //Online Doctors 
+                    {
+                        result.Data = result.Data.Where(x => x.StartTime < x.EndTime
+                        ? realTime >= x.StartTime && realTime < x.EndTime
+                        : realTime >= x.StartTime || realTime < x.EndTime).ToList();
+                    }
+                    else //Ofline Doctors
+                    {
+                        result.Data = result.Data.Where(x => x.StartTime < x.EndTime ?
+                        !(realTime >= x.StartTime && realTime < x.EndTime)
+                        : realTime < x.StartTime && realTime > x.EndTime).ToList();
+                    }
+                }
                 foreach (var doctor in result.Data)
                 {
+                    bool isPresent = true;
+                    if (doctor.StartTime < doctor.EndTime)
+                    {
+                        if (!(realTime >= doctor.StartTime && realTime < doctor.EndTime))
+                        {
+                            isPresent = false;
+                        }
+                    }
+                    else
+                    {
+                        if (realTime < doctor.StartTime && realTime > doctor.EndTime)
+                        {
+                            isPresent = true;
+                        }
+                    }
                     UC_Doctors uC_Doctors = new UC_Doctors()
                     {
                         Info = doctor,
+                        IsPresentTime = isPresent,
                     };
                     flpDoctors.Controls.Add(uC_Doctors);
                 }
@@ -80,6 +83,14 @@ namespace Visit.UI
             else
             {
                 ShowError(result.Message);
+            }
+        }
+        public void ShowInformation()
+        {
+            lblFullName.Text = Info.FirstName + " " + Info.LastName;
+            if (Info.Picture != null)
+            {
+                pictureBoxProfile.LoadAsync(Info.Picture);
             }
         }
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
@@ -135,8 +146,15 @@ namespace Visit.UI
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnDeleteFilter.Enabled = true;
-            ShowDoctors(txtSearch.Text,true);
+            if (cbFilter.SelectedItem != null)
+            {
+                btnDeleteFilter.Enabled = true;
+                ShowDoctors(txtSearch.Text, true);
+            }
+            else
+            {
+                ShowDoctors(txtSearch.Text, false);
+            }
         }
     }
 }

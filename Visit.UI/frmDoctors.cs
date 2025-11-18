@@ -22,30 +22,6 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
-            //Takhasos = new List<TakhasosInfo>()
-            //{
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 6,
-            //     Titel="روانشناسی"
-            //     },
-            //     new TakhasosInfo()
-            //     {
-            //     ID = 2,
-            //     Titel="مغز و اعصاب"
-            //     },
-            //};
-            //Info = new DoctorInfo()
-            //{
-            //    DoctorID = 1008,
-            //    FirstName = "شهرام",
-            //    LastName = "شپره",
-            //    CodeNezamPezeshki = "85236",
-            //    MobileNumber = "09005868412",
-            //    Picture = "https://visitapplication.s3.ir-thr-at1.arvanstorage.ir/visitapplication/000048168.png",
-            //    StartTime=new TimeSpan(8,0,0),
-            //    EndTime=new TimeSpan(13,0,0),
-            //};
             FillInformation();
         }
         public void FillInformation()
@@ -75,7 +51,6 @@ namespace Visit.UI
                 FrmDoctors = this
             };
             frmCheckProfile.Show();
-            FillInformation();
         }
 
         private void btnHistoryes_Click(object sender, EventArgs e)

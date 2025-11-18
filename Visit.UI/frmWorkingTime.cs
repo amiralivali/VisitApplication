@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Visit.Shared;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Visit.UI
@@ -36,8 +37,7 @@ namespace Visit.UI
                 var maxTime = new TimeSpan(24, 0, 0);
                 timeDifference = maxTime - timeDifference.Negate();
             }
-            string text = "شما میخواهید از ساعت {0} تا ساعت {1} به مدت {2} ساعت کار کنید";
-            text = string.Format(text, startTime, endTime,timeDifference);
+            string text = string.Format(Messages.WhileWorkingTime, startTime, endTime,timeDifference);
             lblTime.Text = text;
         }
         private void frmWorkingTime_Load(object sender, EventArgs e)

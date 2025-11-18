@@ -68,6 +68,7 @@ namespace Visit.UI
                     {
                         ShowSuccess(result.Message);
                         FrmDoctors.Info = DoctorInfo;
+                        FrmDoctors.FillInformation();
                         this.Close();
                     }
                     else

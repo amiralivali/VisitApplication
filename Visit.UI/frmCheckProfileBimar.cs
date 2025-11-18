@@ -62,6 +62,7 @@ namespace Visit.UI
                     {
                         ShowSuccess(result.Message);
                         FrmBimars.Info = BimarInfo;
+                        FrmBimars.ShowInformation();
                         this.Close();
                     }
                     else

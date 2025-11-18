@@ -231,7 +231,6 @@ namespace Visit.UI
             }
             userInfo.FirstName = txtFirstName.Text;
             userInfo.LastName = txtLastName.Text;
-            //userInfo.Picture = guna2CirclePictureBox1.Image;
             if (userInfo.IsValid)
             {
                 return OprationResult.Success();

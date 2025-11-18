@@ -10,6 +10,7 @@
         public const string NotExist = "این اطلاعات در سیستم ثبت نشده است";
         public const string WrongLanguage = "لطفا {0} را فارسی وارد کنید";
         public const string WorkingTime = "ساعت کاری : از {0} تا {1}";
+        public const string WhileWorkingTime = "شما میخواهید از ساعت {0} تا ساعت {1} به مدت {2} ساعت کار کنید";
         public const string WrongCode = "!کد ورود نادرست است";
         public const string Insert = "ذخیره";
         public const string Takhasos = "تخصص";
