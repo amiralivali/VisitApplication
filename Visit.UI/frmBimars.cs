@@ -7,7 +7,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimars : FrmStyleHelpers
+    public partial class frmBimars : frmStyleHelper
     {
         public BimarInfo Info { get; set; }
         public frmStart FrmStart { get; set; }

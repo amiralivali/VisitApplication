@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Drawing.Design;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Guna.UI2.WinForms;
-using Telerik.WinControls;
-using Visit.Shared;
-using Visit.Shared.Attributes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static Visit.Shared.UserRole;
+using Visit.Shared.Attributes;
+using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmLogin : frmStyleHelper
+    public partial class frmBimarLogin : Form
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
         private string randomCode;
         private bool isClose;
         private int timeLeft = 60;
-        public frmLogin()
+        public frmBimarLogin()
         {
             InitializeComponent();
             clientHelper = HttpClientHelper.GetInstance();
@@ -51,7 +52,7 @@ namespace Visit.UI
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            frmSign frmSign = new frmSign();
+            frmSignIn frmSign = new frmSignIn();
             frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;
@@ -130,8 +131,8 @@ namespace Visit.UI
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!isClose) 
-               frmStart.Show();
+            if (!isClose)
+                frmStart.Show();
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
@@ -172,7 +173,7 @@ namespace Visit.UI
                 }
                 else
                 {
-                    string message = ncNezamValid!= null ? ncNezamValid.ErrorMessage+Environment.NewLine : "";
+                    string message = ncNezamValid != null ? ncNezamValid.ErrorMessage + Environment.NewLine : "";
                     message += mobileValid != null ? mobileValid.ErrorMessage : "";
                     ShowError(message);
                 }
@@ -213,7 +214,7 @@ namespace Visit.UI
         {
             timeLeft--;
             TimeProgressBar.Value = timeLeft;
-            lbltime.Text= timeLeft.ToString();
+            lbltime.Text = timeLeft.ToString();
             if (timeLeft == 0)
             {
                 FixEnableControls(isTimer: true);

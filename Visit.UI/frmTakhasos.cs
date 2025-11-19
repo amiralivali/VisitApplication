@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Visit.UI
 {
-    public partial class frmTakhasos : FrmStyleHelpers
+    public partial class frmTakhasos : frmStyleHelper
     {
         public frmDoctors FrmDoctors { get; set; }
         HttpClientHelper HttpClientHelper;

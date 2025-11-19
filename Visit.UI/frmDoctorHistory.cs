@@ -8,7 +8,7 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmDoctorHistory : FrmStyleHelpers
+    public partial class frmDoctorHistory : frmStyleHelper
     {
         HttpClientHelper httpHelper;
         public int ID { private get; set; }
