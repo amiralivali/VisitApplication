@@ -38,7 +38,7 @@ namespace Visit.UI
         }
         private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
+            frmDoctorLogin frmLogin = new frmDoctorLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }

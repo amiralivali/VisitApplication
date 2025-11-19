@@ -95,7 +95,7 @@ namespace Visit.UI
         }
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
+            frmBimarLogin frmLogin = new frmBimarLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }

@@ -77,71 +77,83 @@
     <Reference Include="TelerikCommon, Version=2022.1.118.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBimarHistory.cs">
+    <Compile Include="BimarForms\frmBimarHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBimarHistory.Designer.cs">
+    <Compile Include="BimarForms\frmBimarHistory.Designer.cs">
       <DependentUpon>frmBimarHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBimarLogin.cs">
+    <Compile Include="BimarForms\frmBimarLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBimarLogin.Designer.cs">
+    <Compile Include="BimarForms\frmBimarLogin.Designer.cs">
       <DependentUpon>frmBimarLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBimars.cs">
+    <Compile Include="BimarForms\frmBimars.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBimars.Designer.cs">
+    <Compile Include="BimarForms\frmBimars.Designer.cs">
       <DependentUpon>frmBimars.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBimarSignIn.cs">
+    <Compile Include="BimarForms\frmBimarSignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBimarSignIn.Designer.cs">
+    <Compile Include="BimarForms\frmBimarSignIn.Designer.cs">
       <DependentUpon>frmBimarSignIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCheckProfileDoctor.cs">
+    <Compile Include="BimarForms\frmCheckProfileBimar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCheckProfileDoctor.Designer.cs">
-      <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCheckProfileBimar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCheckProfileBimar.Designer.cs">
+    <Compile Include="BimarForms\frmCheckProfileBimar.Designer.cs">
       <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctorHistory.cs">
+    <Compile Include="DoctorForms\frmCheckProfileDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctorHistory.Designer.cs">
+    <Compile Include="DoctorForms\frmCheckProfileDoctor.Designer.cs">
+      <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorForms\frmDoctorHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForms\frmDoctorHistory.Designer.cs">
       <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctorLogin.cs">
+    <Compile Include="DoctorForms\frmDoctorLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctorLogin.Designer.cs">
+    <Compile Include="DoctorForms\frmDoctorLogin.Designer.cs">
       <DependentUpon>frmDoctorLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctors.cs">
+    <Compile Include="DoctorForms\frmDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctors.Designer.cs">
+    <Compile Include="DoctorForms\frmDoctors.Designer.cs">
       <DependentUpon>frmDoctors.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctorSignIn.cs">
+    <Compile Include="DoctorForms\frmDoctorSignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctorSignIn.Designer.cs">
+    <Compile Include="DoctorForms\frmDoctorSignIn.Designer.cs">
       <DependentUpon>frmDoctorSignIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctorTurn.cs">
+    <Compile Include="DoctorForms\frmDoctorTurn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctorTurn.Designer.cs">
+    <Compile Include="DoctorForms\frmDoctorTurn.Designer.cs">
       <DependentUpon>frmDoctorTurn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorForms\frmTakhasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForms\frmTakhasos.Designer.cs">
+      <DependentUpon>frmTakhasos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorForms\frmWorkingTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForms\frmWorkingTime.Designer.cs">
+      <DependentUpon>frmWorkingTime.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStart.cs">
       <SubType>Form</SubType>
@@ -151,18 +163,6 @@
     </Compile>
     <Compile Include="frmStyleHelper.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTakhasos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTakhasos.Designer.cs">
-      <DependentUpon>frmTakhasos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmWorkingTime.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWorkingTime.Designer.cs">
-      <DependentUpon>frmWorkingTime.cs</DependentUpon>
     </Compile>
     <Compile Include="HttpClientHelper.cs" />
     <Compile Include="Program.cs" />
@@ -181,47 +181,47 @@
       <DependentUpon>UC_Doctors.cs</DependentUpon>
     </Compile>
     <Compile Include="UserCheckSmsHandler.cs" />
-    <EmbeddedResource Include="frmBimarHistory.resx">
+    <EmbeddedResource Include="BimarForms\frmBimarHistory.resx">
       <DependentUpon>frmBimarHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBimarLogin.resx">
+    <EmbeddedResource Include="BimarForms\frmBimarLogin.resx">
       <DependentUpon>frmBimarLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBimars.resx">
+    <EmbeddedResource Include="BimarForms\frmBimars.resx">
       <DependentUpon>frmBimars.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBimarSignIn.resx">
+    <EmbeddedResource Include="BimarForms\frmBimarSignIn.resx">
       <DependentUpon>frmBimarSignIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCheckProfileBimar.resx">
+    <EmbeddedResource Include="BimarForms\frmCheckProfileBimar.resx">
       <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCheckProfileDoctor.resx">
+    <EmbeddedResource Include="DoctorForms\frmCheckProfileDoctor.resx">
       <DependentUpon>frmCheckProfileDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorHistory.resx">
+    <EmbeddedResource Include="DoctorForms\frmDoctorHistory.resx">
       <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorLogin.resx">
+    <EmbeddedResource Include="DoctorForms\frmDoctorLogin.resx">
       <DependentUpon>frmDoctorLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctors.resx">
+    <EmbeddedResource Include="DoctorForms\frmDoctors.resx">
       <DependentUpon>frmDoctors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorSignIn.resx">
+    <EmbeddedResource Include="DoctorForms\frmDoctorSignIn.resx">
       <DependentUpon>frmDoctorSignIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorTurn.resx">
+    <EmbeddedResource Include="DoctorForms\frmDoctorTurn.resx">
       <DependentUpon>frmDoctorTurn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorForms\frmTakhasos.resx">
+      <DependentUpon>frmTakhasos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorForms\frmWorkingTime.resx">
+      <DependentUpon>frmWorkingTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTakhasos.resx">
-      <DependentUpon>frmTakhasos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWorkingTime.resx">
-      <DependentUpon>frmWorkingTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
