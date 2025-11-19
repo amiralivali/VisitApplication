@@ -12,14 +12,14 @@ using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimarSignIn : frmStyleHelper
+    public partial class frmDoctorSignIn : frmStyleHelper
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
         string randomCode;
         private bool isClose;
         private int timeLeft = 60;
-        public frmBimarSignIn()
+        public frmDoctorSignIn()
         {
             InitializeComponent();
             clientHelper = HttpClientHelper.GetInstance();
@@ -52,7 +52,7 @@ namespace Visit.UI
         {
             if (!isClose)
             {
-                frmBimarLogin frmLogin = new frmBimarLogin();
+                frmDoctorLogin frmLogin = new frmDoctorLogin();
                 frmLogin.frmStart = frmStart;
                 frmLogin.Show();
             }
@@ -66,19 +66,28 @@ namespace Visit.UI
                 {
                     StartProgressBar();
                     timer1.Enabled = false;
-                    BimarInfo bimarInfo = new BimarInfo()
+                    DoctorInfo doctorInfo = new DoctorInfo()
                     {
                         FirstName = txtFirstName.Text,
                         LastName = txtLastName.Text,
-                        NationalCode = txtNationalCode.Text,
+                        CodeNezamPezeshki = txtNezam.Text,
                         MobileNumber = txtMobile.Text,
                     };
+                    frmWorkingTime frmWorkingTime = new frmWorkingTime();
+                    frmWorkingTime.ShowDialog();
+                    if (frmWorkingTime.StartTime == null || frmWorkingTime.EndTime == null)
+                    {
+                        ShowError("ساعت کاری رو بایستی حتما وارد کنید");
+                        return;
+                    }
+                    doctorInfo.StartTime = frmWorkingTime.StartTime;
+                    doctorInfo.EndTime = frmWorkingTime.EndTime;
                     if (PictureBoxProfile.ImageLocation != null)
                     {
                         var check = await SavePicture.Save(PictureBoxProfile.ImageLocation);
                         if (check.IsSuccess)
                         {
-                            bimarInfo.Picture = check.Data;
+                            doctorInfo.Picture = check.Data;
                         }
                         else
                         {
@@ -86,20 +95,23 @@ namespace Visit.UI
                             return;
                         }
                     }
-                    var result = await clientHelper.PostAsync<OprationResult, BimarInfo>(RouteConstants.InsertBimar, bimarInfo);
+                    var result = await clientHelper.PostAsync<OprationResult, DoctorInfo>(RouteConstants.InsertDoctor, doctorInfo);
                     if (result.IsSuccess)
                     {
-                        string route = string.Format(RouteConstants.GetBimar, txtNationalCode.Text, txtMobile.Text);
-                        bimarInfo = (await clientHelper.GetAsync<OprationResult<BimarInfo>>(route)).Data;
+                        string route = string.Format(RouteConstants.GetDoctor, txtNezam.Text, txtMobile.Text);
+                        doctorInfo = (await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route)).Data;
                         this.Invoke(new Action(() =>
                         {
-                            ShowSuccess(result.Message);
-                            frmBimars frmBimars = new frmBimars()
+                            frmDoctors frmDoctors = new frmDoctors()
                             {
-                                Info = bimarInfo,
+                                Info = doctorInfo,
                                 FrmStart = frmStart,
                             };
-                            frmBimars.Show();
+                            frmTakhasos frmTakhasos = new frmTakhasos()
+                            {
+                                FrmDoctors = frmDoctors
+                            };
+                            frmTakhasos.Show();
                             isClose = true;
                             this.Close();
                         }));
@@ -145,29 +157,29 @@ namespace Visit.UI
                 }
             }));
         }
-        private OprationResult CheckValidationUser()
+        private OprationResult CheckValidationDoctor()
         {
-            var bimarInfo = new BimarInfo()
+            var doctorInfo = new DoctorInfo()
             {
-                NationalCode = txtNationalCode.Text
+                CodeNezamPezeshki = txtNezam.Text
             };
             if (txtMobile.Text.StartsWith("9"))
             {
-                bimarInfo.MobileNumber = 0 + txtMobile.Text;
+                doctorInfo.MobileNumber = 0 + txtMobile.Text;
             }
             else
             {
-                bimarInfo.MobileNumber = txtMobile.Text;
+                doctorInfo.MobileNumber = txtMobile.Text;
             }
-            bimarInfo.FirstName = txtFirstName.Text;
-            bimarInfo.LastName = txtLastName.Text;
-            if (bimarInfo.IsValid)
+            doctorInfo.FirstName = txtFirstName.Text;
+            doctorInfo.LastName = txtLastName.Text;
+            if (doctorInfo.IsValid)
             {
                 return OprationResult.Success();
             }
             else
             {
-                return OprationResult.UnSuccess(bimarInfo.Message);
+                return OprationResult.UnSuccess(doctorInfo.Message);
 
             };
         }
@@ -175,7 +187,7 @@ namespace Visit.UI
         {
             await Task.Run(async () =>
             {
-                var valid = CheckValidationUser();
+                var valid = CheckValidationDoctor();
                 if (valid.IsSuccess)
                 {
                     Random rnd = new Random();
@@ -212,6 +224,11 @@ namespace Visit.UI
             {
                 FixEnableControls(isTimer: true);
             }
+        }
+
+        private void frmDoctorSignIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

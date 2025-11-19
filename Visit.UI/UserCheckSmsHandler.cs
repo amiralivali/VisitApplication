@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Routing;
 using Visit.Shared;
-using static Visit.Shared.UserRole;
 
 namespace Visit.UI
 {
@@ -12,9 +12,10 @@ namespace Visit.UI
         {
             httpClientHelper=HttpClientHelper.GetInstance();
         }
-        public async Task<OprationResult> SendSmsIfUserExistsAsync(string randomCode,string ncNezam, string mobile)
+        public async Task<OprationResult> SendSmsIfDoctorExistsAsync(string randomCode,string nezam, string mobile)
         {
-            var check = await UserExistsAsync(ncNezam, mobile);
+            string route = string.Format(RouteConstants.ExistDoctor, nezam, mobile);
+            bool check = await httpClientHelper.GetAsync<bool>(route);
             if (check)
             {
                 var result = await SendSmsAsync(randomCode);
@@ -25,22 +26,20 @@ namespace Visit.UI
                 return OprationResult.UnSuccess(Messages.NotExist);
             }
         }
-
-        private async Task<bool> UserExistsAsync(string ncNezam,string mobile)
+        public async Task<OprationResult> SendSmsIfBimarExistsAsync(string randomCode, string nationalCode, string mobile)
         {
-            string route;
-            if (UserRole.CurrentRole == Role.Bimar)
+            string route = string.Format(RouteConstants.ExistBimar, nationalCode, mobile);
+            bool check = await httpClientHelper.GetAsync<bool>(route);
+            if (check)
             {
-                route = string.Format(RouteConstants.ExistBimar, ncNezam, mobile);
+                var result = await SendSmsAsync(randomCode);
+                return result;
             }
             else
             {
-                route = string.Format(RouteConstants.ExistDoctor, ncNezam, mobile);
+                return OprationResult.UnSuccess(Messages.NotExist);
             }
-            bool check = await httpClientHelper.GetAsync<bool>(route);
-            return check;
         }
-
         public async Task<OprationResult> SendSmsAsync(string randomCode)
         {
             string text = Messages.SmsText + Environment.NewLine + randomCode;

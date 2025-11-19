@@ -8,13 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Visit.Shared.UserRole;
 using Visit.Shared.Attributes;
 using Visit.Shared;
 
 namespace Visit.UI
 {
-    public partial class frmBimarLogin : Form
+    public partial class frmBimarLogin : frmStyleHelper
     {
         HttpClientHelper clientHelper;
         public frmStart frmStart;
@@ -25,14 +24,6 @@ namespace Visit.UI
         {
             InitializeComponent();
             clientHelper = HttpClientHelper.GetInstance();
-            if (UserRole.CurrentRole == Role.Bimar)
-            {
-                lblNcNezam.Text = "کدملی";
-            }
-            else
-            {
-                lblNcNezam.Text = "کد نظام پزشکی";
-            }
             TimeProgressBar.Maximum = timeLeft;
         }
 
@@ -52,7 +43,7 @@ namespace Visit.UI
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            frmSignIn frmSign = new frmSignIn();
+            frmBimarSignIn frmSign = new frmBimarSignIn();
             frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;
@@ -66,58 +57,25 @@ namespace Visit.UI
                 if (txtEnterCode.Text == randomCode)
                 {
                     StartProgressBar();
-                    if (UserRole.CurrentRole == Role.Bimar)
+                    string route = string.Format(RouteConstants.GetBimar, txtNationalCode.Text, txtMobile.Text);
+                    var bimar = await clientHelper.GetAsync<OprationResult<BimarInfo>>(route);
+                    if (bimar.IsSuccess)
                     {
-                        string route = string.Format(RouteConstants.GetBimar, txtNcNezam.Text, txtMobile.Text);
-                        var bimar = await clientHelper.GetAsync<OprationResult<BimarInfo>>(route);
-                        if (bimar.IsSuccess)
+                        this.Invoke(new Action(() =>
                         {
-                            this.Invoke(new Action(() =>
+                            frmBimars frmBimars = new frmBimars()
                             {
-                                frmBimars frmBimars = new frmBimars()
-                                {
-                                    Info = bimar.Data,
-                                    FrmStart = frmStart,
-
-                                };
-                                frmBimars.Show();
-                                isClose = true;
-                                this.Close();
-                            }));
-                        }
+                                Info = bimar.Data,
+                                FrmStart = frmStart,
+                            };
+                            frmBimars.Show();
+                            isClose = true;
+                            this.Close();
+                        }));
                     }
                     else
                     {
-                        string route = string.Format(RouteConstants.GetDoctor, txtNcNezam.Text, txtMobile.Text);
-                        var doctor = await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route);
-                        if (doctor.IsSuccess)
-                        {
-                            route = string.Format(RouteConstants.GetTakhasos, doctor.Data.DoctorID);
-                            var takhasos = await clientHelper.GetAsync<OprationResult<List<TakhasosInfo>>>(route);
-                            if (takhasos.IsSuccess)
-                            {
-                                this.Invoke(new Action(() =>
-                                {
-                                    frmDoctors frmDoctors = new frmDoctors()
-                                    {
-                                        Info = doctor.Data,
-                                        FrmStart = frmStart,
-                                        Takhasos = takhasos.Data,
-                                    };
-                                    frmDoctors.Show();
-                                    isClose = true;
-                                    this.Close();
-                                }));
-                            }
-                            else
-                            {
-                                ShowError(takhasos.Message);
-                            }
-                        }
-                        else
-                        {
-                            ShowError(doctor.Message);
-                        }
+                        ShowError(bimar.Message);
                     }
                 }
                 else
@@ -141,25 +99,17 @@ namespace Visit.UI
             {
                 var validator = new MobileValidationAttribute();
                 var mobileValid = validator.GetValidationResult(txtMobile.Text, new ValidationContext(new object()));
-                ValidationResult ncNezamValid;
-                if (UserRole.CurrentRole == Role.Bimar)
-                {
-                    var valid = new NationalCodeValidationAttribute();
-                    ncNezamValid = valid.GetValidationResult(txtNcNezam.Text, new ValidationContext(new object()));
-                }
-                else
-                {
-                    var valid = new NezamValidationAttribute();
-                    ncNezamValid = valid.GetValidationResult(txtNcNezam.Text, new ValidationContext(new object()));
-                }
-                if (mobileValid == ValidationResult.Success && ncNezamValid == ValidationResult.Success)
+                ValidationResult ncValid;
+                var valid = new NationalCodeValidationAttribute();
+                ncValid = valid.GetValidationResult(txtNationalCode.Text, new ValidationContext(new object()));
+                if (mobileValid == ValidationResult.Success && ncValid == ValidationResult.Success)
                 {
                     Random rnd = new Random();
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     StartProgressBar();
                     var smsHandler = new UserCheckSmsHandler();
-                    var result = await smsHandler.SendSmsIfUserExistsAsync(randomCode.ToString(), txtNcNezam.Text, txtMobile.Text);
+                    var result = await smsHandler.SendSmsIfBimarExistsAsync(randomCode.ToString(), txtNationalCode.Text, txtMobile.Text);
                     if (result.IsSuccess)
                     {
                         ShowSuccess(result.Message);
@@ -173,7 +123,7 @@ namespace Visit.UI
                 }
                 else
                 {
-                    string message = ncNezamValid != null ? ncNezamValid.ErrorMessage + Environment.NewLine : "";
+                    string message = ncValid != null ? ncValid.ErrorMessage + Environment.NewLine : "";
                     message += mobileValid != null ? mobileValid.ErrorMessage : "";
                     ShowError(message);
                 }
@@ -189,7 +139,7 @@ namespace Visit.UI
                 if (isTimer)
                 {
                     txtMobile.Enabled = true;
-                    txtNcNezam.Enabled = true;
+                    txtNationalCode.Enabled = true;
                     btnSend.Visible = true;
                     btnEnter.Enabled = false;
                     lbltime.Visible = false;
@@ -199,7 +149,7 @@ namespace Visit.UI
                 else
                 {
                     txtMobile.Enabled = false;
-                    txtNcNezam.Enabled = false;
+                    txtNationalCode.Enabled = false;
                     btnSend.Visible = false;
                     btnEnter.Enabled = true;
                     TimeProgressBar.Visible = true;
@@ -220,6 +170,11 @@ namespace Visit.UI
                 FixEnableControls(isTimer: true);
                 timer1.Enabled = false;
             }
+        }
+
+        private void frmBimarLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -62,7 +62,6 @@
     <Compile Include="TakhasosInfo.cs" />
     <Compile Include="TehranTimeProvider.cs" />
     <Compile Include="UserInfo.cs" />
-    <Compile Include="UserRole.cs" />
     <Compile Include="VisitDto.cs" />
     <Compile Include="VisitInfo.cs" />
   </ItemGroup>

@@ -83,11 +83,23 @@
     <Compile Include="frmBimarHistory.Designer.cs">
       <DependentUpon>frmBimarHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBimarLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBimarLogin.Designer.cs">
+      <DependentUpon>frmBimarLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBimars.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBimars.Designer.cs">
       <DependentUpon>frmBimars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBimarSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBimarSignIn.Designer.cs">
+      <DependentUpon>frmBimarSignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCheckProfileDoctor.cs">
       <SubType>Form</SubType>
@@ -107,29 +119,29 @@
     <Compile Include="frmDoctorHistory.Designer.cs">
       <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoctorLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctorLogin.Designer.cs">
+      <DependentUpon>frmDoctorLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDoctors.Designer.cs">
       <DependentUpon>frmDoctors.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoctorSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctorSignIn.Designer.cs">
+      <DependentUpon>frmDoctorSignIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDoctorTurn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDoctorTurn.Designer.cs">
       <DependentUpon>frmDoctorTurn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSign.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSign.Designer.cs">
-      <DependentUpon>frmSign.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStart.cs">
       <SubType>Form</SubType>
@@ -172,8 +184,14 @@
     <EmbeddedResource Include="frmBimarHistory.resx">
       <DependentUpon>frmBimarHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBimarLogin.resx">
+      <DependentUpon>frmBimarLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBimars.resx">
       <DependentUpon>frmBimars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBimarSignIn.resx">
+      <DependentUpon>frmBimarSignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCheckProfileBimar.resx">
       <DependentUpon>frmCheckProfileBimar.cs</DependentUpon>
@@ -184,17 +202,17 @@
     <EmbeddedResource Include="frmDoctorHistory.resx">
       <DependentUpon>frmDoctorHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctorLogin.resx">
+      <DependentUpon>frmDoctorLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoctors.resx">
       <DependentUpon>frmDoctors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctorSignIn.resx">
+      <DependentUpon>frmDoctorSignIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoctorTurn.resx">
       <DependentUpon>frmDoctorTurn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSign.resx">
-      <DependentUpon>frmSign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>

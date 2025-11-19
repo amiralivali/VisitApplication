@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using Visit.Shared;
-using static Visit.Shared.UserRole;
-
 namespace Visit.UI
 {
     public partial class frmStart : Form
@@ -13,8 +11,7 @@ namespace Visit.UI
         }
         private void btnBimar_Click(object sender, EventArgs e)
         {
-            UserRole.CurrentRole = Role.Bimar;
-            frmLogin frmLogin = new frmLogin();
+            frmBimarLogin frmLogin = new frmBimarLogin();
             frmLogin.frmStart = this;
             this.Hide();
             frmLogin.Show();
@@ -22,8 +19,7 @@ namespace Visit.UI
 
         private void btnDoctor_Click(object sender, EventArgs e)
         {
-            UserRole.CurrentRole = Role.Doctor;
-            frmLogin frmLogin = new frmLogin();
+            frmDoctorLogin frmLogin = new frmDoctorLogin();
             frmLogin.frmStart = this;
             this.Hide();
             frmLogin.Show();

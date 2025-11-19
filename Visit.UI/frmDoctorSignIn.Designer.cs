@@ -1,6 +1,6 @@
 ﻿namespace Visit.UI
 {
-    partial class frmBimarSignIn
+    partial class frmDoctorSignIn
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,6 @@
             this.lblCode = new System.Windows.Forms.Label();
             this.txtEnterCode = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnEnter = new Guna.UI2.WinForms.Guna2Button();
-            this.PictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblNcNezam = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -45,12 +44,13 @@
             this.panelTexBoxes = new System.Windows.Forms.Panel();
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtNationalCode = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNezam = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMobile = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.PictureBoxProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.TimeProgressBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
             this.panelTexBoxes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -160,28 +160,15 @@
             this.btnEnter.TabIndex = 48;
             this.btnEnter.Text = "ثبت اطلاعات";
             // 
-            // PictureBoxProfile
-            // 
-            this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
-            this.PictureBoxProfile.ImageRotate = 0F;
-            this.PictureBoxProfile.Location = new System.Drawing.Point(11, 11);
-            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.PictureBoxProfile.Name = "PictureBoxProfile";
-            this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.PictureBoxProfile.Size = new System.Drawing.Size(180, 180);
-            this.PictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxProfile.TabIndex = 47;
-            this.PictureBoxProfile.TabStop = false;
-            // 
             // lblNcNezam
             // 
             this.lblNcNezam.AutoSize = true;
-            this.lblNcNezam.Location = new System.Drawing.Point(396, 94);
+            this.lblNcNezam.Location = new System.Drawing.Point(387, 94);
             this.lblNcNezam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNcNezam.Name = "lblNcNezam";
-            this.lblNcNezam.Size = new System.Drawing.Size(40, 13);
+            this.lblNcNezam.Size = new System.Drawing.Size(80, 13);
             this.lblNcNezam.TabIndex = 46;
-            this.lblNcNezam.Text = "کد ملی";
+            this.lblNcNezam.Text = "کد نظام پزشکی";
             // 
             // lblLastName
             // 
@@ -214,7 +201,7 @@
             // 
             this.panelTexBoxes.Controls.Add(this.txtFirstName);
             this.panelTexBoxes.Controls.Add(this.txtLastName);
-            this.panelTexBoxes.Controls.Add(this.txtNationalCode);
+            this.panelTexBoxes.Controls.Add(this.txtNezam);
             this.panelTexBoxes.Controls.Add(this.txtMobile);
             this.panelTexBoxes.Location = new System.Drawing.Point(243, 11);
             this.panelTexBoxes.Name = "panelTexBoxes";
@@ -263,26 +250,26 @@
             this.txtLastName.Size = new System.Drawing.Size(127, 27);
             this.txtLastName.TabIndex = 1;
             // 
-            // txtNationalCode
+            // txtNezam
             // 
-            this.txtNationalCode.Animated = true;
-            this.txtNationalCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNationalCode.DefaultText = "";
-            this.txtNationalCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNationalCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNationalCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNationalCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNationalCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNationalCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNationalCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNationalCode.Location = new System.Drawing.Point(3, 76);
-            this.txtNationalCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.PlaceholderText = "";
-            this.txtNationalCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNationalCode.SelectedText = "";
-            this.txtNationalCode.Size = new System.Drawing.Size(127, 27);
-            this.txtNationalCode.TabIndex = 2;
+            this.txtNezam.Animated = true;
+            this.txtNezam.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNezam.DefaultText = "";
+            this.txtNezam.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNezam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNezam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNezam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNezam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNezam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNezam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNezam.Location = new System.Drawing.Point(3, 76);
+            this.txtNezam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNezam.Name = "txtNezam";
+            this.txtNezam.PlaceholderText = "";
+            this.txtNezam.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtNezam.SelectedText = "";
+            this.txtNezam.Size = new System.Drawing.Size(127, 27);
+            this.txtNezam.TabIndex = 2;
             // 
             // txtMobile
             // 
@@ -312,7 +299,20 @@
             this.guna2Panel1.Size = new System.Drawing.Size(86, 67);
             this.guna2Panel1.TabIndex = 54;
             // 
-            // frmBimarSignIn
+            // PictureBoxProfile
+            // 
+            this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
+            this.PictureBoxProfile.ImageRotate = 0F;
+            this.PictureBoxProfile.Location = new System.Drawing.Point(11, 11);
+            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.PictureBoxProfile.Name = "PictureBoxProfile";
+            this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.PictureBoxProfile.Size = new System.Drawing.Size(180, 180);
+            this.PictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxProfile.TabIndex = 47;
+            this.PictureBoxProfile.TabStop = false;
+            // 
+            // frmDoctorSignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -330,12 +330,13 @@
             this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.panelTexBoxes);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "frmBimarSignIn";
-            this.Text = "ثبت نام";
+            this.Name = "frmDoctorSignIn";
+            this.Text = "frmDoctorSignIn";
+            this.Load += new System.EventHandler(this.frmDoctorSignIn_Load);
             this.TimeProgressBar.ResumeLayout(false);
             this.TimeProgressBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
             this.panelTexBoxes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +360,7 @@
         private System.Windows.Forms.Panel panelTexBoxes;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;
-        private Guna.UI2.WinForms.Guna2TextBox txtNationalCode;
+        private Guna.UI2.WinForms.Guna2TextBox txtNezam;
         private Guna.UI2.WinForms.Guna2TextBox txtMobile;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
