@@ -24,18 +24,6 @@ namespace Visit.UI
             InitializeComponent();
             clientHelper = HttpClientHelper.GetInstance();
         }
-
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    PictureBoxProfile.ImageLocation = ofd.FileName;
-                }
-            }
-        }
         private void StartProgressBar()
         {
             this.Invoke(new Action(() =>
@@ -48,17 +36,62 @@ namespace Visit.UI
         {
             TimeProgressBar.Maximum = timeLeft;
         }
-        private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
+        private void FixEnableControls(bool isTimer)
         {
-            if (!isClose)
+            this.Invoke(new Action(() =>
             {
-                frmBimarLogin frmLogin = new frmBimarLogin();
-                frmLogin.frmStart = frmStart;
-                frmLogin.Show();
+                foreach (object item in panelTexBoxes.Controls)
+                {
+                    Guna2TextBox p = item as Guna2TextBox;
+                    p.Enabled = isTimer;
+                }
+                if (isTimer)
+                {
+                    btnSend.Visible = true;
+                    TimeProgressBar.Visible = false;
+                    btnEnter.Enabled = false;
+                    lbltime.Visible = false;
+                    timer1.Enabled = false;
+                }
+                else
+                {
+                    btnSend.Visible = false;
+                    btnEnter.Enabled = true;
+                    TimeProgressBar.Visible = true;
+                    lbltime.Visible = true;
+                    timeLeft = 60;
+                    timer1.Enabled = true;
+                }
+            }));
+        }
+        private OprationResult CheckValidationUser()
+        {
+            var bimarInfo = new BimarInfo()
+            {
+                NationalCode = txtNationalCode.Text
+            };
+            if (txtMobile.Text.StartsWith("9"))
+            {
+                bimarInfo.MobileNumber = 0 + txtMobile.Text;
             }
+            else
+            {
+                bimarInfo.MobileNumber = txtMobile.Text;
+            }
+            bimarInfo.FirstName = txtFirstName.Text;
+            bimarInfo.LastName = txtLastName.Text;
+            if (bimarInfo.IsValid)
+            {
+                return OprationResult.Success();
+            }
+            else
+            {
+                return OprationResult.UnSuccess(bimarInfo.Message);
+
+            };
         }
 
-        private async void btnEnter_Click(object sender, EventArgs e)
+        private async void btnEnter_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -117,61 +150,20 @@ namespace Visit.UI
             ProgressBar.Stop();
             ProgressBar.Visible = false;
         }
-        private void FixEnableControls(bool isTimer)
-        {
-            this.Invoke(new Action(() =>
-            {
-                foreach (object item in panelTexBoxes.Controls)
-                {
-                    Guna2TextBox p = item as Guna2TextBox;
-                    p.Enabled = isTimer;
-                }
-                if (isTimer)
-                {
-                    btnSend.Visible = true;
-                    TimeProgressBar.Visible = false;
-                    btnEnter.Enabled = false;
-                    lbltime.Visible = false;
-                    timer1.Enabled = false;
-                }
-                else
-                {
-                    btnSend.Visible = false;
-                    btnEnter.Enabled = true;
-                    TimeProgressBar.Visible = true;
-                    lbltime.Visible = true;
-                    timeLeft = 60;
-                    timer1.Enabled = true;
-                }
-            }));
-        }
-        private OprationResult CheckValidationUser()
-        {
-            var bimarInfo = new BimarInfo()
-            {
-                NationalCode = txtNationalCode.Text
-            };
-            if (txtMobile.Text.StartsWith("9"))
-            {
-                bimarInfo.MobileNumber = 0 + txtMobile.Text;
-            }
-            else
-            {
-                bimarInfo.MobileNumber = txtMobile.Text;
-            }
-            bimarInfo.FirstName = txtFirstName.Text;
-            bimarInfo.LastName = txtLastName.Text;
-            if (bimarInfo.IsValid)
-            {
-                return OprationResult.Success();
-            }
-            else
-            {
-                return OprationResult.UnSuccess(bimarInfo.Message);
 
-            };
+        private void PictureBoxProfile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBoxProfile.ImageLocation = ofd.FileName;
+                }
+            }
         }
-        private async void btnSend_Click(object sender, EventArgs e)
+
+        private async void btnSend_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -203,7 +195,7 @@ namespace Visit.UI
             ProgressBar.Visible = false;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             timeLeft--;
             TimeProgressBar.Value = timeLeft;
@@ -211,6 +203,16 @@ namespace Visit.UI
             if (timeLeft == 0)
             {
                 FixEnableControls(isTimer: true);
+            }
+        }
+
+        private void frmBimarSignIn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!isClose)
+            {
+                frmBimarLogin frmLogin = new frmBimarLogin();
+                frmLogin.frmStart = frmStart;
+                frmLogin.Show();
             }
         }
     }

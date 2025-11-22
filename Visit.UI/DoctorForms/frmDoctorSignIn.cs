@@ -25,17 +25,6 @@ namespace Visit.UI
             clientHelper = HttpClientHelper.GetInstance();
         }
 
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    PictureBoxProfile.ImageLocation = ofd.FileName;
-                }
-            }
-        }
         private void StartProgressBar()
         {
             this.Invoke(new Action(() =>
@@ -44,21 +33,68 @@ namespace Visit.UI
                 ProgressBar.Start();
             }));
         }
-        private void frmSign_Load_1(object sender, EventArgs e)
+
+        private void FixEnableControls(bool isTimer)
+        {
+            this.Invoke(new Action(() =>
+            {
+                foreach (object item in panelTexBoxes.Controls)
+                {
+                    Guna2TextBox p = item as Guna2TextBox;
+                    p.Enabled = isTimer;
+                }
+                if (isTimer)
+                {
+                    btnSend.Visible = true;
+                    TimeProgressBar.Visible = false;
+                    btnEnter.Enabled = false;
+                    lbltime.Visible = false;
+                    timer1.Enabled = false;
+                }
+                else
+                {
+                    btnSend.Visible = false;
+                    btnEnter.Enabled = true;
+                    TimeProgressBar.Visible = true;
+                    lbltime.Visible = true;
+                    timeLeft = 60;
+                    timer1.Enabled = true;
+                }
+            }));
+        }
+        private OprationResult CheckValidationDoctor()
+        {
+            var doctorInfo = new DoctorInfo()
+            {
+                CodeNezamPezeshki = txtNezam.Text
+            };
+            if (txtMobile.Text.StartsWith("9"))
+            {
+                doctorInfo.MobileNumber = 0 + txtMobile.Text;
+            }
+            else
+            {
+                doctorInfo.MobileNumber = txtMobile.Text;
+            }
+            doctorInfo.FirstName = txtFirstName.Text;
+            doctorInfo.LastName = txtLastName.Text;
+            if (doctorInfo.IsValid)
+            {
+                return OprationResult.Success();
+            }
+            else
+            {
+                return OprationResult.UnSuccess(doctorInfo.Message);
+
+            };
+        }
+
+        private void frmDoctorSignIn_Load(object sender, EventArgs e)
         {
             TimeProgressBar.Maximum = timeLeft;
         }
-        private void frmSign_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (!isClose)
-            {
-                frmDoctorLogin frmLogin = new frmDoctorLogin();
-                frmLogin.frmStart = frmStart;
-                frmLogin.Show();
-            }
-        }
 
-        private async void btnEnter_Click(object sender, EventArgs e)
+        private async void btnEnter_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -129,61 +165,20 @@ namespace Visit.UI
             ProgressBar.Stop();
             ProgressBar.Visible = false;
         }
-        private void FixEnableControls(bool isTimer)
-        {
-            this.Invoke(new Action(() =>
-            {
-                foreach (object item in panelTexBoxes.Controls)
-                {
-                    Guna2TextBox p = item as Guna2TextBox;
-                    p.Enabled = isTimer;
-                }
-                if (isTimer)
-                {
-                    btnSend.Visible = true;
-                    TimeProgressBar.Visible = false;
-                    btnEnter.Enabled = false;
-                    lbltime.Visible = false;
-                    timer1.Enabled = false;
-                }
-                else
-                {
-                    btnSend.Visible = false;
-                    btnEnter.Enabled = true;
-                    TimeProgressBar.Visible = true;
-                    lbltime.Visible = true;
-                    timeLeft = 60;
-                    timer1.Enabled = true;
-                }
-            }));
-        }
-        private OprationResult CheckValidationDoctor()
-        {
-            var doctorInfo = new DoctorInfo()
-            {
-                CodeNezamPezeshki = txtNezam.Text
-            };
-            if (txtMobile.Text.StartsWith("9"))
-            {
-                doctorInfo.MobileNumber = 0 + txtMobile.Text;
-            }
-            else
-            {
-                doctorInfo.MobileNumber = txtMobile.Text;
-            }
-            doctorInfo.FirstName = txtFirstName.Text;
-            doctorInfo.LastName = txtLastName.Text;
-            if (doctorInfo.IsValid)
-            {
-                return OprationResult.Success();
-            }
-            else
-            {
-                return OprationResult.UnSuccess(doctorInfo.Message);
 
-            };
+        private void PictureBoxProfile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Picture|*.png;*.jpg;*.jpeg";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBoxProfile.ImageLocation = ofd.FileName;
+                }
+            }
         }
-        private async void btnSend_Click(object sender, EventArgs e)
+
+        private async void btnSend_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -215,7 +210,7 @@ namespace Visit.UI
             ProgressBar.Visible = false;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             timeLeft--;
             TimeProgressBar.Value = timeLeft;
@@ -226,9 +221,14 @@ namespace Visit.UI
             }
         }
 
-        private void frmDoctorSignIn_Load(object sender, EventArgs e)
+        private void frmDoctorSignIn_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            if (!isClose)
+            {
+                frmDoctorLogin frmLogin = new frmDoctorLogin();
+                frmLogin.frmStart = frmStart;
+                frmLogin.Show();
+            }
         }
     }
 }

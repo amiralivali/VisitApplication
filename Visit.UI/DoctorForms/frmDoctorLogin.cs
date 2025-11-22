@@ -36,21 +36,40 @@ namespace Visit.UI
             }));
         }
 
-        private void frmBimar_Load(object sender, EventArgs e)
+        private void FixEnableControls(bool isTimer)
+        {
+            this.Invoke(new Action(() =>
+            {
+                if (isTimer)
+                {
+                    txtMobile.Enabled = true;
+                    txtNezam.Enabled = true;
+                    btnSend.Visible = true;
+                    btnEnter.Enabled = false;
+                    lbltime.Visible = false;
+                    TimeProgressBar.Visible = false;
+                    timer1.Enabled = false;
+                }
+                else
+                {
+                    txtMobile.Enabled = false;
+                    txtNezam.Enabled = false;
+                    btnSend.Visible = false;
+                    btnEnter.Enabled = true;
+                    TimeProgressBar.Visible = true;
+                    lbltime.Visible = true;
+                    timeLeft = 60;
+                    timer1.Enabled = true;
+                }
+            }));
+        }
+
+        private void frmDoctorLogin_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            frmDoctorSignIn frmSign = new frmDoctorSignIn();
-            frmSign.frmStart = frmStart;
-            frmSign.Show();
-            isClose = true;
-            this.Close();
-        }
-
-        private async void btnEnter_Click(object sender, EventArgs e)
+        private async void btnEnter_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -97,13 +116,16 @@ namespace Visit.UI
             ProgressBar.Visible = false;
         }
 
-        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnSignUp_Click_1(object sender, EventArgs e)
         {
-            if (!isClose)
-                frmStart.Show();
+            frmDoctorSignIn frmSign = new frmDoctorSignIn();
+            frmSign.frmStart = frmStart;
+            frmSign.Show();
+            isClose = true;
+            this.Close();
         }
 
-        private async void btnSend_Click(object sender, EventArgs e)
+        private async void btnSend_Click_1(object sender, EventArgs e)
         {
             await Task.Run(async () =>
             {
@@ -142,35 +164,13 @@ namespace Visit.UI
             ProgressBar.Visible = false;
         }
 
-        private void FixEnableControls(bool isTimer)
+        private void frmDoctorLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Invoke(new Action(() =>
-            {
-                if (isTimer)
-                {
-                    txtMobile.Enabled = true;
-                    txtNezam.Enabled = true;
-                    btnSend.Visible = true;
-                    btnEnter.Enabled = false;
-                    lbltime.Visible = false;
-                    TimeProgressBar.Visible = false;
-                    timer1.Enabled = false;
-                }
-                else
-                {
-                    txtMobile.Enabled = false;
-                    txtNezam.Enabled = false;
-                    btnSend.Visible = false;
-                    btnEnter.Enabled = true;
-                    TimeProgressBar.Visible = true;
-                    lbltime.Visible = true;
-                    timeLeft = 60;
-                    timer1.Enabled = true;
-                }
-            }));
+            if (!isClose)
+                frmStart.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             timeLeft--;
             TimeProgressBar.Value = timeLeft;
@@ -180,11 +180,6 @@ namespace Visit.UI
                 FixEnableControls(isTimer: true);
                 timer1.Enabled = false;
             }
-        }
-
-        private void frmDoctorLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
