@@ -42,7 +42,7 @@ namespace Visit.UI
             {
                 foreach (object item in panelTexBoxes.Controls)
                 {
-                    Guna2TextBox p = item as Guna2TextBox;
+                    var p = item as Guna2TextBox;
                     p.Enabled = isTimer;
                 }
                 if (isTimer)
@@ -99,7 +99,7 @@ namespace Visit.UI
                 {
                     StartProgressBar();
                     timer1.Enabled = false;
-                    BimarInfo bimarInfo = new BimarInfo()
+                    var bimarInfo = new BimarInfo()
                     {
                         FirstName = txtFirstName.Text,
                         LastName = txtLastName.Text,
@@ -210,7 +210,7 @@ namespace Visit.UI
         {
             if (!isClose)
             {
-                frmBimarLogin frmLogin = new frmBimarLogin();
+                var frmLogin = new frmBimarLogin();
                 frmLogin.frmStart = frmStart;
                 frmLogin.Show();
             }

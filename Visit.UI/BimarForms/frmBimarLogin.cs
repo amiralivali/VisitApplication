@@ -76,7 +76,7 @@ namespace Visit.UI
 
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
-            frmBimarSignIn frmSign = new frmBimarSignIn();
+            var frmSign = new frmBimarSignIn();
             frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;

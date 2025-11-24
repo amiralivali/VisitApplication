@@ -61,10 +61,10 @@
             this.btnCheckProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCheckProfile.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCheckProfile.ForeColor = System.Drawing.Color.White;
-            this.btnCheckProfile.Location = new System.Drawing.Point(453, 132);
-            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCheckProfile.Location = new System.Drawing.Point(604, 162);
+            this.btnCheckProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckProfile.Name = "btnCheckProfile";
-            this.btnCheckProfile.Size = new System.Drawing.Size(155, 57);
+            this.btnCheckProfile.Size = new System.Drawing.Size(207, 70);
             this.btnCheckProfile.TabIndex = 3;
             this.btnCheckProfile.Text = "تغییر پروفایل";
             this.btnCheckProfile.Click += new System.EventHandler(this.btnCheckProfile_Click);
@@ -80,10 +80,10 @@
             this.btnHistoryes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnHistoryes.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnHistoryes.ForeColor = System.Drawing.Color.White;
-            this.btnHistoryes.Location = new System.Drawing.Point(453, 193);
-            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHistoryes.Location = new System.Drawing.Point(604, 238);
+            this.btnHistoryes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHistoryes.Name = "btnHistoryes";
-            this.btnHistoryes.Size = new System.Drawing.Size(155, 57);
+            this.btnHistoryes.Size = new System.Drawing.Size(207, 70);
             this.btnHistoryes.TabIndex = 2;
             this.btnHistoryes.Text = "تاریخچه ویزیت ها ";
             this.btnHistoryes.Click += new System.EventHandler(this.btnHistoryes_Click);
@@ -99,10 +99,10 @@
             this.btnOpenChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnOpenChat.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnOpenChat.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChat.Location = new System.Drawing.Point(454, 254);
-            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenChat.Location = new System.Drawing.Point(605, 313);
+            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenChat.Name = "btnOpenChat";
-            this.btnOpenChat.Size = new System.Drawing.Size(155, 57);
+            this.btnOpenChat.Size = new System.Drawing.Size(207, 70);
             this.btnOpenChat.TabIndex = 5;
             this.btnOpenChat.Text = "مشاهده چت";
             // 
@@ -110,20 +110,23 @@
             // 
             this.lblFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFullName.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFullName.Location = new System.Drawing.Point(134, 22);
+            this.lblFullName.Location = new System.Drawing.Point(179, 27);
+            this.lblFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(350, 33);
+            this.lblFullName.Size = new System.Drawing.Size(467, 41);
             this.lblFullName.TabIndex = 7;
             this.lblFullName.Text = ".";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+          //  this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // lblTakhasos
             // 
             this.lblTakhasos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTakhasos.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTakhasos.Location = new System.Drawing.Point(118, 54);
+            this.lblTakhasos.Location = new System.Drawing.Point(157, 66);
+            this.lblTakhasos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTakhasos.Name = "lblTakhasos";
-            this.lblTakhasos.Size = new System.Drawing.Size(366, 33);
+            this.lblTakhasos.Size = new System.Drawing.Size(488, 41);
             this.lblTakhasos.TabIndex = 8;
             this.lblTakhasos.Text = ".";
             this.lblTakhasos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,9 +135,10 @@
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTime.Location = new System.Drawing.Point(134, 88);
+            this.lblTime.Location = new System.Drawing.Point(179, 108);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(350, 33);
+            this.lblTime.Size = new System.Drawing.Size(467, 41);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = ".";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -150,10 +154,10 @@
             this.btnDeleteAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDeleteAccount.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnDeleteAccount.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteAccount.Location = new System.Drawing.Point(453, 315);
-            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(604, 388);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(155, 57);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(207, 70);
             this.btnDeleteAccount.TabIndex = 10;
             this.btnDeleteAccount.Text = "حذف حساب کاربری";
             this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
@@ -164,10 +168,11 @@
             this.pictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
             this.pictureBoxProfile.ImageRotate = 0F;
             this.pictureBoxProfile.InitialImage = global::Visit.UI.Properties.Resources.Profile;
-            this.pictureBoxProfile.Location = new System.Drawing.Point(490, 11);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(653, 14);
+            this.pictureBoxProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pictureBoxProfile.Size = new System.Drawing.Size(118, 116);
+            this.pictureBoxProfile.Size = new System.Drawing.Size(157, 143);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 6;
             this.pictureBoxProfile.TabStop = false;
@@ -179,7 +184,8 @@
             this.dgvHistory.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvHistory.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dgvHistory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvHistory.Location = new System.Drawing.Point(-1, 133);
+            this.dgvHistory.Location = new System.Drawing.Point(-1, 164);
+            this.dgvHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             // 
             // 
             // 
@@ -190,7 +196,7 @@
             gridViewTextBoxColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
             gridViewTextBoxColumn1.HeaderText = "نام بیمار";
             gridViewTextBoxColumn1.Name = "FullNameBimar";
-            gridViewTextBoxColumn1.Width = 177;
+            gridViewTextBoxColumn1.Width = 236;
             gridViewTimeSpanColumn1.EnableExpressionEditor = false;
             gridViewTimeSpanColumn1.FieldName = "Time";
             gridViewTimeSpanColumn1.FormatInfo = new System.Globalization.CultureInfo("fa-IR");
@@ -198,11 +204,11 @@
             gridViewTimeSpanColumn1.HeaderText = "ساعت";
             gridViewTimeSpanColumn1.Name = "Time";
             gridViewTimeSpanColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
-            gridViewTimeSpanColumn1.Width = 134;
+            gridViewTimeSpanColumn1.Width = 179;
             gridViewCommandColumn1.EnableExpressionEditor = false;
             gridViewCommandColumn1.HeaderText = "صفحه چت";
             gridViewCommandColumn1.Name = "Chat";
-            gridViewCommandColumn1.Width = 81;
+            gridViewCommandColumn1.Width = 108;
             this.dgvHistory.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTimeSpanColumn1,
@@ -223,9 +229,10 @@
             this.dgvHistory.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
             this.dgvHistory.RootElement.BorderHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.dgvHistory.RootElement.ClipDrawing = false;
+            this.dgvHistory.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 300, 187);
             this.dgvHistory.RootElement.EnableRippleAnimation = false;
             this.dgvHistory.RootElement.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
-            this.dgvHistory.Size = new System.Drawing.Size(449, 249);
+            this.dgvHistory.Size = new System.Drawing.Size(599, 306);
             this.dgvHistory.TabIndex = 11;
             // 
             // txtSearch
@@ -240,23 +247,22 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(11, 99);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSearch.Location = new System.Drawing.Point(15, 122);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(175, 28);
+            this.txtSearch.Size = new System.Drawing.Size(233, 34);
             this.txtSearch.TabIndex = 13;
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblSearch.Location = new System.Drawing.Point(53, 64);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSearch.Location = new System.Drawing.Point(71, 79);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(68, 23);
+            this.lblSearch.Size = new System.Drawing.Size(82, 27);
             this.lblSearch.TabIndex = 12;
             this.lblSearch.Text = " جست و جو";
             // 
@@ -264,17 +270,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(83, 78);
+            this.label1.Location = new System.Drawing.Point(111, 96);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 23);
+            this.label1.Size = new System.Drawing.Size(15, 27);
             this.label1.TabIndex = 14;
             this.label1.Text = ":";
             // 
             // frmDoctors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 382);
+            this.ClientSize = new System.Drawing.Size(827, 470);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dgvHistory);
@@ -287,7 +294,7 @@
             this.Controls.Add(this.btnCheckProfile);
             this.Controls.Add(this.btnHistoryes);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "frmDoctors";
             this.Text = "ویزیت 24";

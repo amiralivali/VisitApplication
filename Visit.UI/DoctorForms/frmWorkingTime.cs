@@ -45,7 +45,7 @@ namespace Visit.UI
             if (StartTime.HasValue && EndTime.HasValue)
             {
                 // ساخت یک DateTime با تاریخ امروز و ساعت مورد نظر
-                DateTime dt = DateTime.Today.Add(StartTime.Value);
+                var dt = DateTime.Today.Add(StartTime.Value);
                 timePickerStart.Value = dt;
                 dt = DateTime.Today.Add(EndTime.Value);
                 timePickerEnd.Value = dt;

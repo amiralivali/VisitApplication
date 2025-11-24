@@ -54,15 +54,24 @@ namespace Visit.DAL
             var tran = db.Database.BeginTransaction();
             try
             {
-                var user = db.Users.Where(d => d.ID == info.DoctorID).Single();
-                var doctor = db.Doctors.Where(d => d.DoctorID == info.DoctorID).Single();
+                var user = new User()
+                {
+                    ID = info.DoctorID
+                };
+                db.Users.Attach(user);
                 user.FirstName = info.FirstName;
                 user.LastName = info.LastName;
                 user.MobileNumber = info.MobileNumber;
                 user.Picture = info.Picture;
+                db.Entry(user).State = EntityState.Modified;
+                var doctor = new Doctor()
+                {
+                    DoctorID = info.DoctorID
+                };
                 doctor.CodeNezamPezeshki = info.CodeNezamPezeshki;
-                doctor.StartWorkingTime = info.StartTime;
-                doctor.EndWorkingTime = info.EndTime;
+                doctor.StartWorkingTime=info.StartTime;
+                doctor.EndWorkingTime=info.EndTime;
+                db.Entry(doctor).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;

@@ -22,8 +22,16 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
+            ChangeDoctorStatus(isOnline:true);
             FillInformation();
         }
+
+        private void ChangeDoctorStatus(bool isOnline)
+        {
+            string route = "";
+           
+        }
+
         public void FillInformation()
         {
             lblFullName.Text = Info.FirstName + " " + Info.LastName;
@@ -38,14 +46,15 @@ namespace Visit.UI
         }
         private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmDoctorLogin frmLogin = new frmDoctorLogin();
+            ChangeDoctorStatus(isOnline: false);
+            var frmLogin = new frmDoctorLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }
 
         private void btnCheckProfile_Click(object sender, EventArgs e)
         {
-            frmCheckProfileDoctor frmCheckProfile = new frmCheckProfileDoctor()
+            var frmCheckProfile = new frmCheckProfileDoctor()
             {
                 DoctorInfo = Info,
                 FrmDoctors = this
@@ -55,7 +64,7 @@ namespace Visit.UI
 
         private void btnHistoryes_Click(object sender, EventArgs e)
         {
-            frmDoctorHistory frmDoctorHistory = new frmDoctorHistory()
+            var frmDoctorHistory = new frmDoctorHistory()
             {
                 ID = Info.DoctorID,
             };
@@ -64,7 +73,8 @@ namespace Visit.UI
 
         private async void btnDeleteAccount_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var dr = MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
                 string route = string.Format(RouteConstants.DeleteDoctor, Info.DoctorID);
                 var result = await httpClient.GetAsync<OprationResult>(route);
@@ -79,5 +89,7 @@ namespace Visit.UI
                 }
             }
         }
+
+       
     }
 }

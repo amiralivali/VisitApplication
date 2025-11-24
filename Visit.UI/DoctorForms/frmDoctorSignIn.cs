@@ -40,7 +40,7 @@ namespace Visit.UI
             {
                 foreach (object item in panelTexBoxes.Controls)
                 {
-                    Guna2TextBox p = item as Guna2TextBox;
+                    var p = item as Guna2TextBox;
                     p.Enabled = isTimer;
                 }
                 if (isTimer)
@@ -85,7 +85,6 @@ namespace Visit.UI
             else
             {
                 return OprationResult.UnSuccess(doctorInfo.Message);
-
             };
         }
 
@@ -102,14 +101,14 @@ namespace Visit.UI
                 {
                     StartProgressBar();
                     timer1.Enabled = false;
-                    DoctorInfo doctorInfo = new DoctorInfo()
+                    var doctorInfo = new DoctorInfo()
                     {
                         FirstName = txtFirstName.Text,
                         LastName = txtLastName.Text,
                         CodeNezamPezeshki = txtNezam.Text,
                         MobileNumber = txtMobile.Text,
                     };
-                    frmWorkingTime frmWorkingTime = new frmWorkingTime();
+                    var frmWorkingTime = new frmWorkingTime();
                     frmWorkingTime.ShowDialog();
                     if (frmWorkingTime.StartTime == null || frmWorkingTime.EndTime == null)
                     {
@@ -138,12 +137,12 @@ namespace Visit.UI
                         doctorInfo = (await clientHelper.GetAsync<OprationResult<DoctorInfo>>(route)).Data;
                         this.Invoke(new Action(() =>
                         {
-                            frmDoctors frmDoctors = new frmDoctors()
+                            var frmDoctors = new frmDoctors()
                             {
                                 Info = doctorInfo,
                                 FrmStart = frmStart,
                             };
-                            frmTakhasos frmTakhasos = new frmTakhasos()
+                            var frmTakhasos = new frmTakhasos()
                             {
                                 FrmDoctors = frmDoctors
                             };
@@ -225,7 +224,7 @@ namespace Visit.UI
         {
             if (!isClose)
             {
-                frmDoctorLogin frmLogin = new frmDoctorLogin();
+                var frmLogin = new frmDoctorLogin();
                 frmLogin.frmStart = frmStart;
                 frmLogin.Show();
             }

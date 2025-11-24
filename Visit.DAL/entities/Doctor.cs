@@ -18,6 +18,8 @@ namespace Visit.DAL
         public TimeSpan? StartWorkingTime { get; set; }
         [Required]
         public TimeSpan? EndWorkingTime { get; set; }
+        [Required]
+        public bool IsOnline {  get; set; }
         public virtual ICollection<Doctor_Takhasos> Doctor_Takhasoses { get; set; }
 
         public virtual User User { get; set; }

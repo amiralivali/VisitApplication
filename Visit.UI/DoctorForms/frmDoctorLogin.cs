@@ -86,7 +86,7 @@ namespace Visit.UI
                         {
                             this.Invoke(new Action(() =>
                             {
-                                frmDoctors frmDoctors = new frmDoctors()
+                                var frmDoctors = new frmDoctors()
                                 {
                                     Info = doctor.Data,
                                     FrmStart = frmStart,
@@ -118,7 +118,7 @@ namespace Visit.UI
 
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
-            frmDoctorSignIn frmSign = new frmDoctorSignIn();
+            var frmSign = new frmDoctorSignIn();
             frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;

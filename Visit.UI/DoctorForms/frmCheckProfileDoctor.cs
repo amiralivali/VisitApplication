@@ -105,7 +105,7 @@ namespace Visit.UI
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-            frmTakhasos frmTakhasos = new frmTakhasos()
+            var frmTakhasos = new frmTakhasos()
             {
                 FrmDoctors = FrmDoctors
             };
@@ -115,7 +115,7 @@ namespace Visit.UI
 
         private void btnChangeTime_Click(object sender, EventArgs e)
         {
-            frmWorkingTime frmWorkingTime = new frmWorkingTime()
+            var frmWorkingTime = new frmWorkingTime()
             {
                 StartTime = DoctorInfo.StartTime,
                 EndTime = DoctorInfo.EndTime,

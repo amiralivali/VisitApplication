@@ -42,6 +42,7 @@ namespace Visit.DAL
                 CodeNezamPezeshki = info.CodeNezamPezeshki,
                 StartWorkingTime=info.StartTime,
                 EndWorkingTime=info.EndTime,
+                IsOnline=info.IsOnline,
             };
             return doctor;
         }

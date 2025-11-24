@@ -20,7 +20,7 @@ namespace Visit.UI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            frmCheckProfileBimar frmCheckProfile = new frmCheckProfileBimar()
+            var frmCheckProfile = new frmCheckProfileBimar()
             {
                 BimarInfo = Info,
                 FrmBimars=this
@@ -87,7 +87,7 @@ namespace Visit.UI
         }
         public void ShowInformation()
         {
-            lblFullName.Text = Info.FirstName + " " + Info.LastName;
+            lblFullName.Text = $"{Info.FirstName} {Info.LastName}";
             if (Info.Picture != null)
             {
                 pictureBoxProfile.LoadAsync(Info.Picture);
@@ -95,14 +95,14 @@ namespace Visit.UI
         }
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmBimarLogin frmLogin = new frmBimarLogin();
+            var frmLogin = new frmBimarLogin();
             frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }
 
         private void btnHistoryes_Click(object sender, EventArgs e)
         {
-            frmBimarHistory frmHistory = new frmBimarHistory()
+            var frmHistory = new frmBimarHistory()
             {
                 ID = Info.BimarID,
             };
@@ -111,7 +111,8 @@ namespace Visit.UI
 
         private async void btnDeleteAccount_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var dr = MessageBox.Show("آیا از حذف حساب کاربری خود اطمینان دارید؟", "اخطار", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
                 string route = string.Format(RouteConstants.DeleteBimar, Info.BimarID);
                 var result = await httpClient.GetAsync<OprationResult>(route);

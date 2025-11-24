@@ -54,13 +54,23 @@ namespace Visit.DAL
             var tran = db.Database.BeginTransaction();
             try
             {
-                var user = db.Users.Where(b => b.ID == info.BimarID).Single();
-                user.FirstName = info.FirstName;
+                var user = new User()
+                {
+                    ID = info.BimarID
+                };
+                db.Users.Attach(user);
+                user.FirstName= info.FirstName;
                 user.LastName = info.LastName;
                 user.MobileNumber = info.MobileNumber;
                 user.Picture = info.Picture;
-                var bimar = db.Bimars.Where(b => b.BimarID == info.BimarID).Single();
+                db.Entry(user).State = EntityState.Modified;
+                var bimar = new Bimar()
+                {
+                    BimarID = info.BimarID,
+                };
+                db.Bimars.Attach(bimar);
                 bimar.NationalCode = info.NationalCode;
+                db.Entry(bimar).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 tran.Commit();
                 return true;
