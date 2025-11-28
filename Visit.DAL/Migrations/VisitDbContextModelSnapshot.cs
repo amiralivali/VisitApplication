@@ -31,7 +31,7 @@ namespace Visit.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("char(10)");
 
                     b.HasKey("BimarID");
 
@@ -57,7 +57,8 @@ namespace Visit.DAL.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<int>("ToID")
                         .HasColumnType("int");
@@ -80,7 +81,7 @@ namespace Visit.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("char(5)");
 
                     b.Property<TimeSpan>("EndWorkingTime")
                         .HasColumnType("time");
@@ -113,7 +114,38 @@ namespace Visit.DAL.Migrations
 
                     b.HasIndex("TakhasosID");
 
-                    b.ToTable("Tbl_Doctor Takhasos");
+                    b.ToTable("Doctor_Takhasoses");
+                });
+
+            modelBuilder.Entity("Visit.DAL.ExceptionLog", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExceptionType")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Source")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("StackTrace")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ExceptionLogs");
                 });
 
             modelBuilder.Entity("Visit.DAL.Takhasos", b =>
@@ -124,7 +156,7 @@ namespace Visit.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<byte>("ID"));
 
-                    b.Property<string>("Titel")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -137,77 +169,77 @@ namespace Visit.DAL.Migrations
                         new
                         {
                             ID = (byte)1,
-                            Titel = "چشم"
+                            Title = "چشم"
                         },
                         new
                         {
                             ID = (byte)2,
-                            Titel = "مغز و اعصاب"
+                            Title = "مغز و اعصاب"
                         },
                         new
                         {
                             ID = (byte)3,
-                            Titel = "قلب و عروق"
+                            Title = "قلب و عروق"
                         },
                         new
                         {
                             ID = (byte)4,
-                            Titel = "گوش و حلق و بینی"
+                            Title = "گوش و حلق و بینی"
                         },
                         new
                         {
                             ID = (byte)5,
-                            Titel = "اعصاب و روان"
+                            Title = "اعصاب و روان"
                         },
                         new
                         {
                             ID = (byte)6,
-                            Titel = "روانشناسی"
+                            Title = "روانشناسی"
                         },
                         new
                         {
                             ID = (byte)7,
-                            Titel = "اطفال"
+                            Title = "اطفال"
                         },
                         new
                         {
                             ID = (byte)8,
-                            Titel = "پوست و مو زیبایی"
+                            Title = "پوست و مو زیبایی"
                         },
                         new
                         {
                             ID = (byte)9,
-                            Titel = "گوارش"
+                            Title = "گوارش"
                         },
                         new
                         {
                             ID = (byte)10,
-                            Titel = "ریه"
+                            Title = "ریه"
                         },
                         new
                         {
                             ID = (byte)11,
-                            Titel = "کلیه"
+                            Title = "کلیه"
                         },
                         new
                         {
                             ID = (byte)12,
-                            Titel = "غدد"
+                            Title = "غدد"
                         },
                         new
                         {
                             ID = (byte)13,
-                            Titel = "تغذیه"
+                            Title = "تغذیه"
                         },
                         new
                         {
                             ID = (byte)14,
-                            Titel = "پزشک عمومی"
+                            Title = "پزشک عمومی"
                         },
                         new
                         {
                             ID = (byte)15,
-                            Titel = "مامایی"
+                            Title = "مامایی"
                         });
                 });
 
@@ -233,7 +265,7 @@ namespace Visit.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(11)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(11)");
+                        .HasColumnType("char(11)");
 
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");

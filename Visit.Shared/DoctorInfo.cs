@@ -10,6 +10,5 @@ namespace Visit.Shared
         public string CodeNezamPezeshki { get; set; }
         public TimeSpan? StartTime { get; set; }
         public TimeSpan? EndTime { get; set; }
-        public bool IsOnline {  get; set; }
     }
 }

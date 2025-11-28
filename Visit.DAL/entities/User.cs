@@ -2,8 +2,9 @@ namespace Visit.DAL
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class User
+    public class User
     {
         public int ID { get; set; }
 
@@ -16,8 +17,9 @@ namespace Visit.DAL
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(11)]
+        [Column(TypeName = "char(11)")]
         public string MobileNumber { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
         public string Picture { get; set; }
         public virtual Bimar Bimar { get; set; }
 

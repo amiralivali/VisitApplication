@@ -98,7 +98,7 @@ namespace Visit.DAL
                         Takhasos = d.Doctor_Takhasoses.Select(d => d.Takhasos).Select(x => new TakhasosInfo()
                         {
                             ID = x.ID,
-                            Titel = x.Titel,
+                            Titel = x.Title,
                         }).ToList(),
                         StartTime = d.StartWorkingTime,
                         EndTime = d.EndWorkingTime,

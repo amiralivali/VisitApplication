@@ -11,31 +11,32 @@ namespace Visit.DAL
         public virtual DbSet<Takhasos> Takhasoses { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Visit> Visits { get; set; }
+        public virtual DbSet<ExceptionLog>ExceptionLogs { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("data source=.;initial catalog=Visit24;integrated security=True;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework");
+            optionsBuilder.UseSqlServer("data source=.;initial catalog=VisitAppDb;integrated security=True;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Takhasos>().HasData(
-                new Takhasos { ID = 1, Titel = "چشم" },
-                new Takhasos { ID = 2, Titel = "مغز و اعصاب" },
-                new Takhasos { ID = 3, Titel = "قلب و عروق" },
-                new Takhasos { ID = 4, Titel = "گوش و حلق و بینی" },
-                new Takhasos { ID = 5, Titel = "اعصاب و روان" },
-                new Takhasos { ID = 6, Titel = "روانشناسی" },
-                new Takhasos { ID = 7, Titel = "اطفال" },
-                new Takhasos { ID = 8, Titel = "پوست و مو زیبایی" },
-                new Takhasos { ID = 9, Titel = "گوارش" },
-                new Takhasos { ID = 10, Titel = "ریه" },
-                new Takhasos { ID = 11, Titel = "کلیه" },
-                new Takhasos { ID = 12, Titel = "غدد" },
-                new Takhasos { ID = 13, Titel = "تغذیه" },
-                new Takhasos { ID = 14, Titel = "پزشک عمومی" },
-                new Takhasos { ID = 15, Titel = "مامایی" }
+                new Takhasos { ID = 1, Title = "چشم" },
+                new Takhasos { ID = 2, Title = "مغز و اعصاب" },
+                new Takhasos { ID = 3, Title = "قلب و عروق" },
+                new Takhasos { ID = 4, Title = "گوش و حلق و بینی" },
+                new Takhasos { ID = 5, Title = "اعصاب و روان" },
+                new Takhasos { ID = 6, Title = "روانشناسی" },
+                new Takhasos { ID = 7, Title = "اطفال" },
+                new Takhasos { ID = 8, Title = "پوست و مو زیبایی" },
+                new Takhasos { ID = 9, Title = "گوارش" },
+                new Takhasos { ID = 10, Title = "ریه" },
+                new Takhasos { ID = 11, Title = "کلیه" },
+                new Takhasos { ID = 12, Title = "غدد" },
+                new Takhasos { ID = 13, Title = "تغذیه" },
+                new Takhasos { ID = 14, Title = "پزشک عمومی" },
+                new Takhasos { ID = 15, Title = "مامایی" }
             );
 
 

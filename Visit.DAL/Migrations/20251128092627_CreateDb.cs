@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Visit.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class CreateDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +19,7 @@ namespace Visit.DAL.Migrations
                 {
                     ID = table.Column<byte>(type: "tinyint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Titel = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,8 +34,8 @@ namespace Visit.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MobileNumber = table.Column<string>(type: "Char(11)", unicode: false, maxLength: 11, nullable: false),
-                    Picture = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    MobileNumber = table.Column<string>(type: "varchar(11)", unicode: false, maxLength: 11, nullable: false),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -45,7 +47,7 @@ namespace Visit.DAL.Migrations
                 columns: table => new
                 {
                     BimarID = table.Column<int>(type: "int", nullable: false),
-                    NationalCode = table.Column<string>(type: "Char(10)", unicode: false, maxLength: 10, nullable: false)
+                    NationalCode = table.Column<string>(type: "char(10)", unicode: false, maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,8 +68,8 @@ namespace Visit.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FromID = table.Column<int>(type: "int", nullable: false),
                     ToID = table.Column<int>(type: "int", nullable: false),
-                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Text = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsRead = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -92,7 +94,9 @@ namespace Visit.DAL.Migrations
                 columns: table => new
                 {
                     DoctorID = table.Column<int>(type: "int", nullable: false),
-                    CodeNezamPezeshki = table.Column<string>(type: "Char(5)", unicode: false, maxLength: 10, nullable: false)
+                    CodeNezamPezeshki = table.Column<string>(type: "char(5)", unicode: false, maxLength: 10, nullable: false),
+                    StartWorkingTime = table.Column<TimeSpan>(type: "time", nullable: true),
+                    EndWorkingTime = table.Column<TimeSpan>(type: "time", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -122,7 +126,7 @@ namespace Visit.DAL.Migrations
                         column: x => x.DoctorID,
                         principalTable: "Doctors",
                         principalColumn: "DoctorID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tbl_Doctor Takhasos_Takhasoses_TakhasosID",
                         column: x => x.TakhasosID,
@@ -139,8 +143,7 @@ namespace Visit.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DoctorID = table.Column<int>(type: "int", nullable: false),
                     BimarID = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "date", nullable: false),
-                    Time = table.Column<TimeSpan>(type: "time", nullable: false)
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,6 +160,28 @@ namespace Visit.DAL.Migrations
                         principalTable: "Doctors",
                         principalColumn: "DoctorID",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Takhasoses",
+                columns: new[] { "ID", "Title" },
+                values: new object[,]
+                {
+                    { (byte)1, "چشم" },
+                    { (byte)2, "مغز و اعصاب" },
+                    { (byte)3, "قلب و عروق" },
+                    { (byte)4, "گوش و حلق و بینی" },
+                    { (byte)5, "اعصاب و روان" },
+                    { (byte)6, "روانشناسی" },
+                    { (byte)7, "اطفال" },
+                    { (byte)8, "پوست و مو زیبایی" },
+                    { (byte)9, "گوارش" },
+                    { (byte)10, "ریه" },
+                    { (byte)11, "کلیه" },
+                    { (byte)12, "غدد" },
+                    { (byte)13, "تغذیه" },
+                    { (byte)14, "پزشک عمومی" },
+                    { (byte)15, "مامایی" }
                 });
 
             migrationBuilder.CreateIndex(

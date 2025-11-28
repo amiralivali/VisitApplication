@@ -4,22 +4,20 @@ namespace Visit.DAL
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Doctor
+    public class Doctor
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DoctorID { get; set; }
 
         [Required]
-        [StringLength(5)]
+        [Column(TypeName = "char(5)")]
         public string CodeNezamPezeshki { get; set; }
-
         [Required]
         public TimeSpan? StartWorkingTime { get; set; }
         [Required]
         public TimeSpan? EndWorkingTime { get; set; }
-        [Required]
-        public bool IsOnline {  get; set; }
+
         public virtual ICollection<Doctor_Takhasos> Doctor_Takhasoses { get; set; }
 
         public virtual User User { get; set; }

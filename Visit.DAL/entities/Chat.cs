@@ -2,15 +2,18 @@ namespace Visit.DAL
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Chat
+    public class Chat
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
 
         public int FromID { get; set; }
 
         public int ToID { get; set; }
-
+        [MaxLength(1000)]
         [Required]
         public string Text { get; set; }
 

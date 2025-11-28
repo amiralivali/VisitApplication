@@ -4,14 +4,15 @@ namespace Visit.DAL
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Takhasos
+    public class Takhasos
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public byte ID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string Titel { get; set; }
+        public string Title { get; set; }
 
         public virtual ICollection<Doctor_Takhasos> Doctor_Takhasoses { get; set; }
     }

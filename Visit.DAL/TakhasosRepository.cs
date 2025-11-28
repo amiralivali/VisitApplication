@@ -23,7 +23,7 @@ namespace Visit.DAL
                 return takhasoses.Select(t => new TakhasosInfo()
                 {
                     ID = t.ID,
-                    Titel = t.Titel,
+                    Titel = t.Title,
                 }).ToList();
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace Visit.DAL
                     .Select(t => new TakhasosInfo()
                     {
                         ID = t.TakhasosID,
-                        Titel = t.Takhasos.Titel
+                        Titel = t.Takhasos.Title
                     }).ToListAsync();
 
                 return takhasos;
