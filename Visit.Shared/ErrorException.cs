@@ -6,7 +6,7 @@ namespace Visit.Shared
     {
         public static void AddLog(this Exception ex)
         {
-            Console.WriteLine(ex.ToString());
+            htt
         }
     }
 }
