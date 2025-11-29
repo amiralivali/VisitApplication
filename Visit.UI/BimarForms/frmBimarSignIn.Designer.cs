@@ -106,7 +106,7 @@
             this.btnSend.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnSend.ForeColor = System.Drawing.Color.White;
             this.btnSend.Location = new System.Drawing.Point(169, 181);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
             this.btnSend.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnSend.Size = new System.Drawing.Size(69, 65);
@@ -156,7 +156,7 @@
             this.btnEnter.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.btnEnter.ForeColor = System.Drawing.Color.White;
             this.btnEnter.Location = new System.Drawing.Point(277, 206);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(129, 40);
             this.btnEnter.TabIndex = 48;
@@ -168,7 +168,7 @@
             this.PictureBoxProfile.Image = global::Visit.UI.Properties.Resources.Profile;
             this.PictureBoxProfile.ImageRotate = 0F;
             this.PictureBoxProfile.Location = new System.Drawing.Point(11, 11);
-            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBoxProfile.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBoxProfile.Name = "PictureBoxProfile";
             this.PictureBoxProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.PictureBoxProfile.Size = new System.Drawing.Size(180, 180);
@@ -335,8 +335,9 @@
             this.Controls.Add(this.panelTexBoxes);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "frmBimarSignIn";
-            this.Text = "ثبت نام";
+            this.Text = " ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBimarSignIn_FormClosed);
+            this.Load += new System.EventHandler(this.frmBimarSignIn_Load);
             this.TimeProgressBar.ResumeLayout(false);
             this.TimeProgressBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxProfile)).EndInit();

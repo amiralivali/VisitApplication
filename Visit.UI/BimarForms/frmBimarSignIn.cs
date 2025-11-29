@@ -215,5 +215,10 @@ namespace Visit.UI
                 frmLogin.Show();
             }
         }
+
+        private void frmBimarSignIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
