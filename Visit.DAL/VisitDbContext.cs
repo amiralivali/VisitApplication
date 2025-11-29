@@ -4,6 +4,7 @@ namespace Visit.DAL
 {
     public partial class VisitDbContext : DbContext
     {
+
         public virtual DbSet<Bimar> Bimars { get; set; }
         public virtual DbSet<Chat> Chats { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
@@ -17,6 +18,7 @@ namespace Visit.DAL
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("data source=.;initial catalog=VisitAppDb;integrated security=True;encrypt=False;MultipleActiveResultSets=True;App=EntityFramework");
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
