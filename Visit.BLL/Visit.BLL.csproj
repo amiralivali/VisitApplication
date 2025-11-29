@@ -1,20 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-  <ItemGroup>
-    <PackageReference Include="AWSSDK.S3" Version="4.0.11.1" />
-    <PackageReference Include="Kavenegar" Version="1.2.5" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.10" />
-  </ItemGroup>
+		<!-- غیرفعال کردن هشدار امنیتی نیوتون‌سافت -->
+		<NoWarn>NU1903</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Visit.DAL\Visit.DAL.csproj" />
-    <ProjectReference Include="..\Visit.Shared\Visit.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AWSSDK.S3" Version="4.0.11.1" />
+		<PackageReference Include="Kavenegar" Version="1.2.5" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Visit.DAL\Visit.DAL.csproj" />
+		<ProjectReference Include="..\Visit.Shared\Visit.Shared.csproj" />
+	</ItemGroup>
 
 </Project>
