@@ -21,5 +21,6 @@
         public const string SelectTakhasos = "Takhasos/Select";
         public const string InsertTakhasos = "Takhasos/Insert";
         public const string GetTakhasos = "Takhasos/GetTakhasos?ID={0}";
+        public const string InsertExeption = "Exeption/Insert";
     }
 }

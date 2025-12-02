@@ -28,7 +28,7 @@ namespace Visit.DAL
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return null;
             }   
         }
@@ -44,7 +44,7 @@ namespace Visit.DAL
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 tran.Rollback();
                 return false;
             }
@@ -64,7 +64,7 @@ namespace Visit.DAL
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return null;
             }
         }

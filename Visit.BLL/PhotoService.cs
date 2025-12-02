@@ -1,6 +1,7 @@
 ﻿using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
+using Visit.DAL;
 using Visit.Shared;
 
 namespace Visit.BLL
@@ -40,7 +41,7 @@ namespace Visit.BLL
             }
             catch (Exception ex)
             {
-                ex.AddLog();
+                await ex.AddLogAsync();
                 return OprationResult<string>.RunTimeError();
             }
         }
