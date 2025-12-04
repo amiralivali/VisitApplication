@@ -16,7 +16,6 @@ namespace Visit.UI
     public partial class frmDoctorLogin : frmStyleHelper
     {
         HttpClientHelper clientHelper;
-        public frmStart frmStart;
         private string randomCode;
         private bool isClose;
         private int timeLeft = 60;
@@ -89,7 +88,6 @@ namespace Visit.UI
                                 var frmDoctors = new frmDoctors()
                                 {
                                     Info = doctor.Data,
-                                    FrmStart = frmStart,
                                     Takhasos = takhasos.Data,
                                 };
                                 frmDoctors.Show();
@@ -119,7 +117,6 @@ namespace Visit.UI
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             var frmSign = new frmDoctorSignIn();
-            frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;
             this.Close();
@@ -140,18 +137,22 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     StartProgressBar();
-                    var smsHandler = new UserCheckSmsHandler();
-                    var result = await smsHandler.SendSmsIfDoctorExistsAsync(randomCode.ToString(), txtNezam.Text, txtMobile.Text);
-                    if (result.IsSuccess)
-                    {
-                        ShowSuccess(result.Message);
-                        FixEnableControls(isTimer: false);
-                        timer1.Enabled = true;
-                    }
-                    else
-                    {
-                        ShowError(result.Message);
-                    }
+                    MessageBox.Show(this.randomCode);
+                    ShowSuccess("debug mode");
+                    FixEnableControls(isTimer: false);
+                    timer1.Enabled = true;
+                    //var smsHandler = new UserCheckSmsHandler();
+                    //var result = await smsHandler.SendSmsIfDoctorExistsAsync(randomCode.ToString(), txtNezam.Text, txtMobile.Text);
+                    //if (result.IsSuccess)
+                    //{
+                    //    ShowSuccess(result.Message);
+                    //    FixEnableControls(isTimer: false);
+                    //    timer1.Enabled = true;
+                    //}
+                    //else
+                    //{
+                    //    ShowError(result.Message);
+                    //}
                 }
                 else
                 {
@@ -167,7 +168,10 @@ namespace Visit.UI
         private void frmDoctorLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!isClose)
+            {
+                var frmStart = new frmStart();
                 frmStart.Show();
+            }
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)

@@ -15,7 +15,6 @@ namespace Visit.UI
     public partial class frmDoctorSignIn : frmStyleHelper
     {
         HttpClientHelper clientHelper;
-        public frmStart frmStart;
         string randomCode;
         private bool isClose;
         private int timeLeft = 60;
@@ -140,7 +139,6 @@ namespace Visit.UI
                             var frmDoctors = new frmDoctors()
                             {
                                 Info = doctorInfo,
-                                FrmStart = frmStart,
                             };
                             var frmTakhasos = new frmTakhasos()
                             {
@@ -179,7 +177,7 @@ namespace Visit.UI
 
         private async void btnSend_Click_1(object sender, EventArgs e)
         {
-            await Task.Run(async () =>
+            await Task.Run(() =>
             {
                 var valid = CheckValidationDoctor();
                 if (valid.IsSuccess)
@@ -189,16 +187,20 @@ namespace Visit.UI
                     this.randomCode = randomCode.ToString();
                     var smsHandler = new UserCheckSmsHandler();
                     StartProgressBar();
-                    var result = await smsHandler.SendSmsAsync(randomCode.ToString());
-                    if (result.IsSuccess)
-                    {
-                        ShowSuccess(result.Message);
-                        FixEnableControls(isTimer: false);
-                    }
-                    else
-                    {
-                        ShowError(result.Message);
-                    }
+                    MessageBox.Show(this.randomCode);
+                    ShowSuccess("debug mode");
+                    FixEnableControls(isTimer: false);
+                    timer1.Enabled = true;
+                    //var result = await smsHandler.SendSmsAsync(randomCode.ToString());
+                    //if (result.IsSuccess)
+                    //{
+                    //    ShowSuccess(result.Message);
+                    //    FixEnableControls(isTimer: false);
+                    //}
+                    //else
+                    //{
+                    //    ShowError(result.Message);
+                    //}
                 }
                 else
                 {
@@ -225,7 +227,6 @@ namespace Visit.UI
             if (!isClose)
             {
                 var frmLogin = new frmDoctorLogin();
-                frmLogin.frmStart = frmStart;
                 frmLogin.Show();
             }
         }

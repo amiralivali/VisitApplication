@@ -10,7 +10,6 @@ namespace Visit.UI
     public partial class frmBimars : frmStyleHelper
     {
         public BimarInfo Info { get; set; }
-        public frmStart FrmStart { get; set; }
         HttpClientHelper httpClient;
         public frmBimars()
         {
@@ -96,7 +95,6 @@ namespace Visit.UI
         private void frmBimars_FormClosing(object sender, FormClosingEventArgs e)
         {
             var frmLogin = new frmBimarLogin();
-            frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }
 

@@ -11,7 +11,6 @@ namespace Visit.UI
     {
         public DoctorInfo Info { get; set; }
         public List<TakhasosInfo> Takhasos { get; set; }
-        public frmStart FrmStart { get; set; }
         HttpClientHelper httpClient;
         public frmDoctors()
         {
@@ -48,7 +47,6 @@ namespace Visit.UI
         {
             ChangeDoctorStatus(isOnline: false);
             var frmLogin = new frmDoctorLogin();
-            frmLogin.frmStart = FrmStart;
             frmLogin.Show();
         }
 

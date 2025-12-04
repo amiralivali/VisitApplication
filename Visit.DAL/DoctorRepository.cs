@@ -124,7 +124,11 @@ namespace Visit.DAL
         {
             try
             {
-                var user = await db.Users.Include(u => u.Doctor).Where(d => d.Doctor.CodeNezamPezeshki == Nezam && d.MobileNumber == Mobile).SingleAsync();
+                var user = await db.Users.Include(u => u.Doctor).Where(d => d.Doctor.CodeNezamPezeshki == Nezam && d.MobileNumber == Mobile).SingleOrDefaultAsync();
+                var doctor= await db.Doctors.Include(u => u.User).Where(d => d.CodeNezamPezeshki == Nezam && d.User.MobileNumber == Mobile).SingleOrDefaultAsync();
+                var usder = await db.Users.Include(u => u.Doctor).ToListAsync();
+                var exist = await db.Doctors.Where(b => b.CodeNezamPezeshki == Nezam && b.User.MobileNumber == Mobile).AnyAsync();
+                var dodctor = await db.Doctors.Include(u => u.User).ToListAsync();
                 return new DoctorInfo()
                 {
                     DoctorID = user.ID,

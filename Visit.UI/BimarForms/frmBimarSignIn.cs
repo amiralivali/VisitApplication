@@ -15,7 +15,6 @@ namespace Visit.UI
     public partial class frmBimarSignIn : frmStyleHelper
     {
         HttpClientHelper clientHelper;
-        public frmStart frmStart;
         string randomCode;
         private bool isClose;
         private int timeLeft = 60;
@@ -130,7 +129,6 @@ namespace Visit.UI
                             frmBimars frmBimars = new frmBimars()
                             {
                                 Info = bimarInfo,
-                                FrmStart = frmStart,
                             };
                             frmBimars.Show();
                             isClose = true;
@@ -173,18 +171,22 @@ namespace Visit.UI
                     Random rnd = new Random();
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
-                    var smsHandler = new UserCheckSmsHandler();
-                    StartProgressBar();
-                    var result = await smsHandler.SendSmsAsync(randomCode.ToString());
-                    if (result.IsSuccess)
-                    {
-                        ShowSuccess(result.Message);
-                        FixEnableControls(isTimer: false);
-                    }
-                    else
-                    {
-                        ShowError(result.Message);
-                    }
+                    MessageBox.Show(this.randomCode);
+                    ShowSuccess("debug mode");
+                    FixEnableControls(isTimer: false);
+                    timer1.Enabled = true;
+                    //var smsHandler = new UserCheckSmsHandler();
+                    //StartProgressBar();
+                    //var result = await smsHandler.SendSmsAsync(randomCode.ToString());
+                    //if (result.IsSuccess)
+                    //{
+                    //    ShowSuccess(result.Message);
+                    //    FixEnableControls(isTimer: false);
+                    //}
+                    //else
+                    //{
+                    //    ShowError(result.Message);
+                    //}
                 }
                 else
                 {
@@ -211,7 +213,6 @@ namespace Visit.UI
             if (!isClose)
             {
                 var frmLogin = new frmBimarLogin();
-                frmLogin.frmStart = frmStart;
                 frmLogin.Show();
             }
         }

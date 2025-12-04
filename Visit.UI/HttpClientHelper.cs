@@ -42,9 +42,15 @@ namespace Visit.UI
         }
         public async Task<T> GetAsync<T>(string route)
         {
-            var req = new HttpRequestMessage(HttpMethod.Get, route);
-            string curl = req.GetCurlCommand();
-            var response = await retryPolicy.ExecuteAsync(() => httpClient.SendAsync(req));
+            Func<HttpRequestMessage> createRequest = () =>
+                new HttpRequestMessage(HttpMethod.Get, route);
+            string curl = "";
+            var response = await retryPolicy.ExecuteAsync(() =>
+            {
+                var req = createRequest();
+                curl = req.GetCurlCommand();
+                return httpClient.SendAsync(req);
+            });
             if (!response.IsSuccessStatusCode)
             {
                 Exception ex = new Exception(curl);

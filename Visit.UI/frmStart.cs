@@ -12,7 +12,6 @@ namespace Visit.UI
         private void btnBimar_Click(object sender, EventArgs e)
         {
             frmBimarLogin frmLogin = new frmBimarLogin();
-            frmLogin.frmStart = this;
             this.Hide();
             frmLogin.Show();
         }
@@ -20,7 +19,6 @@ namespace Visit.UI
         private void btnDoctor_Click(object sender, EventArgs e)
         {
             frmDoctorLogin frmLogin = new frmDoctorLogin();
-            frmLogin.frmStart = this;
             this.Hide();
             frmLogin.Show();
         }

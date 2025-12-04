@@ -16,7 +16,6 @@ namespace Visit.UI
     public partial class frmBimarLogin : frmStyleHelper
     {
         HttpClientHelper clientHelper;
-        public frmStart frmStart;
         private string randomCode;
         private bool isClose;
         private int timeLeft = 60;
@@ -71,13 +70,15 @@ namespace Visit.UI
         private void frmBimarLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!isClose)
+            { 
+                var frmStart=new frmStart();
                 frmStart.Show();
+            }
         }
 
         private void btnSignUp_Click_1(object sender, EventArgs e)
         {
             var frmSign = new frmBimarSignIn();
-            frmSign.frmStart = frmStart;
             frmSign.Show();
             isClose = true;
             this.Close();
@@ -99,7 +100,6 @@ namespace Visit.UI
                             frmBimars frmBimars = new frmBimars()
                             {
                                 Info = bimar.Data,
-                                FrmStart = frmStart,
                             };
                             frmBimars.Show();
                             isClose = true;
@@ -135,18 +135,22 @@ namespace Visit.UI
                     int randomCode = rnd.Next(100000, 999999);
                     this.randomCode = randomCode.ToString();
                     StartProgressBar();
-                    var smsHandler = new UserCheckSmsHandler();
-                    var result = await smsHandler.SendSmsIfBimarExistsAsync(randomCode.ToString(), txtNationalCode.Text, txtMobile.Text);
-                    if (result.IsSuccess)
-                    {
-                        ShowSuccess(result.Message);
-                        FixEnableControls(isTimer: false);
-                        timer1.Enabled = true;
-                    }
-                    else
-                    {
-                        ShowError(result.Message);
-                    }
+                    MessageBox.Show(this.randomCode);
+                    ShowSuccess("debug mode");
+                    FixEnableControls(isTimer: false);
+                    timer1.Enabled = true;
+                    //var smsHandler = new UserCheckSmsHandler();
+                    //var result = await smsHandler.SendSmsIfBimarExistsAsync(randomCode.ToString(), txtNationalCode.Text, txtMobile.Text);
+                    //if (result.IsSuccess)
+                    //{
+                    //    ShowSuccess(result.Message);
+                    //    FixEnableControls(isTimer: false);
+                    //    timer1.Enabled = true;
+                    //}
+                    //else
+                    //{
+                    //    ShowError(result.Message);
+                    //}
                 }
                 else
                 {
