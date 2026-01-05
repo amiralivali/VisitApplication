@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Windows.Forms;
+using Microsoft.AspNetCore.SignalR.Client;
 using Visit.Shared;
 
 namespace Visit.UI
@@ -12,6 +13,7 @@ namespace Visit.UI
         public DoctorInfo Info { get; set; }
         public List<TakhasosInfo> Takhasos { get; set; }
         HttpClientHelper httpClient;
+        HubConnection connection;
         public frmDoctors()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace Visit.UI
         
         private void frmDoctors_Load(object sender, EventArgs e)
         {
+            StartSignalR();
             ChangeDoctorStatus(isOnline:true);
             FillInformation();
         }
@@ -29,6 +32,23 @@ namespace Visit.UI
         {
             string route = "";
            
+        }
+        private async void StartSignalR()
+        {
+            connection = new HubConnectionBuilder()
+                .WithUrl("http://localhost/VisitApi/PresenceHub") 
+                .WithAutomaticReconnect() 
+                .Build();
+
+            try
+            {
+                await connection.StartAsync();
+                await connection.InvokeAsync("DoctorOnline", Info.DoctorID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطا در اتصال به SignalR: " + ex.Message);
+            }
         }
 
         public void FillInformation()
@@ -43,9 +63,18 @@ namespace Visit.UI
                 pictureBoxProfile.LoadAsync(Info.Picture);
             }
         }
-        private void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
+        private async void frmDoctors_FormClosed(object sender, FormClosedEventArgs e)
         {
             ChangeDoctorStatus(isOnline: false);
+            if (connection != null)
+            {
+                try
+                {
+                    await connection.InvokeAsync("DoctorOffline", Info.DoctorID);
+                    await connection.StopAsync();
+                }
+                catch { /* اگر خطایی بود نادیده می‌گیریم */ }
+            }
             var frmLogin = new frmDoctorLogin();
             frmLogin.Show();
         }

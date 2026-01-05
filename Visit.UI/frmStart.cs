@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.UI;
 using System.Windows.Forms;
+using Microsoft.AspNetCore.SignalR.Client;
 using Visit.Shared;
 namespace Visit.UI
 {
@@ -23,9 +26,19 @@ namespace Visit.UI
             frmLogin.Show();
         }
 
-        private void frmStart_Load_1(object sender, EventArgs e)
+        private async void frmStart_Load_1(object sender, EventArgs e)
         {
 
+            var c = new HubConnectionBuilder().WithUrl("http://localhost/VisitApi/PresenceHub").Build();
+
+            c.On<Dictionary<string, int>>("UpdateOnlineDoctors", (d) =>
+            {
+                listBox1.Items.Clear();
+                foreach (var x in d)
+                    listBox1.Items.Add(x.Value);
+            });
+
+            await c.StartAsync();
         }
     }
 }

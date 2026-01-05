@@ -30,6 +30,7 @@
         {
             this.btnDoctor = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnBimar = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnDoctor
@@ -66,11 +67,21 @@
             this.btnBimar.Text = "ورود بیمار";
             this.btnBimar.Click += new System.EventHandler(this.btnBimar_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(4, 25);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(101, 224);
+            this.listBox1.TabIndex = 2;
+            // 
             // frmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 283);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnBimar);
             this.Controls.Add(this.btnDoctor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -87,5 +98,6 @@
 
         private Guna.UI2.WinForms.Guna2CircleButton btnDoctor;
         private Guna.UI2.WinForms.Guna2CircleButton btnBimar;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

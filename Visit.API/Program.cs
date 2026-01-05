@@ -1,39 +1,69 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Visit.API.Hubs;
-using Visit.DAL;
+// using Visit.DAL; // اگر Migration مشکل داره، فعلاً کامنت باشه
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ---------------------------
+// Services
+// ---------------------------
 
+// Controllers
 builder.Services.AddControllers();
+
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// SignalR
 builder.Services.AddSignalR();
 
-builder.Services.AddDbContext<VisitDbContext>();
+// DbContext
+// builder.Services.AddDbContext<VisitDbContext>(); // فقط وقتی SQL آماده شد آنکامنت کن
 
 var app = builder.Build();
 
+// ---------------------------
+// Migration / Database
+// ---------------------------
+// فقط وقتی SQL آماده شد و AppPool دسترسی داره آنکامنت کن
+/*
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<VisitDbContext>();
-    db.Database.Migrate();   
+    db.Database.Migrate();
 }
+*/
 
-app.MapHub<PresenceHub>("/presencehub");
+// ---------------------------
+// SignalR Hub
+// ---------------------------
+app.MapHub<PresenceHub>("/PresenceHub");
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// ---------------------------
+// Swagger (همیشه فعال روی IIS)
+// ---------------------------
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Visit API V1");
+});
 
-app.UseHttpsRedirection();
+// ---------------------------
+// HTTPS (فعلاً کامنت)
+// ---------------------------
+// app.UseHttpsRedirection();
 
+// Authorization
 app.UseAuthorization();
 
+// Controllers
 app.MapControllers();
 
+// Route ساده برای تست IIS
+app.MapGet("/", () => "API is running!");
+
+// ---------------------------
+// Run
+// ---------------------------
 app.Run();
