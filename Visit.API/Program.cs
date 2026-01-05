@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Visit.API.Hubs;
 using Visit.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<VisitDbContext>();
 
@@ -20,6 +21,7 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();   
 }
 
+app.MapHub<PresenceHub>("/presencehub");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
